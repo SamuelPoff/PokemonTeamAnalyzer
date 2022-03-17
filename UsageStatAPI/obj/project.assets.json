@@ -616,9 +616,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Dad\\source\\repos\\PokemonTeamAnalyzerSolution\\UsageStatAPI\\UsageStatAPI.csproj",
-      "projectName": "UsageStatAPI",
-      "projectPath": "C:\\Users\\Dad\\source\\repos\\PokemonTeamAnalyzerSolution\\UsageStatAPI\\UsageStatAPI.csproj",
+      "projectUniqueName": "C:\\Users\\Dad\\source\\repos\\PokemonTeamAnalyzerSolution\\UsageStatAPI\\UsageStatUpdater.csproj",
+      "projectName": "UsageStatUpdater",
+      "projectPath": "C:\\Users\\Dad\\source\\repos\\PokemonTeamAnalyzerSolution\\UsageStatAPI\\UsageStatUpdater.csproj",
       "packagesPath": "C:\\Users\\Dad\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Dad\\source\\repos\\PokemonTeamAnalyzerSolution\\UsageStatAPI\\obj\\",
       "projectStyle": "PackageReference",

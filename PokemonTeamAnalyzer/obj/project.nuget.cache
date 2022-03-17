@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "0BbfMoSE8TKL2+ccagkF4OQhgKM+qQ94jf5AMeVIdxx9Jh+Xz4R3zCxkuFh0G+57WwN5jbdUXpvnbx39fw8p7g==",
+  "dgSpecHash": "q8NGyaJEPCt8yCYMPXDsAoIWKqZ2IMrmxn/+w7R6DLHtOuNB4/Zsvgxz7FiyaSHFVobgp46iT2QysFpbuxrZSw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Dad\\source\\repos\\PokemonTeamAnalyzerSolution\\PokemonTeamAnalyzer\\PokemonTeamAnalyzer.csproj",
+  "projectFilePath": "C:\\Users\\Dad\\source\\repos\\PokemonTeamAnalyzerSolution\\PokemonTeamAnalyzer\\PokemonTeamAnalyzerRazorUI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Dad\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
     "C:\\Users\\Dad\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\6.0.0\\microsoft.extensions.configuration.abstractions.6.0.0.nupkg.sha512",

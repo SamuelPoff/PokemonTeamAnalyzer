@@ -194,7 +194,7 @@
           "bin/placeholder/DataAccess.dll": {}
         }
       },
-      "UsageStatAPI/1.0.0": {
+      "UsageStatUpdater/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
@@ -202,10 +202,10 @@
           "System.Data.SqlClient": "4.8.3"
         },
         "compile": {
-          "bin/placeholder/UsageStatAPI.dll": {}
+          "bin/placeholder/UsageStatUpdater.dll": {}
         },
         "runtime": {
-          "bin/placeholder/UsageStatAPI.dll": {}
+          "bin/placeholder/UsageStatUpdater.dll": {}
         }
       }
     }
@@ -614,16 +614,16 @@
       "path": "../DataAccess/DataAccess.csproj",
       "msbuildProject": "../DataAccess/DataAccess.csproj"
     },
-    "UsageStatAPI/1.0.0": {
+    "UsageStatUpdater/1.0.0": {
       "type": "project",
-      "path": "../UsageStatAPI/UsageStatAPI.csproj",
-      "msbuildProject": "../UsageStatAPI/UsageStatAPI.csproj"
+      "path": "../UsageStatAPI/UsageStatUpdater.csproj",
+      "msbuildProject": "../UsageStatAPI/UsageStatUpdater.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
       "DataAccess >= 1.0.0",
-      "UsageStatAPI >= 1.0.0"
+      "UsageStatUpdater >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -635,9 +635,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Dad\\source\\repos\\PokemonTeamAnalyzerSolution\\PokemonTeamAnalyzer\\PokemonTeamAnalyzer.csproj",
-      "projectName": "PokemonTeamAnalyzer",
-      "projectPath": "C:\\Users\\Dad\\source\\repos\\PokemonTeamAnalyzerSolution\\PokemonTeamAnalyzer\\PokemonTeamAnalyzer.csproj",
+      "projectUniqueName": "C:\\Users\\Dad\\source\\repos\\PokemonTeamAnalyzerSolution\\PokemonTeamAnalyzer\\PokemonTeamAnalyzerRazorUI.csproj",
+      "projectName": "PokemonTeamAnalyzerRazorUI",
+      "projectPath": "C:\\Users\\Dad\\source\\repos\\PokemonTeamAnalyzerSolution\\PokemonTeamAnalyzer\\PokemonTeamAnalyzerRazorUI.csproj",
       "packagesPath": "C:\\Users\\Dad\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Dad\\source\\repos\\PokemonTeamAnalyzerSolution\\PokemonTeamAnalyzer\\obj\\",
       "projectStyle": "PackageReference",
@@ -666,8 +666,8 @@
             "C:\\Users\\Dad\\source\\repos\\PokemonTeamAnalyzerSolution\\DataAccess\\DataAccess.csproj": {
               "projectPath": "C:\\Users\\Dad\\source\\repos\\PokemonTeamAnalyzerSolution\\DataAccess\\DataAccess.csproj"
             },
-            "C:\\Users\\Dad\\source\\repos\\PokemonTeamAnalyzerSolution\\UsageStatAPI\\UsageStatAPI.csproj": {
-              "projectPath": "C:\\Users\\Dad\\source\\repos\\PokemonTeamAnalyzerSolution\\UsageStatAPI\\UsageStatAPI.csproj"
+            "C:\\Users\\Dad\\source\\repos\\PokemonTeamAnalyzerSolution\\UsageStatAPI\\UsageStatUpdater.csproj": {
+              "projectPath": "C:\\Users\\Dad\\source\\repos\\PokemonTeamAnalyzerSolution\\UsageStatAPI\\UsageStatUpdater.csproj"
             }
           }
         }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "mv0EBYNgndTgL/DDm9T4vt+PwSU0e/4klFn1fLdbCrA3M+mIn4GL3xK6AowWLYQk4+OY6721/lx4B0LGFG7y8g==",
+  "dgSpecHash": "JtWaanioUpCVlqckf7QyY4jYcpdzSZbM5d9mbUiyMztKaVslc9IjV9rdNtjl51eDBerMCWH0qf7vSkaJeDVd0w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Dad\\source\\repos\\PokemonTeamAnalyzerSolution\\UsageStatAPI\\UsageStatAPI.csproj",
+  "projectFilePath": "C:\\Users\\Dad\\source\\repos\\PokemonTeamAnalyzerSolution\\UsageStatAPI\\UsageStatUpdater.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Dad\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
     "C:\\Users\\Dad\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\6.0.0\\microsoft.extensions.configuration.abstractions.6.0.0.nupkg.sha512",
