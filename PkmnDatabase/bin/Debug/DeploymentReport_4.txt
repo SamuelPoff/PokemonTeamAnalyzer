@@ -1,0 +1,21 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       [dbo].[Pokemon]
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Table rebuild
+       [dbo].[Pokemon] (Table)
+
+** Supporting actions
+     Refresh
+       [dbo].[spPokemon_Delete] (Procedure)
+       [dbo].[spPokemon_Get] (Procedure)
+       [dbo].[spPokemon_GetAll] (Procedure)
+       [dbo].[spPokemon_Insert] (Procedure)
+       [dbo].[spPokemon_Update] (Procedure)
