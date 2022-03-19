@@ -616,13 +616,14 @@
     },
     "UsageStatUpdater/1.0.0": {
       "type": "project",
-      "path": "../UsageStatAPI/UsageStatUpdater.csproj",
-      "msbuildProject": "../UsageStatAPI/UsageStatUpdater.csproj"
+      "path": "../UsageStatUpdater/UsageStatUpdater.csproj",
+      "msbuildProject": "../UsageStatUpdater/UsageStatUpdater.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
       "DataAccess >= 1.0.0",
+      "Microsoft.Extensions.Configuration.Abstractions >= 6.0.0",
       "UsageStatUpdater >= 1.0.0"
     ]
   },
@@ -666,8 +667,8 @@
             "C:\\Users\\Dad\\source\\repos\\PokemonTeamAnalyzerSolution\\DataAccess\\DataAccess.csproj": {
               "projectPath": "C:\\Users\\Dad\\source\\repos\\PokemonTeamAnalyzerSolution\\DataAccess\\DataAccess.csproj"
             },
-            "C:\\Users\\Dad\\source\\repos\\PokemonTeamAnalyzerSolution\\UsageStatAPI\\UsageStatUpdater.csproj": {
-              "projectPath": "C:\\Users\\Dad\\source\\repos\\PokemonTeamAnalyzerSolution\\UsageStatAPI\\UsageStatUpdater.csproj"
+            "C:\\Users\\Dad\\source\\repos\\PokemonTeamAnalyzerSolution\\UsageStatUpdater\\UsageStatUpdater.csproj": {
+              "projectPath": "C:\\Users\\Dad\\source\\repos\\PokemonTeamAnalyzerSolution\\UsageStatUpdater\\UsageStatUpdater.csproj"
             }
           }
         }
@@ -681,6 +682,12 @@
     "frameworks": {
       "net5.0": {
         "targetAlias": "net5.0",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": {
+            "target": "Package",
+            "version": "[6.0.0, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",

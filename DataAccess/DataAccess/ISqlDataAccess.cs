@@ -14,5 +14,8 @@ namespace DataAccess.SqlAccess
         Task SaveData<T>(string storedProc, T parameters, string connectionId = "Default");
 
         Task SaveDataCmd(SqlCommand cmd, string connectionId = "Default");
+
+        void BeginOperations(string connectionId = "Default");
+        void EndOperations();
     }
 }

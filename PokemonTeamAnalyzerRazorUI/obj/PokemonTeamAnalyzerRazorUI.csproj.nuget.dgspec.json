@@ -113,8 +113,8 @@
               "C:\\Users\\Dad\\source\\repos\\PokemonTeamAnalyzerSolution\\DataAccess\\DataAccess.csproj": {
                 "projectPath": "C:\\Users\\Dad\\source\\repos\\PokemonTeamAnalyzerSolution\\DataAccess\\DataAccess.csproj"
               },
-              "C:\\Users\\Dad\\source\\repos\\PokemonTeamAnalyzerSolution\\UsageStatAPI\\UsageStatUpdater.csproj": {
-                "projectPath": "C:\\Users\\Dad\\source\\repos\\PokemonTeamAnalyzerSolution\\UsageStatAPI\\UsageStatUpdater.csproj"
+              "C:\\Users\\Dad\\source\\repos\\PokemonTeamAnalyzerSolution\\UsageStatUpdater\\UsageStatUpdater.csproj": {
+                "projectPath": "C:\\Users\\Dad\\source\\repos\\PokemonTeamAnalyzerSolution\\UsageStatUpdater\\UsageStatUpdater.csproj"
               }
             }
           }
@@ -128,6 +128,12 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.Extensions.Configuration.Abstractions": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -150,14 +156,14 @@
         }
       }
     },
-    "C:\\Users\\Dad\\source\\repos\\PokemonTeamAnalyzerSolution\\UsageStatAPI\\UsageStatUpdater.csproj": {
+    "C:\\Users\\Dad\\source\\repos\\PokemonTeamAnalyzerSolution\\UsageStatUpdater\\UsageStatUpdater.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Dad\\source\\repos\\PokemonTeamAnalyzerSolution\\UsageStatAPI\\UsageStatUpdater.csproj",
+        "projectUniqueName": "C:\\Users\\Dad\\source\\repos\\PokemonTeamAnalyzerSolution\\UsageStatUpdater\\UsageStatUpdater.csproj",
         "projectName": "UsageStatUpdater",
-        "projectPath": "C:\\Users\\Dad\\source\\repos\\PokemonTeamAnalyzerSolution\\UsageStatAPI\\UsageStatUpdater.csproj",
+        "projectPath": "C:\\Users\\Dad\\source\\repos\\PokemonTeamAnalyzerSolution\\UsageStatUpdater\\UsageStatUpdater.csproj",
         "packagesPath": "C:\\Users\\Dad\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Dad\\source\\repos\\PokemonTeamAnalyzerSolution\\UsageStatAPI\\obj\\",
+        "outputPath": "C:\\Users\\Dad\\source\\repos\\PokemonTeamAnalyzerSolution\\UsageStatUpdater\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

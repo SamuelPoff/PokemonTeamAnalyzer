@@ -8,3 +8,13 @@ C:\Users\Dad\source\repos\PkmnDatabase\obj\Debug\Model.xml
 C:\Users\Dad\source\repos\PkmnDatabase\obj\Debug\refactor.xml
 C:\Users\Dad\source\repos\PkmnDatabase\obj\Debug\postdeploy.sql
 C:\Users\Dad\source\repos\PkmnDatabase\obj\Debug\predeploy.sql
+C:\Users\Dad\source\repos\PokemonTeamAnalyzerSolution\PkmnDatabase\bin\Debug\PkmnDatabase.dacpac
+C:\Users\Dad\source\repos\PokemonTeamAnalyzerSolution\PkmnDatabase\bin\Debug\PkmnDatabase.dll
+C:\Users\Dad\source\repos\PokemonTeamAnalyzerSolution\PkmnDatabase\bin\Debug\PkmnDatabase.pdb
+C:\Users\Dad\source\repos\PokemonTeamAnalyzerSolution\PkmnDatabase\obj\Debug\PkmnDatabase.sqlproj.AssemblyReference.cache
+C:\Users\Dad\source\repos\PokemonTeamAnalyzerSolution\PkmnDatabase\obj\Debug\Model.xml
+C:\Users\Dad\source\repos\PokemonTeamAnalyzerSolution\PkmnDatabase\obj\Debug\refactor.xml
+C:\Users\Dad\source\repos\PokemonTeamAnalyzerSolution\PkmnDatabase\obj\Debug\postdeploy.sql
+C:\Users\Dad\source\repos\PokemonTeamAnalyzerSolution\PkmnDatabase\obj\Debug\predeploy.sql
+C:\Users\Dad\source\repos\PokemonTeamAnalyzerSolution\PkmnDatabase\obj\Debug\PkmnDatabase.dll
+C:\Users\Dad\source\repos\PokemonTeamAnalyzerSolution\PkmnDatabase\obj\Debug\PkmnDatabase.pdb

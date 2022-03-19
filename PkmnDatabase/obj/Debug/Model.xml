@@ -12,7 +12,7 @@
 		</CustomData>
 		<CustomData Category="Reference" Type="Assembly">
 			<Metadata Name="LogicalName" Value="PkmnDatabase.dll" />
-			<Metadata Name="FileName" Value="C:\USERS\DAD\SOURCE\REPOS\PKMNDATABASE\OBJ\DEBUG\PKMNDATABASE.DLL" />
+			<Metadata Name="FileName" Value="C:\USERS\DAD\SOURCE\REPOS\POKEMONTEAMANALYZERSOLUTION\PKMNDATABASE\OBJ\DEBUG\PKMNDATABASE.DLL" />
 			<Metadata Name="AssemblyName" Value="PkmnDatabase" />
 			<Metadata Name="PermissionSet" Value="SAFE" />
 			<Metadata Name="Owner" Value="" />
@@ -20,7 +20,7 @@
 			<Metadata Name="IsVisible" Value="True" />
 			<Metadata Name="IsModelAware" Value="True" />
 			<Metadata Name="SkipCreationIfEmpty" Value="True" />
-			<Metadata Name="AssemblySymbolsName" Value="C:\Users\Dad\source\repos\PkmnDatabase\obj\Debug\PkmnDatabase.pdb" />
+			<Metadata Name="AssemblySymbolsName" Value="C:\Users\Dad\source\repos\PokemonTeamAnalyzerSolution\PkmnDatabase\obj\Debug\PkmnDatabase.pdb" />
 		</CustomData>
 		<CustomData Category="SqlCmdVariables" Type="SqlCmdVariable" />
 	</Header>

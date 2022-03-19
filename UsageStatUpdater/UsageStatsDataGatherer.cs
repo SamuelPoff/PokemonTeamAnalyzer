@@ -10,29 +10,46 @@ using System.Data.SqlClient;
 using System.Net.Http;
 
 using DataAccess.Models;
+using DataAccess.Data;
 
-namespace UsageStatAPI
+namespace UsageStatUpdater
 {
 
     public static class UsageStatsDataGatherer
     {
 
-        static string ConnectionString = @"Data Source=(localdb)\ProjectsV13;Initial Catalog=PkmnDB;Integrated Security=True;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Connect Timeout=60;Encrypt=False;TrustServerCertificate=False";
+        private static IPokemonUsageData _data;
 
-        public static void CreateNewStatTable(string tableName)
+        public static void UsageStatDataGathererConfigure(IPokemonUsageData data)
+        {
+            _data = data;
+        }
+
+        public static void UpdateStatTable(string url, string tableName, string connectionString)
         {
 
-            SqlConnection conn = new SqlConnection(ConnectionString);
-            string cmdString = $"CREATE TABLE dbo.{tableName}(" +
+            //Create table
+            CreateNewStatTable(tableName, connectionString);
+
+            //Gather stats and populate table
+            ParseAndInsertUsageStats(url, tableName, connectionString);
+
+        }
+
+        public static void CreateNewStatTable(string tableName, string connectionString)
+        {
+
+            SqlConnection conn = new SqlConnection(connectionString);
+            string cmdString = $"CREATE TABLE PkmnDatabase.dbo.{tableName}(" + 
                                $"ID int PRIMARY KEY IDENTITY(1,1) NOT NULL," +
                                $"PkmnID int NOT NULL," +
                                $"RawCount int NOT NULL," +
-                               $"Abilities nvarchar(300) NOT NULL," +
-                               $"Items nvarchar(700) NOT NULL," +
-                               $"Spreads nvarchar(650) NOT NULL," +
-                               $"Moves nvarchar(900) NOT NULL," +
-                               $"Teammates nvarchar(550) NOT NULL," +
-                               $"ChecksAndCounters nvarchar(550) NOT NULL" +
+                               $"Abilities nvarchar(400) NOT NULL," +
+                               $"Items nvarchar(800) NOT NULL," +
+                               $"Spreads nvarchar(800) NOT NULL," +
+                               $"Moves nvarchar(2000) NOT NULL," +
+                               $"Teammates nvarchar(800) NOT NULL," +
+                               $"ChecksAndCounters nvarchar(800) NOT NULL" +
                                $")";
 
 
@@ -85,40 +102,7 @@ namespace UsageStatAPI
 
         }
 
-        public static void GatherData(string tableName, SqlConnection conn = null)
-        {
-
-            string query = $"INSERT INTO dbo.{tableName}(Name, Viability, RawCount) VALUES(@Name, @Viability, @RawCount)";
-            if(conn == null)
-            {
-                conn = new SqlConnection(ConnectionString);
-            }
-
-            try
-            {
-
-                conn.Open();
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@Name", "Test0");
-                cmd.Parameters.AddWithValue("@Viability", 10);
-                cmd.Parameters.AddWithValue("@RawCount", 90);
-                cmd.ExecuteNonQuery();
-
-            }
-            catch(SqlException e)
-            {
-                Console.WriteLine(e.Message);
-            }
-            finally
-            {
-
-                conn.Close();
-
-            }
-
-            Console.WriteLine("Data Gathered and added to table:  " + tableName + "  successfully.");
-
-        }
+        
 
         public static string GetUsageStatText(string url)
         {
@@ -143,51 +127,15 @@ namespace UsageStatAPI
 
         }
 
-        private static void InsertPokemonStat(PokemonStatModel stat, string tableName, SqlConnection conn = null)
+        public static async void ParseAndInsertUsageStats(string url, string tableName, string connectionString)
         {
 
-            string query = $"INSERT INTO dbo.{tableName}(PkmnId, RawCount, Abilities, Items, Spreads, Moves, Teammates, ChecksAndCounters)";
-            query += " VALUES(@PkmnID, @RawCount, @Abilities, @Items, @Spreads, @Moves, @Teammates, @ChecksAndCounters)";
-
-            if(conn == null)
-            {
-                conn = new SqlConnection(ConnectionString);
-            }
-
-            try
-            {
-                conn.Open();
-
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@PkmnID", stat.PkmnID);
-                cmd.Parameters.AddWithValue("@RawCount", stat.RawCount);
-                cmd.Parameters.AddWithValue("@Abilities", stat.Abilities);
-                cmd.Parameters.AddWithValue("@Items", stat.Items);
-                cmd.Parameters.AddWithValue("@Spreads", stat.Spreads);
-                cmd.Parameters.AddWithValue("@Moves", stat.Moves);
-                cmd.Parameters.AddWithValue("@Teammates", stat.Teammates);
-                cmd.Parameters.AddWithValue("@ChecksAndCounters", stat.ChecksAndCounters);
-                cmd.ExecuteNonQuery();
-
-            }
-            catch(SqlException e)
-            {
-                Console.WriteLine(e.Message);
-            }
-            finally
-            {
-                conn.Close();
-            }
-
-        }
-
-        public static void ParseUsageStats(string url, string tableName)
-        {
-
-            CreateNewStatTable(tableName);
-            SqlConnection conn = new SqlConnection(ConnectionString);
+            SqlConnection conn = new SqlConnection(connectionString);
 
             string text = GetUsageStatText(url);
+            //List<Task> insertTasks = new List<Task>();
+
+            _data.BeginOperations();
 
             using (StringReader reader = new StringReader(text))
             {
@@ -205,7 +153,7 @@ namespace UsageStatAPI
                 {
 
                     //Check for new section line
-                    if (line.Contains("+"))
+                    if (line.Contains("+-"))
                     {
                         sectionIndex++;
                         line = reader.ReadLine();
@@ -213,8 +161,6 @@ namespace UsageStatAPI
                         //Next Section, submit current one
                         if(sectionIndex >= 9)
                         {
-
-
 
                             sectionIndex = 0;
                             stat.Abilities = stat.Abilities.Trim(',');
@@ -225,8 +171,7 @@ namespace UsageStatAPI
                             stat.ChecksAndCounters = stat.ChecksAndCounters.Trim(',');
 
                             //Insert PokemonStat into DB
-                            //stat.Print();
-                            InsertPokemonStat(stat, tableName, conn);
+                            await _data.InsertPokemonStat(stat, tableName);
 
                             stat.Abilities = "";
                             stat.Items = "";
@@ -324,8 +269,11 @@ namespace UsageStatAPI
                             }
 
                             int rmvIndex = line.IndexOf('(');
-                            line = line.Remove(rmvIndex);
-                            stat.ChecksAndCounters += TrimStatLine(line, removechars) + ",";
+                            if(rmvIndex != -1) {
+                                line = line.Remove(rmvIndex);
+                                stat.ChecksAndCounters += TrimStatLine(line, removechars) + ",";
+                            }
+                            
 
                             break;
                         
@@ -336,6 +284,8 @@ namespace UsageStatAPI
                 }
 
             }
+
+            _data.EndOperations();
 
         }
 

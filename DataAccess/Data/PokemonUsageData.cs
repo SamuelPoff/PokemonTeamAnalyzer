@@ -11,7 +11,7 @@ using System.Data.SqlClient;
 
 namespace DataAccess.Data
 {
-    public class PokemonUsageData
+    public class PokemonUsageData : IPokemonUsageData
     {
 
         private readonly ISqlDataAccess _db;
@@ -47,7 +47,7 @@ namespace DataAccess.Data
         public Task InsertPokemonStat(PokemonStatModel stat, string tableName)
         {
 
-            string commandText = $"INSERT INTO dbo.{tableName}(PkmnID, RawCount, Abilities, Items, Spreads, Moves, Teammates, ChecksAndCounters)";
+            string commandText = $"INSERT INTO PkmnDatabase.dbo.{tableName}(PkmnID, RawCount, Abilities, Items, Spreads, Moves, Teammates, ChecksAndCounters)";
             commandText += "VALUES(@PkmnID, @RawCount, @Abilities, @Items, @Spreads, @Moves, @Teammates, @ChecksAndCounters)";
 
             SqlCommand cmd = new SqlCommand();
@@ -68,7 +68,7 @@ namespace DataAccess.Data
         public Task UpdatePokemonStat(PokemonStatModel stat, string tableName)
         {
 
-            string commandText = $"UPDATE dbo.{tableName}";
+            string commandText = $"UPDATE PkmnBase.dbo.{tableName}";
             commandText += "SET PkmnId=@PkmnId, RawCount=@RawCount, Abilities=@Abilities, Items=@Items, Spreads=@Spreads, Moves=@Moves, Teammates=@Teammates, ChecksAndCounters=@ChecksAndCounters";
             commandText += "WHERE Id = @Id";
 
@@ -91,7 +91,7 @@ namespace DataAccess.Data
         public Task DeletePokemonStat(int id, string tableName)
         {
 
-            string commandText = $"DELETE FROM dbo.{tableName} WHERE Id=@Id";
+            string commandText = $"DELETE FROM PkmnDatabase.dbo.{tableName} WHERE Id=@Id";
 
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = commandText;
@@ -99,6 +99,20 @@ namespace DataAccess.Data
             cmd.Parameters.AddWithValue("@Id", id);
 
             return _db.SaveDataCmd(cmd);
+
+        }
+
+        public void BeginOperations()
+        {
+
+            _db.BeginOperations();
+
+        }
+
+        public void EndOperations()
+        {
+
+            _db.EndOperations();
 
         }
 
