@@ -10,7 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DataAccess\DataAccess.csproj" />
-    <ProjectReference Include="..\UsageStatUpdater\UsageStatUpdater.csproj" />
+    <ProjectReference Include="..\UsageStatCollector\UsageStatCollector.csproj" />
   </ItemGroup>
 
 </Project>

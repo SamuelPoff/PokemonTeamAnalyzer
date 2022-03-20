@@ -37,7 +37,6 @@ C:\Users\Dad\source\repos\PokemonTeamAnalyzerSolution\PokemonTeamAnalyzerRazorUI
 C:\Users\Dad\source\repos\PokemonTeamAnalyzerSolution\PokemonTeamAnalyzerRazorUI\obj\Debug\net5.0\PokemonTeamAnalyzerRazorUI.RazorCoreGenerate.cache
 C:\Users\Dad\source\repos\PokemonTeamAnalyzerSolution\PokemonTeamAnalyzerRazorUI\obj\Debug\net5.0\Razor\Pages\Error.cshtml.g.cs
 C:\Users\Dad\source\repos\PokemonTeamAnalyzerSolution\PokemonTeamAnalyzerRazorUI\obj\Debug\net5.0\Razor\Pages\Forms\AddPokemon.cshtml.g.cs
-C:\Users\Dad\source\repos\PokemonTeamAnalyzerSolution\PokemonTeamAnalyzerRazorUI\obj\Debug\net5.0\Razor\Pages\Forms\AddStatTable.cshtml.g.cs
 C:\Users\Dad\source\repos\PokemonTeamAnalyzerSolution\PokemonTeamAnalyzerRazorUI\obj\Debug\net5.0\Razor\Pages\Index.cshtml.g.cs
 C:\Users\Dad\source\repos\PokemonTeamAnalyzerSolution\PokemonTeamAnalyzerRazorUI\obj\Debug\net5.0\Razor\Pages\Privacy.cshtml.g.cs
 C:\Users\Dad\source\repos\PokemonTeamAnalyzerSolution\PokemonTeamAnalyzerRazorUI\obj\Debug\net5.0\Razor\Pages\Shared\_Layout.cshtml.g.cs
@@ -52,5 +51,5 @@ C:\Users\Dad\source\repos\PokemonTeamAnalyzerSolution\PokemonTeamAnalyzerRazorUI
 C:\Users\Dad\source\repos\PokemonTeamAnalyzerSolution\PokemonTeamAnalyzerRazorUI\obj\Debug\net5.0\ref\PokemonTeamAnalyzerRazorUI.dll
 C:\Users\Dad\source\repos\PokemonTeamAnalyzerSolution\PokemonTeamAnalyzerRazorUI\obj\Debug\net5.0\PokemonTeamAnalyzerRazorUI.pdb
 C:\Users\Dad\source\repos\PokemonTeamAnalyzerSolution\PokemonTeamAnalyzerRazorUI\obj\Debug\net5.0\PokemonTeamAnalyzerRazorUI.genruntimeconfig.cache
-C:\Users\Dad\source\repos\PokemonTeamAnalyzerSolution\PokemonTeamAnalyzerRazorUI\bin\Debug\net5.0\UsageStatUpdater.dll
-C:\Users\Dad\source\repos\PokemonTeamAnalyzerSolution\PokemonTeamAnalyzerRazorUI\bin\Debug\net5.0\UsageStatUpdater.pdb
+C:\Users\Dad\source\repos\PokemonTeamAnalyzerSolution\PokemonTeamAnalyzerRazorUI\bin\Debug\net5.0\UsageStatCollector.dll
+C:\Users\Dad\source\repos\PokemonTeamAnalyzerSolution\PokemonTeamAnalyzerRazorUI\bin\Debug\net5.0\UsageStatCollector.pdb

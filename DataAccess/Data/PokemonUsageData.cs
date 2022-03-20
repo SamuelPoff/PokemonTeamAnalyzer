@@ -23,82 +23,87 @@ namespace DataAccess.Data
 
         }
 
-
+        /// <summary>
+        /// Returns all Pokemon Usage Stat data currently in dbo.PokemonUsage
+        /// </summary>
+        /// <returns></returns>
         public Task<IEnumerable<PokemonStatModel>> GetAllPokemonStats()
         {
 
-            string queryString = "";
-
-            return _db.LoadData<PokemonStatModel, dynamic>(queryString, new { });
+            return _db.LoadDataSP<PokemonStatModel, dynamic>("PkmnDatabase.dbo.spPokemonUsage_GetAll", new { });
 
         }
 
-
+        /// <summary>
+        /// Returns the Pokmon Usage Stat that matches the given ID, or returns null if there is no row matching the ID.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task<PokemonStatModel?> GetPokemonStat(int id)
         {
 
-            string queryString = "";
-
-            var result = await _db.LoadData<PokemonStatModel, dynamic>(queryString, new { Id = id });
+            var result = await _db.LoadDataSP<PokemonStatModel, dynamic>("PkmnDatabse.dbo.spPokemonUsage_Get", new { Id = id });
             return result.FirstOrDefault();
 
         }
 
-        public Task InsertPokemonStat(PokemonStatModel stat, string tableName)
+        public async Task<IEnumerable<PokemonStatModel>> GetAllPokemonStats(int generation, string format)
         {
 
-            string commandText = $"INSERT INTO PkmnDatabase.dbo.{tableName}(PkmnID, RawCount, Abilities, Items, Spreads, Moves, Teammates, ChecksAndCounters)";
-            commandText += "VALUES(@PkmnID, @RawCount, @Abilities, @Items, @Spreads, @Moves, @Teammates, @ChecksAndCounters)";
-
-            SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = commandText;
-            cmd.Parameters.AddWithValue("@PkmnID", stat.PkmnID);
-            cmd.Parameters.AddWithValue("@RawCount", stat.RawCount);
-            cmd.Parameters.AddWithValue("@Abilities", stat.Abilities);
-            cmd.Parameters.AddWithValue("@Items", stat.Items);
-            cmd.Parameters.AddWithValue("@Spreads", stat.Spreads);
-            cmd.Parameters.AddWithValue("@Moves", stat.Moves);
-            cmd.Parameters.AddWithValue("@Teammates", stat.Teammates);
-            cmd.Parameters.AddWithValue("@ChecksAndCounters", stat.ChecksAndCounters);
-
-            return _db.SaveDataCmd(cmd);
+            return await _db.LoadDataSP<PokemonStatModel, dynamic>("PkmnDatabase.dbo.spPokemonUsage_GetAllGenAndFormat", new { Generation=generation, Format=format });
 
         }
 
-        public Task UpdatePokemonStat(PokemonStatModel stat, string tableName)
+
+        public Task InsertPokemonStat(PokemonStatModel stat)
         {
 
-            string commandText = $"UPDATE PkmnBase.dbo.{tableName}";
-            commandText += "SET PkmnId=@PkmnId, RawCount=@RawCount, Abilities=@Abilities, Items=@Items, Spreads=@Spreads, Moves=@Moves, Teammates=@Teammates, ChecksAndCounters=@ChecksAndCounters";
-            commandText += "WHERE Id = @Id";
+            return _db.SaveDataSP("PkmnDatabase.dbo.spPokemonUsage_Insert", new
+            {
 
-            SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = commandText;
+                Generation=stat.Generation,
+                Format=stat.Format,
 
-            cmd.Parameters.AddWithValue("@PkmnID", stat.PkmnID);
-            cmd.Parameters.AddWithValue("@RawCount", stat.RawCount);
-            cmd.Parameters.AddWithValue("@Abilities", stat.Abilities);
-            cmd.Parameters.AddWithValue("@Items", stat.Items);
-            cmd.Parameters.AddWithValue("@Spreads", stat.Spreads);
-            cmd.Parameters.AddWithValue("@Moves", stat.Moves);
-            cmd.Parameters.AddWithValue("@Teammates", stat.Teammates);
-            cmd.Parameters.AddWithValue("@ChecksAndCounters", stat.ChecksAndCounters);
+                PokemonId=stat.PokemonId,
+                RawCount=stat.RawCount,
+                Abilities=stat.Abilities,
+                Items=stat.Items,
+                Spreads=stat.Spreads,
+                Moves=stat.Moves,
+                Teammates=stat.Teammates,
+                ChecksAndCounters=stat.ChecksAndCounters
 
-            return _db.SaveDataCmd(cmd);
+            });
 
         }
 
-        public Task DeletePokemonStat(int id, string tableName)
+        public Task UpdatePokemonStat(PokemonStatModel stat)
         {
 
-            string commandText = $"DELETE FROM PkmnDatabase.dbo.{tableName} WHERE Id=@Id";
+            return _db.SaveDataSP("PkmnDatabase.dbo.spPokemonUsage_Update", new 
+            { 
+                
+                Id=stat.ID,
+                Generation=stat.Generation,
+                Format=stat.Format,
 
-            SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = commandText;
+                PokemonId=stat.PokemonId,
+                Rawcount=stat.RawCount,
+                Abilities=stat.Abilities,
+                Items=stat.Items,
+                Spreads=stat.Spreads,
+                Moves=stat.Moves,
+                Teammates=stat.Teammates,
+                ChecksAndCounters=stat.ChecksAndCounters
+            
+            });
 
-            cmd.Parameters.AddWithValue("@Id", id);
+        }
 
-            return _db.SaveDataCmd(cmd);
+        public Task DeletePokemonStat(int id)
+        {
+
+            return _db.SaveDataSP("PkmnDatabase.dbo.spPokemonUsage_Delete", new { Id = id });
 
         }
 

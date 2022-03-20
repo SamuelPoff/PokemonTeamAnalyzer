@@ -6,11 +6,12 @@ namespace DataAccess.Data
 {
     public interface IPokemonUsageData
     {
-        Task DeletePokemonStat(int id, string tableName);
+        Task DeletePokemonStat(int id);
         Task<IEnumerable<PokemonStatModel>> GetAllPokemonStats();
+        Task<IEnumerable<PokemonStatModel>> GetAllPokemonStats(int generation, string format);
         Task<PokemonStatModel> GetPokemonStat(int id);
-        Task InsertPokemonStat(PokemonStatModel stat, string tableName);
-        Task UpdatePokemonStat(PokemonStatModel stat, string tableName);
+        Task InsertPokemonStat(PokemonStatModel stat);
+        Task UpdatePokemonStat(PokemonStatModel stat);
 
         void BeginOperations();
 

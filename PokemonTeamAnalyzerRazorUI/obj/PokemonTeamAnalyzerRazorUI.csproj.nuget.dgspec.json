@@ -113,8 +113,8 @@
               "C:\\Users\\Dad\\source\\repos\\PokemonTeamAnalyzerSolution\\DataAccess\\DataAccess.csproj": {
                 "projectPath": "C:\\Users\\Dad\\source\\repos\\PokemonTeamAnalyzerSolution\\DataAccess\\DataAccess.csproj"
               },
-              "C:\\Users\\Dad\\source\\repos\\PokemonTeamAnalyzerSolution\\UsageStatUpdater\\UsageStatUpdater.csproj": {
-                "projectPath": "C:\\Users\\Dad\\source\\repos\\PokemonTeamAnalyzerSolution\\UsageStatUpdater\\UsageStatUpdater.csproj"
+              "C:\\Users\\Dad\\source\\repos\\PokemonTeamAnalyzerSolution\\UsageStatCollector\\UsageStatCollector.csproj": {
+                "projectPath": "C:\\Users\\Dad\\source\\repos\\PokemonTeamAnalyzerSolution\\UsageStatCollector\\UsageStatCollector.csproj"
               }
             }
           }
@@ -156,14 +156,14 @@
         }
       }
     },
-    "C:\\Users\\Dad\\source\\repos\\PokemonTeamAnalyzerSolution\\UsageStatUpdater\\UsageStatUpdater.csproj": {
+    "C:\\Users\\Dad\\source\\repos\\PokemonTeamAnalyzerSolution\\UsageStatCollector\\UsageStatCollector.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Dad\\source\\repos\\PokemonTeamAnalyzerSolution\\UsageStatUpdater\\UsageStatUpdater.csproj",
-        "projectName": "UsageStatUpdater",
-        "projectPath": "C:\\Users\\Dad\\source\\repos\\PokemonTeamAnalyzerSolution\\UsageStatUpdater\\UsageStatUpdater.csproj",
+        "projectUniqueName": "C:\\Users\\Dad\\source\\repos\\PokemonTeamAnalyzerSolution\\UsageStatCollector\\UsageStatCollector.csproj",
+        "projectName": "UsageStatCollector",
+        "projectPath": "C:\\Users\\Dad\\source\\repos\\PokemonTeamAnalyzerSolution\\UsageStatCollector\\UsageStatCollector.csproj",
         "packagesPath": "C:\\Users\\Dad\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Dad\\source\\repos\\PokemonTeamAnalyzerSolution\\UsageStatUpdater\\obj\\",
+        "outputPath": "C:\\Users\\Dad\\source\\repos\\PokemonTeamAnalyzerSolution\\UsageStatCollector\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

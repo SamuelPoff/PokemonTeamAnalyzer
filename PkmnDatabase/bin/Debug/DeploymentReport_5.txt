@@ -1,0 +1,22 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Create
+       [dbo].[PokemonUsage] (Table)
+       Foreign Key: unnamed constraint on [dbo].[PokemonUsage] (Foreign Key)
+       [dbo].[spPokemonUsage_Delete] (Procedure)
+       [dbo].[spPokemonUsage_Get] (Procedure)
+       [dbo].[spPokemonUsage_GetAll] (Procedure)
+       [dbo].[spPokemonUsage_GetAllGenAndFormat] (Procedure)
+       [dbo].[spPokemonUsage_Insert] (Procedure)
+       [dbo].[spPokemonUsage_Update] (Procedure)
+
+** Supporting actions

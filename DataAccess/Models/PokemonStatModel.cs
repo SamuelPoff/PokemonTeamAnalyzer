@@ -6,7 +6,10 @@ namespace DataAccess.Models
     {
 
         public int ID { get; set; }
-        public int PkmnID { get; set; } = 0;
+
+        public int Generation { get; set; } = 1;
+        public string Format { get; set; } = "";
+        public int PokemonId { get; set; } = 0;
         public int RawCount { get; set; } = 0;
         public string Abilities { get; set; } = "";
         public string Items { get; set; } = "";

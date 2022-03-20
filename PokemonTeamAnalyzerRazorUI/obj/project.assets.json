@@ -194,7 +194,7 @@
           "bin/placeholder/DataAccess.dll": {}
         }
       },
-      "UsageStatUpdater/1.0.0": {
+      "UsageStatCollector/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
@@ -202,10 +202,10 @@
           "System.Data.SqlClient": "4.8.3"
         },
         "compile": {
-          "bin/placeholder/UsageStatUpdater.dll": {}
+          "bin/placeholder/UsageStatCollector.dll": {}
         },
         "runtime": {
-          "bin/placeholder/UsageStatUpdater.dll": {}
+          "bin/placeholder/UsageStatCollector.dll": {}
         }
       }
     }
@@ -614,17 +614,17 @@
       "path": "../DataAccess/DataAccess.csproj",
       "msbuildProject": "../DataAccess/DataAccess.csproj"
     },
-    "UsageStatUpdater/1.0.0": {
+    "UsageStatCollector/1.0.0": {
       "type": "project",
-      "path": "../UsageStatUpdater/UsageStatUpdater.csproj",
-      "msbuildProject": "../UsageStatUpdater/UsageStatUpdater.csproj"
+      "path": "../UsageStatCollector/UsageStatCollector.csproj",
+      "msbuildProject": "../UsageStatCollector/UsageStatCollector.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
       "DataAccess >= 1.0.0",
       "Microsoft.Extensions.Configuration.Abstractions >= 6.0.0",
-      "UsageStatUpdater >= 1.0.0"
+      "UsageStatCollector >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -667,8 +667,8 @@
             "C:\\Users\\Dad\\source\\repos\\PokemonTeamAnalyzerSolution\\DataAccess\\DataAccess.csproj": {
               "projectPath": "C:\\Users\\Dad\\source\\repos\\PokemonTeamAnalyzerSolution\\DataAccess\\DataAccess.csproj"
             },
-            "C:\\Users\\Dad\\source\\repos\\PokemonTeamAnalyzerSolution\\UsageStatUpdater\\UsageStatUpdater.csproj": {
-              "projectPath": "C:\\Users\\Dad\\source\\repos\\PokemonTeamAnalyzerSolution\\UsageStatUpdater\\UsageStatUpdater.csproj"
+            "C:\\Users\\Dad\\source\\repos\\PokemonTeamAnalyzerSolution\\UsageStatCollector\\UsageStatCollector.csproj": {
+              "projectPath": "C:\\Users\\Dad\\source\\repos\\PokemonTeamAnalyzerSolution\\UsageStatCollector\\UsageStatCollector.csproj"
             }
           }
         }

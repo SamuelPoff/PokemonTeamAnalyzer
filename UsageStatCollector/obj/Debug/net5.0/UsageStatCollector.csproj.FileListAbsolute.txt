@@ -1,0 +1,15 @@
+C:\Users\Dad\source\repos\PokemonTeamAnalyzerSolution\UsageStatCollector\bin\Debug\net5.0\UsageStatCollector.deps.json
+C:\Users\Dad\source\repos\PokemonTeamAnalyzerSolution\UsageStatCollector\bin\Debug\net5.0\UsageStatCollector.dll
+C:\Users\Dad\source\repos\PokemonTeamAnalyzerSolution\UsageStatCollector\bin\Debug\net5.0\ref\UsageStatCollector.dll
+C:\Users\Dad\source\repos\PokemonTeamAnalyzerSolution\UsageStatCollector\bin\Debug\net5.0\UsageStatCollector.pdb
+C:\Users\Dad\source\repos\PokemonTeamAnalyzerSolution\UsageStatCollector\bin\Debug\net5.0\DataAccess.dll
+C:\Users\Dad\source\repos\PokemonTeamAnalyzerSolution\UsageStatCollector\bin\Debug\net5.0\DataAccess.pdb
+C:\Users\Dad\source\repos\PokemonTeamAnalyzerSolution\UsageStatCollector\obj\Debug\net5.0\UsageStatCollector.csproj.AssemblyReference.cache
+C:\Users\Dad\source\repos\PokemonTeamAnalyzerSolution\UsageStatCollector\obj\Debug\net5.0\UsageStatCollector.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Dad\source\repos\PokemonTeamAnalyzerSolution\UsageStatCollector\obj\Debug\net5.0\UsageStatCollector.AssemblyInfoInputs.cache
+C:\Users\Dad\source\repos\PokemonTeamAnalyzerSolution\UsageStatCollector\obj\Debug\net5.0\UsageStatCollector.AssemblyInfo.cs
+C:\Users\Dad\source\repos\PokemonTeamAnalyzerSolution\UsageStatCollector\obj\Debug\net5.0\UsageStatCollector.csproj.CoreCompileInputs.cache
+C:\Users\Dad\source\repos\PokemonTeamAnalyzerSolution\UsageStatCollector\obj\Debug\net5.0\UsageStatCollector.csproj.CopyComplete
+C:\Users\Dad\source\repos\PokemonTeamAnalyzerSolution\UsageStatCollector\obj\Debug\net5.0\UsageStatCollector.dll
+C:\Users\Dad\source\repos\PokemonTeamAnalyzerSolution\UsageStatCollector\obj\Debug\net5.0\ref\UsageStatCollector.dll
+C:\Users\Dad\source\repos\PokemonTeamAnalyzerSolution\UsageStatCollector\obj\Debug\net5.0\UsageStatCollector.pdb

@@ -37,7 +37,7 @@ namespace PokemonTeamAnalyzer
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
 
-            UsageStatUpdater.UsageStatsDataGatherer.UsageStatDataGathererConfigure(app.ApplicationServices.GetService<IPokemonUsageData>());
+            UsageStatCollector.Collector.CollectorConfigure(app.ApplicationServices.GetService<IPokemonUsageData>());
 
             if (env.IsDevelopment())
             {

@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+using UsageStatCollector;
+
 namespace PokemonTeamAnalyzer.Pages
 {
     public class IndexModel : PageModel
@@ -20,7 +22,7 @@ namespace PokemonTeamAnalyzer.Pages
         public void OnGet()
         {
 
-            
+            Collector.CollectUsageStats();
 
         }
     }

@@ -9,8 +9,7 @@
     <ProjectGuid>{af6bbb5f-5d9f-4837-bd46-b8e1bb695441}</ProjectGuid>
     <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
-    <RootPath>
-    </RootPath>
+    <RootPath />
     <RootNamespace>PkmnDatabase</RootNamespace>
     <AssemblyName>PkmnDatabase</AssemblyName>
     <ModelCollation>1033, CI</ModelCollation>
@@ -48,7 +47,6 @@
   </PropertyGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
-    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
     <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
     <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
   </PropertyGroup>
@@ -59,7 +57,7 @@
     <Folder Include="Tables" />
     <Folder Include="StoredProcedures" />
     <Folder Include="StoredProcedures\Pokemon" />
-    <Folder Include="StoredProcedures\TableManagement" />
+    <Folder Include="StoredProcedures\PokemonUsage" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Pokemon.sql" />
@@ -68,6 +66,13 @@
     <Build Include="StoredProcedures\Pokemon\spPokemon_Delete.sql" />
     <Build Include="StoredProcedures\Pokemon\spPokemon_Insert.sql" />
     <Build Include="StoredProcedures\Pokemon\spPokemon_Update.sql" />
+    <Build Include="Tables\PokemonUsage.sql" />
+    <Build Include="StoredProcedures\PokemonUsage\spPokemonUsage_Insert.sql" />
+    <Build Include="StoredProcedures\PokemonUsage\spPokemonUsage_Get.sql" />
+    <Build Include="StoredProcedures\PokemonUsage\spPokemonUsage_GetAll.sql" />
+    <Build Include="StoredProcedures\PokemonUsage\spPokemonUsage_Update.sql" />
+    <Build Include="StoredProcedures\PokemonUsage\spPokemonUsage_Delete.sql" />
+    <Build Include="StoredProcedures\PokemonUsage\spPokemonUsage_GetAllGenAndFormat.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="PkmnDatabase.refactorlog" />
