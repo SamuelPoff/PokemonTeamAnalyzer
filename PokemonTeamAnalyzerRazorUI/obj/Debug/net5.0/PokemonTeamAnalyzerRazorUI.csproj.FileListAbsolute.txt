@@ -53,3 +53,6 @@ C:\Users\Dad\source\repos\PokemonTeamAnalyzerSolution\PokemonTeamAnalyzerRazorUI
 C:\Users\Dad\source\repos\PokemonTeamAnalyzerSolution\PokemonTeamAnalyzerRazorUI\obj\Debug\net5.0\PokemonTeamAnalyzerRazorUI.genruntimeconfig.cache
 C:\Users\Dad\source\repos\PokemonTeamAnalyzerSolution\PokemonTeamAnalyzerRazorUI\bin\Debug\net5.0\UsageStatCollector.dll
 C:\Users\Dad\source\repos\PokemonTeamAnalyzerSolution\PokemonTeamAnalyzerRazorUI\bin\Debug\net5.0\UsageStatCollector.pdb
+C:\Users\Dad\source\repos\PokemonTeamAnalyzerSolution\PokemonTeamAnalyzerRazorUI\bin\Debug\net5.0\PokeNetApi.dll
+C:\Users\Dad\source\repos\PokemonTeamAnalyzerSolution\PokemonTeamAnalyzerRazorUI\bin\Debug\net5.0\PokeNetApi.pdb
+C:\Users\Dad\source\repos\PokemonTeamAnalyzerSolution\PokemonTeamAnalyzerRazorUI\obj\Debug\net5.0\Razor\Pages\ViewPokemon.cshtml.g.cs

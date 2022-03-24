@@ -465,9 +465,18 @@
           "DataAccess.dll": {}
         }
       },
+      "PokeNetApi/1.0.0": {
+        "runtime": {
+          "PokeNetApi.dll": {}
+        },
+        "compile": {
+          "PokeNetApi.dll": {}
+        }
+      },
       "UsageStatCollector/1.0.0": {
         "dependencies": {
           "DataAccess": "1.0.0",
+          "PokeNetApi": "1.0.0",
           "System.Data.SqlClient": "4.8.3"
         },
         "runtime": {
@@ -2257,6 +2266,11 @@
       "hashPath": "system.security.principal.windows.4.7.0.nupkg.sha512"
     },
     "DataAccess/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "PokeNetApi/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

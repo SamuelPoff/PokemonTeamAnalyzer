@@ -193,6 +193,16 @@
         "runtime": {
           "bin/placeholder/DataAccess.dll": {}
         }
+      },
+      "PokeNetApi/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/PokeNetApi.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PokeNetApi.dll": {}
+        }
       }
     }
   },
@@ -599,11 +609,17 @@
       "type": "project",
       "path": "../DataAccess/DataAccess.csproj",
       "msbuildProject": "../DataAccess/DataAccess.csproj"
+    },
+    "PokeNetApi/1.0.0": {
+      "type": "project",
+      "path": "../../PokeNetApi/PokeNetApi/PokeNetApi.csproj",
+      "msbuildProject": "../../PokeNetApi/PokeNetApi/PokeNetApi.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
       "DataAccess >= 1.0.0",
+      "PokeNetApi >= 1.0.0",
       "System.Data.SqlClient >= 4.8.3"
     ]
   },
@@ -646,6 +662,9 @@
           "projectReferences": {
             "C:\\Users\\Dad\\source\\repos\\PokemonTeamAnalyzerSolution\\DataAccess\\DataAccess.csproj": {
               "projectPath": "C:\\Users\\Dad\\source\\repos\\PokemonTeamAnalyzerSolution\\DataAccess\\DataAccess.csproj"
+            },
+            "C:\\Users\\Dad\\source\\repos\\PokeNetApi\\PokeNetApi\\PokeNetApi.csproj": {
+              "projectPath": "C:\\Users\\Dad\\source\\repos\\PokeNetApi\\PokeNetApi\\PokeNetApi.csproj"
             }
           }
         }

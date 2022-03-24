@@ -39,6 +39,8 @@ namespace UsageStatCollector
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
 
+            _data.BeginOperations();
+
             foreach (PokemonFormat format in formats)
             {
 
@@ -50,8 +52,6 @@ namespace UsageStatCollector
             }
 
             await Task.WhenAll(parsingTasks);
-
-            _data.BeginOperations();
 
             foreach (var parsingTask in parsingTasks)
             {
@@ -110,14 +110,15 @@ namespace UsageStatCollector
             SupportedFormats.Add("8-ubers");
             SupportedFormats.Add("8-ou");
             SupportedFormats.Add("8-uu");
-            SupportedFormats.Add("8-ru");
-            //SupportedFormats.Add("gen8nu");
-            //SupportedFormats.Add("gen8pu");
-            //SupportedFormats.Add("gen8lc");
-            //SupportedFormats.Add("gen8monotype");
+            //SupportedFormats.Add("8-ru");
+            //SupportedFormats.Add("8-nu");
+            //SupportedFormats.Add("8-pu");
+            //SupportedFormats.Add("8-lc");
+            //SupportedFormats.Add("8-monotype");
+            //SupportedFormats.Add("8-nationaldex");
 
-            //SupportedFormats.Add("gen7ou");
-            //SupportedFormats.Add("gen6ou");
+            //SupportedFormats.Add("7-ou");
+            //SupportedFormats.Add("6-ou");
 
         }
 

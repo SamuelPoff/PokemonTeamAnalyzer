@@ -1,0 +1,75 @@
+﻿@page
+@model PokemonTeamAnalyzerRazorUI.Pages.ViewPokemonModel
+@{
+    ViewData["Title"] = "View Pokemon";
+}
+
+<h1>View Pokemon</h1>
+
+<table>
+    <thead>
+        <th>Sprite</th>
+        <th>PokemonID</th>
+        <th>Name</th>
+        <th>Type 1</th>
+        <th>Type 2</th>
+        <th>Ability 1</th>
+        <th>Ability 2</th>
+        <th>Hidden Ability</th>
+        <th>Hp</th>
+        <th>Att</th>
+        <th>Def</th>
+        <th>SpAtt</th>
+        <th>SpDef</th>
+        <th>Spd</th>
+    </thead>
+
+@foreach(var pkmn in Model.PokemonList)
+            {
+    <tr>
+        <td>
+            <img src="@pkmn.SpriteUrl">
+        </td>
+        <td>
+            @pkmn.ID
+        </td>
+        <td>
+            @pkmn.Name
+        </td>
+        <td>
+            @pkmn.Type1
+        </td>
+        <td>
+            @pkmn.Type2
+        </td>
+        <td>
+            @pkmn.Ability1
+        </td>
+        <td>
+            @pkmn.Ability2
+        </td>
+        <td>
+            @pkmn.HiddenAbility
+        </td>
+        <td>
+            @pkmn.HP
+        </td>
+        <td>
+            @pkmn.Att
+        </td>
+        <td>
+            @pkmn.Def
+        </td>
+        <td>
+            @pkmn.SpAtt
+        </td>
+        <td>
+            @pkmn.SpDef
+        </td>
+        <td>
+            @pkmn.Spd
+        </td>
+    </tr>
+            }
+
+</table>

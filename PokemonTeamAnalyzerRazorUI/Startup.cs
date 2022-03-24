@@ -38,6 +38,8 @@ namespace PokemonTeamAnalyzer
         {
 
             UsageStatCollector.Collector.CollectorConfigure(app.ApplicationServices.GetService<IPokemonUsageData>());
+            UsageStatCollector.Parser.ParserConfigure(app.ApplicationServices.GetService<IPokemonData>());
+            UsageStatCollector.PokemonDataCollector.PokemonDataCollectorConfigure(app.ApplicationServices.GetService<IPokemonData>());
 
             if (env.IsDevelopment())
             {

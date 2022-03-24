@@ -3,7 +3,7 @@
 AS
 BEGIN
 
-SELECT [Id], [Name], [Type1], [Type2], [Hp], [Att], [Def], [SpAtt], [SpDef], [Spd] 
+SELECT [Id], [Name], [Type1], [Type2], [Ability1], [Ability2], [HiddenAbility], [Hp], [Att], [Def], [SpAtt], [SpDef], [Spd], [SpriteUrl]
 FROM dbo.Pokemon
 WHERE Id = @id;
 

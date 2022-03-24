@@ -19,10 +19,12 @@ namespace PokemonTeamAnalyzer.Pages
             _logger = logger;
         }
 
-        public void OnGet()
+        public async Task OnGet()
         {
 
-            Collector.CollectUsageStats();
+            //Collector.CollectUsageStats();
+            //await PokemonDataCollector.CollectPokemonData();
+            
 
         }
     }

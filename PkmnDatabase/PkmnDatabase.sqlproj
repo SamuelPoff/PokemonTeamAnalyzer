@@ -73,6 +73,7 @@
     <Build Include="StoredProcedures\PokemonUsage\spPokemonUsage_Update.sql" />
     <Build Include="StoredProcedures\PokemonUsage\spPokemonUsage_Delete.sql" />
     <Build Include="StoredProcedures\PokemonUsage\spPokemonUsage_GetAllGenAndFormat.sql" />
+    <Build Include="StoredProcedures\Pokemon\spPokemon_GetByName.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="PkmnDatabase.refactorlog" />

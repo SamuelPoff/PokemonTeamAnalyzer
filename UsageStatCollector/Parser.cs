@@ -8,12 +8,21 @@ using System.Net.Http;
 using System.IO;
 
 using DataAccess.Models;
+using DataAccess.Data;
 
 
 namespace UsageStatCollector
 {
     public static class Parser
     {
+
+        private static IPokemonData _data;
+        public static void ParserConfigure(IPokemonData data)
+        {
+
+            _data = data;
+
+        }
 
         private static async Task<string> GetUsageStatText(string url)
         {
@@ -51,7 +60,7 @@ namespace UsageStatCollector
                 int sectionIndex = 0;
                 char[] removechars = new char[] { '|' };
 
-                string name = string.Empty;
+                string name = "";
                 
                 int rawCount = 0;
                 string abilities = "";
@@ -77,11 +86,23 @@ namespace UsageStatCollector
 
                             sectionIndex = 0;
 
+                            //Get Pokemon ID corresponding to the name
+                            PokemonModel pkmn = await _data.GetPokemonByName(name);
+
                             //Fill out stat model object and add it to list
                             PokemonStatModel stat = new PokemonStatModel();
                             stat.Generation = generation;
                             stat.Format = format;
-                            stat.PokemonId = 1;
+                            if(pkmn != null)
+                            {
+                                Console.WriteLine("Pokemon name found in DB!: " + name);
+                                stat.PokemonId = pkmn.ID;
+                            }
+                            else
+                            {
+                                //Console.WriteLine("!!! Pokemon name wasnt found in DB");
+                                stat.PokemonId = 1;
+                            }
                             stat.RawCount = rawCount;
                             stat.Abilities = abilities.Trim(',');
                             stat.Items = items.Trim(',');
@@ -110,7 +131,7 @@ namespace UsageStatCollector
                     {
                         //Parse NAME
                         case 1:
-                            name = line.Trim();
+                            name = TrimStatLine(line, removechars);
                             break;
                         //Parse meta data
                         case 2:
