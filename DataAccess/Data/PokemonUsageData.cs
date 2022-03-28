@@ -107,6 +107,14 @@ namespace DataAccess.Data
 
         }
 
+        public Task<IEnumerable<PokemonStatModel>> GetAllPokemonStatsByPkmnId(int pkmnId)
+        {
+
+            return _db.LoadDataSP<PokemonStatModel, dynamic>("PkmnDatabase.dbo.spPokemonUsage_GetAllByPkmnID", new { PokemonId = pkmnId });
+
+        }
+
+
         public void BeginOperations()
         {
 

@@ -12,7 +12,7 @@ namespace DataAccess.Data
         Task<PokemonStatModel> GetPokemonStat(int id);
         Task InsertPokemonStat(PokemonStatModel stat);
         Task UpdatePokemonStat(PokemonStatModel stat);
-
+        Task<IEnumerable<PokemonStatModel>> GetAllPokemonStatsByPkmnId(int pkmnId);
         void BeginOperations();
 
         void EndOperations();

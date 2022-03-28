@@ -87,7 +87,7 @@ namespace UsageStatCollector
                             sectionIndex = 0;
 
                             //Get Pokemon ID corresponding to the name
-                            PokemonModel pkmn = await _data.GetPokemonByName(name);
+                            PokemonModel pkmn = await _data.GetPokemonByName(name.ToLower());
 
                             //Fill out stat model object and add it to list
                             PokemonStatModel stat = new PokemonStatModel();

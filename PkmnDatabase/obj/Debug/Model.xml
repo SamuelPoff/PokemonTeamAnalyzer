@@ -1,0 +1,2393 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DataSchemaModel FileFormatVersion="1.2" SchemaVersion="2.9" DspName="Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider" CollationLcid="1033" CollationCaseSensitive="False" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+	<Header>
+		<CustomData Category="AnsiNulls">
+			<Metadata Name="AnsiNulls" Value="True" />
+		</CustomData>
+		<CustomData Category="QuotedIdentifier">
+			<Metadata Name="QuotedIdentifier" Value="True" />
+		</CustomData>
+		<CustomData Category="CompatibilityMode">
+			<Metadata Name="CompatibilityMode" Value="130" />
+		</CustomData>
+		<CustomData Category="Reference" Type="Assembly">
+			<Metadata Name="LogicalName" Value="PkmnDatabase.dll" />
+			<Metadata Name="FileName" Value="C:\USERS\DAD\SOURCE\REPOS\POKEMONTEAMANALYZERSOLUTION\PKMNDATABASE\OBJ\DEBUG\PKMNDATABASE.DLL" />
+			<Metadata Name="AssemblyName" Value="PkmnDatabase" />
+			<Metadata Name="PermissionSet" Value="SAFE" />
+			<Metadata Name="Owner" Value="" />
+			<Metadata Name="GenerateSqlClrDdl" Value="True" />
+			<Metadata Name="IsVisible" Value="True" />
+			<Metadata Name="IsModelAware" Value="True" />
+			<Metadata Name="SkipCreationIfEmpty" Value="True" />
+			<Metadata Name="AssemblySymbolsName" Value="C:\Users\Dad\source\repos\PokemonTeamAnalyzerSolution\PkmnDatabase\obj\Debug\PkmnDatabase.pdb" />
+		</CustomData>
+		<CustomData Category="SqlCmdVariables" Type="SqlCmdVariable" />
+	</Header>
+	<Model>
+		<Element Type="SqlDatabaseOptions">
+			<Property Name="Collation" Value="SQL_Latin1_General_CP1_CI_AS" />
+			<Property Name="IsAnsiNullDefaultOn" Value="True" />
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Property Name="IsAnsiWarningsOn" Value="True" />
+			<Property Name="IsArithAbortOn" Value="True" />
+			<Property Name="IsConcatNullYieldsNullOn" Value="True" />
+			<Property Name="IsTornPageProtectionOn" Value="False" />
+			<Property Name="IsFullTextEnabled" Value="True" />
+			<Property Name="PageVerifyMode" Value="3" />
+			<Property Name="DefaultLanguage" Value="" />
+			<Property Name="DefaultFullTextLanguage" Value="" />
+			<Property Name="QueryStoreStaleQueryThreshold" Value="367" />
+			<Relationship Name="DefaultFilegroup">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[PRIMARY]" />
+				</Entry>
+			</Relationship>
+		</Element>
+		<Element Type="SqlForeignKeyConstraint">
+			<Relationship Name="Columns">
+				<Entry>
+					<References Name="[dbo].[PokemonUsage].[PokemonId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[PokemonUsage]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignColumns">
+				<Entry>
+					<References Name="[dbo].[Pokemon].[Id]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="ForeignTable">
+				<Entry>
+					<References Name="[dbo].[Pokemon]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="3" />
+		</Element>
+		<Element Type="SqlPrimaryKeyConstraint">
+			<Relationship Name="ColumnSpecifications">
+				<Entry>
+					<Element Type="SqlIndexedColumnSpecification">
+						<Relationship Name="Column">
+							<Entry>
+								<References Name="[dbo].[PokemonUsage].[Id]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[PokemonUsage]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="4" />
+		</Element>
+		<Element Type="SqlPrimaryKeyConstraint">
+			<Relationship Name="ColumnSpecifications">
+				<Entry>
+					<Element Type="SqlIndexedColumnSpecification">
+						<Relationship Name="Column">
+							<Entry>
+								<References Name="[dbo].[Pokemon].[Id]" />
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="DefiningTable">
+				<Entry>
+					<References Name="[dbo].[Pokemon]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SqlInlineConstraintAnnotation" Disambiguator="5" />
+		</Element>
+		<Element Type="SqlTable" Name="[dbo].[Pokemon]">
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="Columns">
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Pokemon].[Id]">
+						<Property Name="IsNullable" Value="False" />
+						<Property Name="IsIdentity" Value="True" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+						<AttachedAnnotation Disambiguator="5" />
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Pokemon].[Name]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="25" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Pokemon].[Type1]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="10" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Pokemon].[Type2]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="10" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Pokemon].[Ability1]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="20" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Pokemon].[Ability2]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="20" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Pokemon].[HiddenAbility]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="20" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Pokemon].[Hp]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Pokemon].[Att]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Pokemon].[Def]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Pokemon].[SpAtt]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Pokemon].[SpDef]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Pokemon].[Spd]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[Pokemon].[SpriteUrl]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="100" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+		</Element>
+		<Element Type="SqlTable" Name="[dbo].[PokemonUsage]">
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="Columns">
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[PokemonUsage].[Id]">
+						<Property Name="IsNullable" Value="False" />
+						<Property Name="IsIdentity" Value="True" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+						<AttachedAnnotation Disambiguator="4" />
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[PokemonUsage].[Generation]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[smallint]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[PokemonUsage].[Format]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="12" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[PokemonUsage].[PokemonId]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+						<AttachedAnnotation Disambiguator="3" />
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[PokemonUsage].[RawCount]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[PokemonUsage].[Abilities]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="300" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[PokemonUsage].[Items]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="800" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[PokemonUsage].[Spreads]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="800" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[PokemonUsage].[Moves]">
+						<Property Name="IsNullable" Value="False" />
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="1950" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[PokemonUsage].[Teammates]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="800" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSimpleColumn" Name="[dbo].[PokemonUsage].[ChecksAndCounters]">
+						<Relationship Name="TypeSpecifier">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="800" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[spPokemon_Delete]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN
+
+DELETE
+FROM dbo.Pokemon 
+WHERE Id = @Id;
+
+END]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[Pokemon]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[Id]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[spPokemon_Delete].[@Id]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[spPokemon_Delete].[@Id]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="115" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[spPokemon_Delete]&#xD;&#xA;&#x9;@Id int&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[spPokemon_Get]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN
+
+SELECT [Id], [Name], [Type1], [Type2], [Ability1], [Ability2], [HiddenAbility], [Hp], [Att], [Def], [SpAtt], [SpDef], [Spd], [SpriteUrl]
+FROM dbo.Pokemon
+WHERE Id = @id;
+
+END]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[Pokemon]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[Id]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[Name]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[Type1]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[Type2]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[Ability1]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[Ability2]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[HiddenAbility]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[Hp]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[Att]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[Def]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[SpAtt]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[SpDef]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[Spd]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[SpriteUrl]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[spPokemon_Get].[@id]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[spPokemon_Get].[@id]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="241" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[spPokemon_Get]&#xD;&#xA;&#x9;@id int&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[spPokemon_GetAll]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN
+
+SELECT [Id], [Name], [Type1], [Type2], [Ability1], [Ability2], [HiddenAbility], [Hp], [Att], [Def], [SpAtt], [SpDef], [Spd], [SpriteUrl]
+FROM dbo.Pokemon;
+
+END]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[Pokemon]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[Id]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[Name]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[Type1]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[Type2]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[Ability1]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[Ability2]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[HiddenAbility]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[Hp]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[Att]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[Def]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[SpAtt]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[SpDef]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[Spd]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[SpriteUrl]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="218" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[spPokemon_GetAll]&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[spPokemon_GetByName]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN
+
+	SELECT [Id], [Name], [Type1], [Type2], [Ability1], [Ability2], [HiddenAbility], [Hp], [Att], [Def], [SpAtt], [SpDef], [Spd], [SpriteUrl]
+	FROM dbo.Pokemon
+	WHERE [Name] = @Name;
+
+END]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[Pokemon]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[Id]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[Name]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[Type1]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[Type2]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[Ability1]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[Ability2]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[HiddenAbility]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[Hp]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[Att]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[Def]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[SpAtt]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[SpDef]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[Spd]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[SpriteUrl]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[spPokemon_GetByName].[@Name]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[spPokemon_GetByName].[@Name]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="25" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="267" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[spPokemon_GetByName]&#xD;&#xA;&#x9;@Name NVARCHAR(25)&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[spPokemon_Insert]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN
+
+INSERT INTO dbo.Pokemon([Name], Type1, Type2, Ability1, Ability2, HiddenAbility, Hp, Att, Def, SpAtt, SpDef, Spd, SpriteUrl)
+VALUES (@Name, @Type1, @Type2, @Ability1, @Ability2, @HiddenAbility, @Hp, @Att, @Def, @SpAtt, @SpDef, @Spd, @SpriteUrl);
+
+END]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[Pokemon]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[Name]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[Type1]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[Type2]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[Ability1]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[Ability2]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[HiddenAbility]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[Hp]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[Att]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[Def]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[SpAtt]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[SpDef]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[Spd]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[SpriteUrl]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[spPokemon_Insert].[@Name]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[spPokemon_Insert].[@Type1]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[spPokemon_Insert].[@Type2]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[spPokemon_Insert].[@Ability1]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[spPokemon_Insert].[@Ability2]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[spPokemon_Insert].[@HiddenAbility]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[spPokemon_Insert].[@Hp]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[spPokemon_Insert].[@Att]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[spPokemon_Insert].[@Def]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[spPokemon_Insert].[@SpAtt]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[spPokemon_Insert].[@SpDef]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[spPokemon_Insert].[@Spd]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[spPokemon_Insert].[@SpriteUrl]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[spPokemon_Insert].[@Name]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="25" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[spPokemon_Insert].[@Type1]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="10" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[spPokemon_Insert].[@Type2]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="10" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[spPokemon_Insert].[@Ability1]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="20" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[spPokemon_Insert].[@Ability2]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="20" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[spPokemon_Insert].[@HiddenAbility]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="20" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[spPokemon_Insert].[@Hp]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[spPokemon_Insert].[@Att]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[spPokemon_Insert].[@Def]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[spPokemon_Insert].[@SpAtt]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[spPokemon_Insert].[@SpDef]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[spPokemon_Insert].[@Spd]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[spPokemon_Insert].[@SpriteUrl]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="100" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="582" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[spPokemon_Insert]&#xD;&#xA;&#x9;@Name NVARCHAR(25),&#xD;&#xA;&#x9;@Type1 NVARCHAR(10),&#xD;&#xA;&#x9;@Type2 NVARCHAR(10) NULL,&#xD;&#xA;&#x9;@Ability1 NVARCHAR(20),&#xD;&#xA;&#x9;@Ability2 NVARCHAR(20) NULL,&#xD;&#xA;&#x9;@HiddenAbility NVARCHAR(20) NULL,&#xD;&#xA;&#x9;@Hp INT,&#xD;&#xA;&#x9;@Att INT,&#xD;&#xA;&#x9;@Def INT,&#xD;&#xA;&#x9;@SpAtt INT,&#xD;&#xA;&#x9;@SpDef INT,&#xD;&#xA;&#x9;@Spd INT,&#xD;&#xA;&#x9;@SpriteUrl NVARCHAR(100) NULL&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[spPokemon_Update]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN
+
+UPDATE dbo.Pokemon
+set [Name]=@Name, Type1=@Type1, Type2=@Type2, Ability1=@Ability1, Ability2=@Ability2, HiddenAbility=@HiddenAbility, Hp=@Hp, Att=@Att, Def=@Def, SpAtt=@SpAtt, SpDef=@SpDef, Spd=@Spd, SpriteUrl=@SpriteUrl
+WHERE Id = @Id;
+
+END]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[Pokemon]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[Name]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[spPokemon_Update].[@Name]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[Type1]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[spPokemon_Update].[@Type1]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[Type2]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[spPokemon_Update].[@Type2]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[Ability1]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[spPokemon_Update].[@Ability1]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[Ability2]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[spPokemon_Update].[@Ability2]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[HiddenAbility]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[spPokemon_Update].[@HiddenAbility]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[Hp]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[spPokemon_Update].[@Hp]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[Att]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[spPokemon_Update].[@Att]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[Def]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[spPokemon_Update].[@Def]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[SpAtt]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[spPokemon_Update].[@SpAtt]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[SpDef]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[spPokemon_Update].[@SpDef]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[Spd]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[spPokemon_Update].[@Spd]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[SpriteUrl]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[spPokemon_Update].[@SpriteUrl]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[Id]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[spPokemon_Update].[@Id]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[spPokemon_Update].[@Id]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[spPokemon_Update].[@Name]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="25" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[spPokemon_Update].[@Type1]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="10" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[spPokemon_Update].[@Type2]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="10" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[spPokemon_Update].[@Ability1]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="20" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[spPokemon_Update].[@Ability2]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="20" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[spPokemon_Update].[@HiddenAbility]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="20" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[spPokemon_Update].[@Hp]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[spPokemon_Update].[@Att]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[spPokemon_Update].[@Def]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[spPokemon_Update].[@SpAtt]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[spPokemon_Update].[@SpDef]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[spPokemon_Update].[@Spd]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[spPokemon_Update].[@SpriteUrl]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="100" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="582" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[spPokemon_Update]&#xD;&#xA;&#x9;@Id INT,&#xD;&#xA;&#x9;@Name nvarchar(25),&#xD;&#xA;&#x9;@Type1 nvarchar(10),&#xD;&#xA;&#x9;@Type2 nvarchar(10),&#xD;&#xA;&#x9;@Ability1 NVARCHAR(20),&#xD;&#xA;&#x9;@Ability2 NVARCHAR(20) NULL,&#xD;&#xA;&#x9;@HiddenAbility NVARCHAR(20) NULL,&#xD;&#xA;&#x9;@Hp INT,&#xD;&#xA;&#x9;@Att INT,&#xD;&#xA;&#x9;@Def INT,&#xD;&#xA;&#x9;@SpAtt INT,&#xD;&#xA;&#x9;@SpDef INT, &#xD;&#xA;&#x9;@Spd INT,&#xD;&#xA;&#x9;@SpriteUrl NVARCHAR(100) NULL&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[spPokemonUsage_Delete]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+	SELECT @param1, @param2
+RETURN 0]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[spPokemonUsage_Delete].[@param1]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[spPokemonUsage_Delete].[@param2]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[spPokemonUsage_Delete].[@param1]">
+						<Property Name="DefaultExpressionScript">
+							<Value><![CDATA[0]]></Value>
+						</Property>
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[spPokemonUsage_Delete].[@param2]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="119" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[spPokemonUsage_Delete]&#xD;&#xA;&#x9;@param1 int = 0,&#xD;&#xA;&#x9;@param2 int&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[spPokemonUsage_Get]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN
+
+	SELECT [Id], [Generation], [Format], [PokemonId], [RawCount], [Abilities], [Items], [Spreads], [Moves], [Teammates], [ChecksAndCounters] 
+	FROM dbo.PokemonUsage
+	WHERE Id = @Id;
+
+END]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[PokemonUsage]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PokemonUsage].[Id]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PokemonUsage].[Generation]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PokemonUsage].[Format]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PokemonUsage].[PokemonId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PokemonUsage].[RawCount]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PokemonUsage].[Abilities]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PokemonUsage].[Items]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PokemonUsage].[Spreads]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PokemonUsage].[Moves]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PokemonUsage].[Teammates]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PokemonUsage].[ChecksAndCounters]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[spPokemonUsage_Get].[@Id]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[spPokemonUsage_Get].[@Id]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="255" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[spPokemonUsage_Get]&#xD;&#xA;&#x9;@Id int&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[spPokemonUsage_GetAll]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN
+
+	SELECT [Id], [Generation], [Format], [PokemonId], [RawCount], [Abilities], [Items], [Spreads], [Moves], [Teammates], [ChecksAndCounters] 
+	FROM dbo.PokemonUsage;
+
+END]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[PokemonUsage]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PokemonUsage].[Id]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PokemonUsage].[Generation]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PokemonUsage].[Format]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PokemonUsage].[PokemonId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PokemonUsage].[RawCount]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PokemonUsage].[Abilities]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PokemonUsage].[Items]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PokemonUsage].[Spreads]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PokemonUsage].[Moves]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PokemonUsage].[Teammates]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PokemonUsage].[ChecksAndCounters]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="231" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[spPokemonUsage_GetAll]&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[spPokemonUsage_GetAllByPkmnID]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN
+
+SELECT [Id], [Generation], [Format], [PokemonId], [RawCount], [Abilities], [Items], [Spreads], [Moves], [Teammates], [ChecksAndCounters] 
+FROM dbo.PokemonUsage
+WHERE PokemonId = @PokemonId;
+
+END]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[PokemonUsage]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PokemonUsage].[Id]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PokemonUsage].[Generation]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PokemonUsage].[Format]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PokemonUsage].[PokemonId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PokemonUsage].[RawCount]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PokemonUsage].[Abilities]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PokemonUsage].[Items]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PokemonUsage].[Spreads]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PokemonUsage].[Moves]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PokemonUsage].[Teammates]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PokemonUsage].[ChecksAndCounters]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[spPokemonUsage_GetAllByPkmnID].[@PokemonId]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[spPokemonUsage_GetAllByPkmnID].[@PokemonId]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="284" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[spPokemonUsage_GetAllByPkmnID]&#xD;&#xA;&#x9;@PokemonId int&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[spPokemonUsage_GetAllGenAndFormat]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN
+
+	SELECT [Id], [Generation], [Format], [PokemonId], [RawCount], [Abilities], [Items], [Spreads], [Moves], [Teammates], [ChecksAndCounters]
+	FROM dbo.PokemonUsage
+	WHERE Generation=@Generation AND [Format]=@Format;
+
+END]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[PokemonUsage]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PokemonUsage].[Id]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PokemonUsage].[Generation]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PokemonUsage].[Format]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PokemonUsage].[PokemonId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PokemonUsage].[RawCount]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PokemonUsage].[Abilities]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PokemonUsage].[Items]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PokemonUsage].[Spreads]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PokemonUsage].[Moves]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PokemonUsage].[Teammates]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PokemonUsage].[ChecksAndCounters]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[spPokemonUsage_GetAllGenAndFormat].[@Generation]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[spPokemonUsage_GetAllGenAndFormat].[@Format]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[spPokemonUsage_GetAllGenAndFormat].[@Generation]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[smallint]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[spPokemonUsage_GetAllGenAndFormat].[@Format]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="12" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="341" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[spPokemonUsage_GetAllGenAndFormat]&#xD;&#xA;&#x9;@Generation SMALLINT,&#xD;&#xA;&#x9;@Format nvarchar(12)&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[spPokemonUsage_Insert]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN
+
+	INSERT INTO dbo.PokemonUsage(Generation, [Format], PokemonId, RawCount, Abilities, Items, Spreads, Moves, Teammates, ChecksAndCounters)
+	VALUES(@Generation, @Format, @PokemonId, @Rawcount, @Abilities, @Items, @Spreads, @Moves, @Teammates, @ChecksAndCounters)
+
+END]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[PokemonUsage]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PokemonUsage].[Generation]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PokemonUsage].[Format]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PokemonUsage].[PokemonId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PokemonUsage].[RawCount]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PokemonUsage].[Abilities]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PokemonUsage].[Items]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PokemonUsage].[Spreads]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PokemonUsage].[Moves]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PokemonUsage].[Teammates]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PokemonUsage].[ChecksAndCounters]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[spPokemonUsage_Insert].[@Generation]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[spPokemonUsage_Insert].[@Format]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[spPokemonUsage_Insert].[@PokemonId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[spPokemonUsage_Insert].[@RawCount]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[spPokemonUsage_Insert].[@Abilities]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[spPokemonUsage_Insert].[@Items]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[spPokemonUsage_Insert].[@Spreads]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[spPokemonUsage_Insert].[@Moves]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[spPokemonUsage_Insert].[@Teammates]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[spPokemonUsage_Insert].[@ChecksAndCounters]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[spPokemonUsage_Insert].[@Generation]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[smallint]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[spPokemonUsage_Insert].[@Format]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="12" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[spPokemonUsage_Insert].[@PokemonId]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[spPokemonUsage_Insert].[@RawCount]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[spPokemonUsage_Insert].[@Abilities]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="300" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[spPokemonUsage_Insert].[@Items]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="800" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[spPokemonUsage_Insert].[@Spreads]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="800" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[spPokemonUsage_Insert].[@Moves]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="1950" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[spPokemonUsage_Insert].[@Teammates]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="800" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[spPokemonUsage_Insert].[@ChecksAndCounters]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="800" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="579" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[spPokemonUsage_Insert]&#xD;&#xA;&#x9;@Generation smallint,&#xD;&#xA;&#x9;@Format nvarchar(12),&#xD;&#xA;&#xD;&#xA;&#x9;@PokemonId int,&#xD;&#xA;&#x9;@RawCount int,&#xD;&#xA;&#x9;@Abilities nvarchar(300),&#xD;&#xA;&#x9;@Items nvarchar(800),&#xD;&#xA;&#x9;@Spreads nvarchar(800),&#xD;&#xA;&#x9;@Moves nvarchar(1950),&#xD;&#xA;&#x9;@Teammates nvarchar(800),&#xD;&#xA;&#x9;@ChecksAndCounters nvarchar(800)&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[spPokemonUsage_Update]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN
+	
+	UPDATE dbo.PokemonUsage
+	SET [Generation]=@Generation, [Format]=@Format, [PokemonId]=@PokemonId, [RawCount]=@RawCount, [Abilities]=@Abilities, [Items]=@Items, [Spreads]=@Spreads, [Moves]=@Moves, [Teammates]=@Teammates, [ChecksAndCounters]=@ChecksAndCounters
+	WHERE Id=@Id;
+
+END]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[PokemonUsage]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PokemonUsage].[Generation]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[spPokemonUsage_Update].[@Generation]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PokemonUsage].[Format]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[spPokemonUsage_Update].[@Format]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PokemonUsage].[PokemonId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[spPokemonUsage_Update].[@PokemonId]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PokemonUsage].[RawCount]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[spPokemonUsage_Update].[@RawCount]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PokemonUsage].[Abilities]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[spPokemonUsage_Update].[@Abilities]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PokemonUsage].[Items]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[spPokemonUsage_Update].[@Items]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PokemonUsage].[Spreads]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[spPokemonUsage_Update].[@Spreads]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PokemonUsage].[Moves]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[spPokemonUsage_Update].[@Moves]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PokemonUsage].[Teammates]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[spPokemonUsage_Update].[@Teammates]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PokemonUsage].[ChecksAndCounters]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[spPokemonUsage_Update].[@ChecksAndCounters]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[PokemonUsage].[Id]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[spPokemonUsage_Update].[@Id]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[spPokemonUsage_Update].[@Id]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[spPokemonUsage_Update].[@Generation]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[smallint]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[spPokemonUsage_Update].[@Format]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="12" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[spPokemonUsage_Update].[@PokemonId]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[spPokemonUsage_Update].[@RawCount]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[int]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[spPokemonUsage_Update].[@Abilities]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="300" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[spPokemonUsage_Update].[@Items]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="800" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[spPokemonUsage_Update].[@Spreads]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="800" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[spPokemonUsage_Update].[@Moves]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="1950" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[spPokemonUsage_Update].[@Teammates]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="800" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[spPokemonUsage_Update].[@ChecksAndCounters]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="800" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="609" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[spPokemonUsage_Update]&#xD;&#xA;&#x9;@Id int,&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;@Generation smallint,&#xD;&#xA;&#x9;@Format nvarchar(12),&#xD;&#xA;&#xD;&#xA;&#x9;@PokemonId int,&#xD;&#xA;&#x9;@RawCount int,&#xD;&#xA;&#x9;@Abilities nvarchar(300),&#xD;&#xA;&#x9;@Items nvarchar(800),&#xD;&#xA;&#x9;@Spreads nvarchar(800),&#xD;&#xA;&#x9;@Moves nvarchar(1950),&#xD;&#xA;&#x9;@Teammates nvarchar(800),&#xD;&#xA;&#x9;@ChecksAndCounters nvarchar(800)&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
+	</Model>
+</DataSchemaModel>

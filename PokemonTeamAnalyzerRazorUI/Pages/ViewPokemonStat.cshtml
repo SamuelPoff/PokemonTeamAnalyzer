@@ -1,0 +1,52 @@
+﻿@page
+@model PokemonTeamAnalyzerRazorUI.Pages.ViewPokemonStatModel
+@{
+    ViewData["Title"] = "View Pokemon Stat";
+}
+
+<h1>View Pokemon Stat</h1>
+
+<h1>Usage Stats for @Model.PokemonName </h1>
+@foreach (var pkmnStat in Model.PokemonStats)
+{
+
+    <h3>
+        Gen @pkmnStat.Generation @pkmnStat.Format
+    </h3>
+
+    <h5>Raw Count</h5>
+    <p>
+        @pkmnStat.RawCount
+    </p>
+
+    <h5>Abilities</h5>
+    <p>
+        @pkmnStat.Abilities
+    </p>
+
+    <h5>Items</h5>
+    <p>
+        @pkmnStat.Items
+    </p>
+
+    <h5>Spreads</h5>
+    <p>
+        @pkmnStat.Spreads
+    </p>
+
+    <h5>Moves</h5>
+    <p>
+        @pkmnStat.Moves
+    </p>
+
+    <h5>Teammates</h5>
+    <p>
+        @pkmnStat.Teammates
+    </p>
+
+    <h5>Checks And Counters</h5>
+    <p>
+        @pkmnStat.ChecksAndCounters
+    </p>
+
+}

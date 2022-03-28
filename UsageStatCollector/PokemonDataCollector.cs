@@ -17,9 +17,12 @@ namespace UsageStatCollector
         private readonly static int PokemonNum = 898;
         private static IPokemonData _data;
 
+        private static Dictionary<string, string> PokemonNameFixes = new Dictionary<string, string>();
+
         public static void PokemonDataCollectorConfigure(IPokemonData data)
         {
             _data = data;
+            FillPokemonNameFixes();
         }
 
         public static async Task CollectPokemonData()
@@ -60,7 +63,9 @@ namespace UsageStatCollector
         {
 
             PokemonModel pokemonModel = new PokemonModel();
-            pokemonModel.Name = pokemon.name;
+
+            //Get pokemon name
+            pokemonModel.Name = GetPokemonName(pokemon.name);
             
             //Get types
             for(int i = 0; i < pokemon.types.Length; i++)
@@ -106,6 +111,73 @@ namespace UsageStatCollector
             pokemonModel.SpriteUrl = pokemon.sprites.front_default;
 
             return pokemonModel;
+
+        }
+
+        private static string GetPokemonName(string pokeapiName)
+        {
+            if(PokemonNameFixes.Count <= 0)
+            {
+                return pokeapiName;
+            }
+
+            string name = pokeapiName;
+            bool nameFixed = false;
+
+            foreach(var pair in PokemonNameFixes)
+            {
+
+                if(pokeapiName == pair.Key)
+                {
+                    name = pair.Value;
+                    nameFixed = true;
+                    break;
+                }
+
+            }
+
+            //Remove found name fixes to improve performance
+            if (nameFixed)
+                PokemonNameFixes.Remove(pokeapiName);
+
+            return name;
+
+        }
+
+        private static void FillPokemonNameFixes()
+        {
+
+            PokemonNameFixes["nidoran-m"] = "nidoranM";
+            PokemonNameFixes["nidoran-f"] = "nidoranF";
+            PokemonNameFixes["deoxys-normal"] = "deoxys";
+            PokemonNameFixes["wormadam-plant"] = "wormadam";
+            PokemonNameFixes["basculin-red-striped"] = "basculin";
+            PokemonNameFixes["giratina-altered"] = "giratina";
+            PokemonNameFixes["darmanitan-standard"] = "darmanitan";
+            PokemonNameFixes["keldeo-ordinary"] = "keldeo";
+            PokemonNameFixes["meloetta-aria"] = "meloetta";
+            PokemonNameFixes["landorus-incarnate"] = "landorus";
+            PokemonNameFixes["tornadus-incarnate"] = "tornadus";
+            PokemonNameFixes["thundurus-incarnate"] = "thundurus";
+            PokemonNameFixes["pumpkaboo-average"] = "pumpkaboo";
+            PokemonNameFixes["gourgeist-average"] = "gourgeist";
+            PokemonNameFixes["indeedee-male"] = "indeedee";
+            PokemonNameFixes["indeedee-female"] = "indeedee-f";
+            PokemonNameFixes["meowstic-male"] = "meowstic";
+            PokemonNameFixes["meowstic-female"] = "meowstic-f";
+            PokemonNameFixes["zygarde-10"] = "zygarde-10%";
+            PokemonNameFixes["zygarde-50"] = "zygarde";
+            PokemonNameFixes["oricorio-baile"] = "oricorio";
+            PokemonNameFixes["lycanroc-midday"] = "lycanroc";
+            PokemonNameFixes["wishiwashi-solo"] = "wishiwashi";
+            PokemonNameFixes["minior-red-meteor"] = "minior";
+            PokemonNameFixes["mimikyu-disguised"] = "mimikyu";
+            PokemonNameFixes["necrozma-dawn"] = "necrozma-dawn-wings";
+            PokemonNameFixes["necrozma-dusk"] = "necrozma-dusk-mane";
+            PokemonNameFixes["toxtricity-amped"] = "toxtricity";
+            PokemonNameFixes["eiscue-ice"] = "eiscue";
+            PokemonNameFixes["morpeko-full-belly"] = "morpeko";
+            PokemonNameFixes["urshifu-single-strike"] = "urshifu";
 
         }
 
