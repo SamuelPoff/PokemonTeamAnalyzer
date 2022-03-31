@@ -10,7 +10,7 @@ namespace DataAccess.SqlAccess
         Task<IEnumerable<T>> LoadDataSP<T, U>(string storedProc, U parameters, string connectionId = "Default");
         Task SaveDataSP<T>(string storedProc, T parameters, string connectionId = "Default");
 
-        Task<IEnumerable<T>> LoadData<T, U>(string storedProc, U parameters, string connectionId = "Default");
+        Task<IEnumerable<T>> LoadData<T, U>(string queryString, U parameters, string connectionId = "Default");
         Task SaveData<T>(string storedProc, T parameters, string connectionId = "Default");
 
         Task SaveDataCmd(SqlCommand cmd, string connectionId = "Default");

@@ -75,6 +75,7 @@
     <Build Include="StoredProcedures\PokemonUsage\spPokemonUsage_GetAllGenAndFormat.sql" />
     <Build Include="StoredProcedures\Pokemon\spPokemon_GetByName.sql" />
     <Build Include="StoredProcedures\PokemonUsage\spPokemonUsage_GetAllByPkmnID.sql" />
+    <Build Include="StoredProcedures\Pokemon\spPokemon_GetByNameStringSearch.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="PkmnDatabase.refactorlog" />

@@ -91,8 +91,6 @@ namespace DataAccess.SqlAccess
 
             }
 
-            
-
         }
 
         public async Task SaveData<T>(string queryString, T parameters, string connectionId = "Default")

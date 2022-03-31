@@ -13,4 +13,8 @@
     <ProjectReference Include="..\UsageStatCollector\UsageStatCollector.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Pages\Partials\" />
+  </ItemGroup>
+
 </Project>

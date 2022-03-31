@@ -843,6 +843,98 @@ END]]></Value>
 				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[spPokemon_GetByName]&#xD;&#xA;&#x9;@Name NVARCHAR(25)&#xD;&#xA;AS" />
 			</Annotation>
 		</Element>
+		<Element Type="SqlProcedure" Name="[dbo].[spPokemon_GetByNameStringSearch]">
+			<Property Name="BodyScript">
+				<Value><![CDATA[
+BEGIN
+
+	SELECT [Id], [Name], [Type1], [Type2], [Ability1], [Ability2], [HiddenAbility], [Hp], [Att], [Def], [SpAtt], [SpDef], [Spd], [SpriteUrl]
+	FROM dbo.Pokemon
+	WHERE [Name] LIKE '%'+@SearchString+'%';
+
+END]]></Value>
+			</Property>
+			<Property Name="IsAnsiNullsOn" Value="True" />
+			<Relationship Name="BodyDependencies">
+				<Entry>
+					<References Name="[dbo].[Pokemon]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[Id]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[Name]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[Type1]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[Type2]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[Ability1]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[Ability2]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[HiddenAbility]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[Hp]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[Att]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[Def]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[SpAtt]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[SpDef]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[Spd]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[Pokemon].[SpriteUrl]" />
+				</Entry>
+				<Entry>
+					<References Name="[dbo].[spPokemon_GetByNameStringSearch].[@SearchString]" />
+				</Entry>
+			</Relationship>
+			<Relationship Name="Parameters">
+				<Entry>
+					<Element Type="SqlSubroutineParameter" Name="[dbo].[spPokemon_GetByNameStringSearch].[@SearchString]">
+						<Relationship Name="Type">
+							<Entry>
+								<Element Type="SqlTypeSpecifier">
+									<Property Name="Length" Value="25" />
+									<Relationship Name="Type">
+										<Entry>
+											<References ExternalSource="BuiltIns" Name="[nvarchar]" />
+										</Entry>
+									</Relationship>
+								</Element>
+							</Entry>
+						</Relationship>
+					</Element>
+				</Entry>
+			</Relationship>
+			<Relationship Name="Schema">
+				<Entry>
+					<References ExternalSource="BuiltIns" Name="[dbo]" />
+				</Entry>
+			</Relationship>
+			<Annotation Type="SysCommentsObjectAnnotation">
+				<Property Name="Length" Value="306" />
+				<Property Name="StartLine" Value="1" />
+				<Property Name="StartColumn" Value="1" />
+				<Property Name="HeaderContents" Value="CREATE PROCEDURE [dbo].[spPokemon_GetByNameStringSearch]&#xD;&#xA;&#x9;@SearchString NVARCHAR(25)&#xD;&#xA;AS" />
+			</Annotation>
+		</Element>
 		<Element Type="SqlProcedure" Name="[dbo].[spPokemon_Insert]">
 			<Property Name="BodyScript">
 				<Value><![CDATA[

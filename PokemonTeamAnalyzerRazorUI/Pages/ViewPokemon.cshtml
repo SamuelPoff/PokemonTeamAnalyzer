@@ -4,76 +4,68 @@
     ViewData["Title"] = "View Pokemon";
 }
 
-<h1>View Pokemon</h1>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js">
+</script>
 
-<table>
-    <thead>
-        <th>Sprite</th>
-        <th>PokemonID</th>
-        <th>Name</th>
-        <th>Type 1</th>
-        <th>Type 2</th>
-        <th>Ability 1</th>
-        <th>Ability 2</th>
-        <th>Hidden Ability</th>
-        <th>Hp</th>
-        <th>Att</th>
-        <th>Def</th>
-        <th>SpAtt</th>
-        <th>SpDef</th>
-        <th>Spd</th>
-        <th>Stat Link</th>
-    </thead>
+<h1>View Pokemon Data</h1>
 
-@foreach(var pkmn in Model.PokemonList)
-            {
-    <tr>
-        <td>
-            <img src="@pkmn.SpriteUrl">
-        </td>
-        <td>
-            @pkmn.ID
-        </td>
-        <td>
-            @pkmn.Name
-        </td>
-        <td>
-            @pkmn.Type1
-        </td>
-        <td>
-            @pkmn.Type2
-        </td>
-        <td>
-            @pkmn.Ability1
-        </td>
-        <td>
-            @pkmn.Ability2
-        </td>
-        <td>
-            @pkmn.HiddenAbility
-        </td>
-        <td>
-            @pkmn.HP
-        </td>
-        <td>
-            @pkmn.Att
-        </td>
-        <td>
-            @pkmn.Def
-        </td>
-        <td>
-            @pkmn.SpAtt
-        </td>
-        <td>
-            @pkmn.SpDef
-        </td>
-        <td>
-            @pkmn.Spd
-        </td>
-        <td>
-            <a href="ViewPokemonStat?PokemonName=@pkmn.Name">View Stats</a>
-        </td>
-    </tr>
+
+<div id="filters">
+
+    <input id="name-filter" type="text" placeholder="Pkmn Name" />
+
+    <select id="type-filter-1">
+        <partial name="TypeSelectionPartial" />
+    </select>
+
+    <select id="type-filter-2">
+        <partial name="TypeSelectionPartial" />
+        <option value="NONE">None</option>
+    </select>
+
+    <input id="ability-name-filter" type="text" placeholder="Ability Name"/>
+
+    <button id="search-button" value="Search">Search</button>
+
+</div>
+
+
+
+<div id="view-results-div">
+
+</div>
+
+<script>
+
+    document.getElementById('search-button').addEventListener("click", updatePage)
+
+    var view_results = document.getElementById("view-results-div");
+    var nameFilter = document.getElementById('name-filter');
+    var typeFilter = document.getElementById('type-filter-1');
+    var typeFilter2 = document.getElementById('type-filter-2');
+    var abilityFilter = document.getElementById('ability-name-filter');
+
+    function updatePage() {
+        $.ajax({
+
+            dataType: 'html',
+            url: 'Shared/PokemonView',
+            type: 'GET',
+            data: {
+                SearchString: nameFilter.value,
+                TypeFilter: typeFilter.value,
+                TypeFilter2: typeFilter2.value,
+                AbilityNameFilter: abilityFilter.value
+            },
+            success: function (data) {
+                view_results.innerHTML = data;
+                console.log("anything");
+            },
+            error: function (e) {
+                alert("Error: " + e);
             }
 
-</table>
+        });
+    }
+
+</script>

@@ -14,19 +14,23 @@ namespace PokemonTeamAnalyzerRazorUI.Pages
     {
 
         IPokemonData _data;
+        [BindProperty]
         public List<PokemonModel> PokemonList { get; set; }
+
+        [BindProperty(SupportsGet=true)]
+        public string SearchString { get; set; }
 
         public ViewPokemonModel(IPokemonData data)
         {
             _data = data;
-
         }
 
         public async Task OnGet()
         {
 
-            PokemonList = (List<PokemonModel>)await _data.GetAllPokemon();
+            //PokemonList = (List<PokemonModel>)await _data.GetPokemonByNameSearch(SearchString);
             
         }
+
     }
 }
