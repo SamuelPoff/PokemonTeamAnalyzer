@@ -24,6 +24,123 @@ a {
   border-color: #1861ac;
 }
 
+/*
+    Grid css
+*/
+.grid-container {
+    display: grid;
+    
+    grid-template-columns: auto auto auto auto auto;
+}
+
+.format-section{
+
+    padding: 5px;
+    margin: 10px;
+
+    border: 1px solid rgba(0, 0, 0, 0.5);
+
+}
+
+/*Custom HTML-select styles
+-------------------------------------------------- */
+.custom-select{
+    position: relative;
+}
+
+/*Original select must be hidden*/
+.custom-select select{
+    display: none;
+}
+
+.stat-section{
+
+    padding: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+
+}
+
+.select-selected:after {
+    position: absolute;
+    content: "";
+    top: 14px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-color: #fff transparent transparent transparent;
+}
+
+.select-items div, .select-selected{
+
+    color: white;
+
+    padding: 8px 16px;
+    border: 1px solid transparent;
+    cursor: pointer;
+
+}
+
+.select-items{
+
+    position: absolute;
+    background-color: rgba(255, 190, 130, 0.8);
+
+}
+
+.select-hide{
+    display: none;
+}
+
+/*Lazy image loading
+------------------------------------------------- */
+.lazy-load {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.lazy-load img {
+    opacity: 1;
+    transform: scale(1);
+    transition: background 0.5s, opacity 0.5s, transform 0.5s;
+}
+
+.lazy-load-waiting img {
+    opacity: 0;
+    transform: scale(0);
+    transition: none;
+}
+
+/*Custom Styles
+-------------------------------------------------- */
+.main-header{
+    padding: 5%;
+
+    max-height: 150px;
+}
+
+.main-content{
+
+    display: flex;
+
+    flex-direction: column;
+    align-content: center;
+    justify-content: space-evenly;
+
+}
+
+.important-section {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: space-evenly;
+
+    min-height: 500px;
+
+    border-top: 0.5px solid rgba(0, 0, 0, 0.5);
+}
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {

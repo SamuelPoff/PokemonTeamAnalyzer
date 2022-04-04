@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using DataAccess.Data;
 using DataAccess.Models;
 
+using UsageStatCollector;
+
 namespace PokemonTeamAnalyzerRazorUI.Pages
 {
     public class ViewPokemonStatModel : PageModel
@@ -52,5 +54,23 @@ namespace PokemonTeamAnalyzerRazorUI.Pages
                 Console.WriteLine("Pokemon isnt in database");
             }
         }
+
+        public string GetFormatedStatBlockText(string statBlockCsvText)
+        {
+
+            string formattedText = "";
+
+            var statList = Parser.ParseUsageSection(statBlockCsvText);
+            foreach(Tuple<string, float> stat in statList)
+            {
+
+                formattedText += $"{stat.Item1}: {stat.Item2}%\n";
+
+            }
+
+            return formattedText;
+
+        }
+
     }
 }

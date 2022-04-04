@@ -53,13 +53,13 @@ namespace DataAccess.Data
             //Check for just a name filter since there is an optimized stored proc for that
             if (filterData.NameSearchString != "" && filterData.TypeFilter == "no-selection" && filterData.TypeFilter2 == "no-selection" && filterData.AbilityNameSearchString == "")
             {
-                return await _db.LoadDataSP<PokemonModel, dynamic>("PokemonDatabase.dbo.spPokemon_GetByNameStringSearch", new { SearchString = filterData.NameSearchString});
+                return await _db.LoadDataSP<PokemonModel, dynamic>("PkmnDatabase.dbo.spPokemon_GetByNameStringSearch", new { SearchString = filterData.NameSearchString});
             }
 
             //Check for empty filter
             if (filterData.IsEmpty())
             {
-                return await _db.LoadDataSP<PokemonModel, dynamic>("PokemonDatabase.dbo.spPokemon_GetAll", new { });
+                return await _db.LoadDataSP<PokemonModel, dynamic>("PkmnDatabase.dbo.spPokemon_GetAll", new { });
             }
 
             //Otherwise build out the query based on what info we have to filter by
@@ -133,8 +133,6 @@ namespace DataAccess.Data
                 queryString += "([Ability1] LIKE '%'+@AbilityNameSearchString+'%' OR [Ability2] LIKE '%'+@AbilityNameSearchString+'%' OR [HiddenAbility] LIKE '%'+@AbilityNameSearchString+'%') ";
                 firstClauseAdded = true;
             }
-
-            Console.WriteLine(queryString);
 
             return await _db.LoadData<PokemonModel, dynamic>(queryString, new {
                 NameSearchString=filterData.NameSearchString ,

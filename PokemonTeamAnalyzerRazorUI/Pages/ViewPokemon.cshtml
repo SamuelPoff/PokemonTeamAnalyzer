@@ -14,18 +14,16 @@
 
     <input id="name-filter" type="text" placeholder="Pkmn Name" />
 
-    <select id="type-filter-1">
+    <select class="select-custom" id="type-filter-1">
         <partial name="TypeSelectionPartial" />
     </select>
 
-    <select id="type-filter-2">
+    <select class="select-custom" id="type-filter-2">
         <partial name="TypeSelectionPartial" />
         <option value="NONE">None</option>
     </select>
 
-    <input id="ability-name-filter" type="text" placeholder="Ability Name"/>
-
-    <button id="search-button" value="Search">Search</button>
+    <input id="ability-name-filter" type="text" placeholder="Ability Name" />
 
 </div>
 
@@ -35,17 +33,39 @@
 
 </div>
 
+
+<script src="~/js/LazyImageLoadBrowser.js"></script>
 <script>
 
-    document.getElementById('search-button').addEventListener("click", updatePage)
+    let view_results = document.getElementById("view-results-div");
 
-    var view_results = document.getElementById("view-results-div");
-    var nameFilter = document.getElementById('name-filter');
-    var typeFilter = document.getElementById('type-filter-1');
-    var typeFilter2 = document.getElementById('type-filter-2');
-    var abilityFilter = document.getElementById('ability-name-filter');
+    let nameFilter = document.getElementById('name-filter');
+    let typeFilter = document.getElementById('type-filter-1');
+    let typeFilter2 = document.getElementById('type-filter-2');
+    let abilityFilter = document.getElementById('ability-name-filter');
 
-    function updatePage() {
+    let searchTimerHandle = null;
+    let searchDelay = 500;
+
+    nameFilter.addEventListener("input", OnFilterInputChanged);
+    abilityFilter.addEventListener("input", OnFilterInputChanged);
+    typeFilter.addEventListener("input", OnFilterInputChanged);
+    typeFilter2.addEventListener("input", OnFilterInputChanged);
+
+    function OnFilterInputChanged() {
+
+        if (searchTimerHandle != null) {
+            clearTimeout(searchTimerHandle);
+            console.log("Previous search canceled");
+        }
+
+        searchTimerHandle = setTimeout(updateResults, searchDelay);
+
+    }
+
+    function updateResults() {
+        console.log("searching...");
+
         $.ajax({
 
             dataType: 'html',
@@ -59,13 +79,20 @@
             },
             success: function (data) {
                 view_results.innerHTML = data;
-                console.log("anything");
+                ConfigureLazyLoading();
             },
             error: function (e) {
                 alert("Error: " + e);
             }
 
         });
+
+        searchTimerHandle = null;
+
     }
 
+    //Load all results by default when loading the page
+    updateResults();
+
 </script>
+

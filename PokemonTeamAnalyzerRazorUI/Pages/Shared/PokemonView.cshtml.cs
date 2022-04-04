@@ -15,6 +15,7 @@ namespace PokemonTeamAnalyzerRazorUI.Pages.Shared
     {
 
         private readonly IPokemonData _data;
+        public int NumImagesToLoad { get; set; } = 8;
         public List<PokemonModel> PokemonList { get; set; }
 
         public PokemonViewModel(IPokemonData data)

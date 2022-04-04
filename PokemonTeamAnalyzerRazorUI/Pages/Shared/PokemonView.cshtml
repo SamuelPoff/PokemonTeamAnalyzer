@@ -7,11 +7,15 @@
 @if (Model.PokemonList != null && Model.PokemonList.Count > 0)
 {
 
+    int pokemonCount = 0;
+
     <p>Results: @Model.PokemonList.Count</p>
 
-    <table>
+    <section>
 
-        <thead>
+        <table>
+
+            <thead>
             <th>Pkmn Sprite</th>
             <th>ID</th>
             <th>Name</th>
@@ -27,64 +31,82 @@
             <th>SpDef</th>
             <th>Spd</th>
             <th>Usage Stats</th>
-        </thead>
+            </thead>
 
-    @foreach (var pokemon in Model.PokemonList) {
+            @foreach (var pokemon in Model.PokemonList)
+            {
 
-    <tr>
-        <td>
-            <img src="@pokemon.SpriteUrl" />
-        </td>
-        <td>
-            @pokemon.ID
-        </td>
-        <td>
-            @pokemon.Name
-        </td>
-        <td>
-            @pokemon.Type1
-        </td>
-        <td>
-            @pokemon.Type2
-        </td>
-        <td>
-            @pokemon.Ability1
-        </td>
-        <td>
-            @pokemon.Ability2
-        </td>
-        <td>
-            @pokemon.HiddenAbility
-        </td>
-        <td>
-            @pokemon.HP
-        </td>
-        <td>
-            @pokemon.Att
-        </td>
-        <td>
-            @pokemon.Def
-        </td>
-        <td>
-            @pokemon.SpAtt
-        </td>
-        <td>
-            @pokemon.SpDef
-        </td>
-        <td>
-            @pokemon.Spd
-        </td>
-        <td>
-            <a href="/ViewPokemonStat?PokemonName=@pokemon.Name">See Stats</a>
-        </td>
-    </tr>
+                <tr>
+                    <td>
+                        @if (pokemonCount > Model.NumImagesToLoad)
+                        {
+                            <span class="lazy-load">
+                                <img src="@pokemon.SpriteUrl" alt="" loading="lazy" width="96" height="96"/>
+                            </span>
+                        }
+                        else
+                        {
+                            <img src="@pokemon.SpriteUrl" alt=""/>
+                        }
+                    </td>
+                    <td>
+                        @pokemon.ID
+                    </td>
+                    <td>
+                        @pokemon.Name
+                    </td>
+                    <td>
+                        @pokemon.Type1
+                    </td>
+                    <td>
+                        @pokemon.Type2
+                    </td>
+                    <td>
+                        @pokemon.Ability1
+                    </td>
+                    <td>
+                        @pokemon.Ability2
+                    </td>
+                    <td>
+                        @pokemon.HiddenAbility
+                    </td>
+                    <td>
+                        @pokemon.HP
+                    </td>
+                    <td>
+                        @pokemon.Att
+                    </td>
+                    <td>
+                        @pokemon.Def
+                    </td>
+                    <td>
+                        @pokemon.SpAtt
+                    </td>
+                    <td>
+                        @pokemon.SpDef
+                    </td>
+                    <td>
+                        @pokemon.Spd
+                    </td>
+                    <td>
+                        <a href="/ViewPokemonStat?PokemonName=@pokemon.Name">See Stats</a>
+                    </td>
+                </tr>
 
-    }
-    
-    </table>
+                pokemonCount += 1;
+
+            }
+
+        </table>
+
+    </section>
+
 }
 else {
+<section>
 
     <h1>No Matching Results</h1>
+
+</section>
 
 }

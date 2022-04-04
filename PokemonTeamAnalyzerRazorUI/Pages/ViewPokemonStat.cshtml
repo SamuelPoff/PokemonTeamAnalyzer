@@ -1,52 +1,165 @@
-﻿@page
+﻿
+@page
 @model PokemonTeamAnalyzerRazorUI.Pages.ViewPokemonStatModel
 @{
     ViewData["Title"] = "View Pokemon Stat";
 }
 
+@using UsageStatCollector
+
 <h1>View Pokemon Stat</h1>
 
-<h1>Usage Stats for @Model.PokemonName </h1>
+<h1>Usage Stats for @Model.PokemonName. </h1>
 @foreach (var pkmnStat in Model.PokemonStats)
 {
 
-    <h3>
-        Gen @pkmnStat.Generation @pkmnStat.Format
-    </h3>
+<div class="format-section">
 
-    <h5>Raw Count</h5>
-    <p>
-        @pkmnStat.RawCount
-    </p>
+    <div class="stat-section">
+        <h3>
+            Gen @pkmnStat.Generation @pkmnStat.Format.ToUpper()
+        </h3>
+    </div>
 
-    <h5>Abilities</h5>
-    <p>
-        @pkmnStat.Abilities
-    </p>
+    <div class="stat-section">
+        <h5>Raw Count</h5>
+        <p>
+            @pkmnStat.RawCount
+        </p>
+    </div>
 
-    <h5>Items</h5>
-    <p>
-        @pkmnStat.Items
-    </p>
+    <div class="stat-section">
+        <h5>Abilities</h5>
 
-    <h5>Spreads</h5>
-    <p>
-        @pkmnStat.Spreads
-    </p>
+        @{
+            var abilities = Parser.ParseUsageSection(pkmnStat.Abilities);
+        }
 
-    <h5>Moves</h5>
-    <p>
-        @pkmnStat.Moves
-    </p>
+        <div class="grid-container">
+            @foreach (var ability in abilities)
+            {
 
-    <h5>Teammates</h5>
-    <p>
-        @pkmnStat.Teammates
-    </p>
 
-    <h5>Checks And Counters</h5>
-    <p>
-        @pkmnStat.ChecksAndCounters
-    </p>
+                <div class="grid-item">
+                    @ability.Item1: @ability.Item2%
+                </div>
 
-}
+
+            }
+        </div>
+
+    </div>
+
+    <div class="stat-section">
+        <h5>Items</h5>
+
+        @{
+            var items = Parser.ParseUsageSection(pkmnStat.Items);
+        }
+
+        <div class="grid-container">
+            @foreach (var item in items)
+            {
+
+
+                <div class="grid-item">
+                    @item.Item1: @item.Item2%
+                </div>
+
+
+            }
+        </div>
+    </div>
+
+    <div class="stat-section">
+        <h5>Spreads</h5>
+        @{
+            var spreads = Parser.ParseUsageSection(pkmnStat.Spreads);
+        }
+
+        <div class="grid-container">
+            @foreach (var spread in spreads)
+            {
+
+
+                <div class="grid-item">
+                    @spread.Item1: @spread.Item2%
+                </div>
+
+
+            }
+        </div>
+    </div>
+
+    <div class="stat-section">
+        <h5>Moves</h5>
+        @{
+            var moves = Parser.ParseUsageSection(pkmnStat.Moves);
+        }
+
+        <div class="grid-container">
+            @foreach (var move in moves)
+            {
+
+
+                <div class="grid-item">
+                    @move.Item1: @move.Item2%
+                </div>
+
+
+            }
+        </div>
+    </div>
+
+    <div class="stat-section">
+        <h5>Teammates</h5>
+        @{
+            var teammates = Parser.ParseUsageSection(pkmnStat.Teammates);
+        }
+
+        <div class="grid-container">
+            @foreach (var teammate in teammates)
+            {
+
+
+                <div class="grid-item">
+                    @teammate.Item1: @teammate.Item2%
+                </div>
+
+
+            }
+
+        </div>
+    </div>
+
+    <div class="stat-section">
+        <h5>Checks And Counters</h5>
+        @{
+            List<Tuple<string, float>> checksAndCounters = null;
+            if (!String.IsNullOrEmpty(pkmnStat.ChecksAndCounters))
+            {
+
+                checksAndCounters = Parser.ParseUsageSection(pkmnStat.ChecksAndCounters);
+                <div class="grid-container">
+                    @foreach (var check in checksAndCounters)
+                    {
+
+
+                        <div class="grid-item">
+                            @check.Item1: @check.Item2
+                        </div>
+
+
+                    }
+
+                </div>
+            }
+
+        }
+    </div>
+
+</div>
+        }
+
+
+    
