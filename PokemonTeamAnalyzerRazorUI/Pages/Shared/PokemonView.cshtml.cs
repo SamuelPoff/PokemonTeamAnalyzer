@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using DataAccess.Models;
 using DataAccess.Data;
 using DataAccess.Filters;
+using DataAccess.Helpers;
 
 namespace PokemonTeamAnalyzerRazorUI.Pages.Shared
 {
@@ -27,8 +28,8 @@ namespace PokemonTeamAnalyzerRazorUI.Pages.Shared
         {
 
             PokemonFilterData filterData = new PokemonFilterData();
-            filterData.NameSearchString = searchString;
-            filterData.AbilityNameSearchString = abilityNameFilter;
+            filterData.NameSearchString = TextFormater.FormatString(searchString);
+            filterData.AbilityNameSearchString = TextFormater.FormatString(abilityNameFilter);
             filterData.TypeFilter = typeFilter;
             filterData.TypeFilter2 = typeFilter2;
 
