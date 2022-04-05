@@ -52,6 +52,39 @@
     typeFilter.addEventListener("input", OnFilterInputChanged);
     typeFilter2.addEventListener("input", OnFilterInputChanged);
 
+    /*Saving/Restoring filter data
+     ---------------------------------*/
+    function SaveFilterData() {
+        if (typeof Storage !== "undefined") {
+
+            localStorage.nameFilter = nameFilter.value;
+            localStorage.abilityFilter = abilityFilter.value;
+            localStorage.typeFilter = typeFilter.value;
+            localStorage.typeFilter2 = typeFilter2.value;
+
+        }
+    }
+    function RestoreFilterData() {
+
+        if (typeof Storage !== "undefined") {
+
+            if (localStorage.nameFilter != null) {
+                nameFilter.value = localStorage.nameFilter;
+            }
+            if (localStorage.abilityFilter != null) {
+                abilityFilter.value = localStorage.abilityFilter;
+            }
+            if (localStorage.typeFilter != null) {
+                typeFilter.value = localStorage.typeFilter;
+            }
+            if (localStorage.typeFilter2 != null) {
+                typeFilter2.value = localStorage.typeFilter2;
+            }
+            
+        }
+
+    }
+
     function OnFilterInputChanged() {
 
         if (searchTimerHandle != null) {
@@ -91,8 +124,17 @@
 
     }
 
-    //Load all results by default when loading the page
-    updateResults();
+    //Save filter data on page unload
+    window.addEventListener("beforeunload", SaveFilterData);
+
+    //Reload same results when returning to page, load all results by default on first visit
+    document.addEventListener("DOMContentLoaded", OnPageLoad);
+
+    function OnPageLoad() {
+        console.log("OnPageLoad");
+        RestoreFilterData();
+        updateResults();
+    }
 
 </script>
 
