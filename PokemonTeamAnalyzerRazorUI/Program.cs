@@ -13,6 +13,9 @@ namespace PokemonTeamAnalyzer
     {
         public static void Main(string[] args)
         {
+
+
+
             CreateHostBuilder(args).Build().Run();
         }
 

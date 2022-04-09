@@ -114,6 +114,41 @@ namespace DataAccess.Data
 
         }
 
+        public async Task<bool> RecordExists(int pokemonId, int gen, string format)
+        {
+
+            string queryString = "SELECT COUNT(*) FROM PkmnDatabase.dbo.PokemonUsage " +
+                                 "WHERE [PokemonId]=@PokemonId AND [Generation]=@Generation AND [Format]=@Format";
+
+            int result = await _db.ExecuteScalarAsync<int, dynamic>(queryString, new { PokemonId = pokemonId, Generation = gen, Format = format });
+
+            if(result > 0)
+            {
+                return true;
+            }
+
+            return false;
+
+        }
+
+        /// <summary>
+        /// Returns if UsageStat table is empty
+        /// </summary>
+        /// <returns></returns>
+        public bool IsEmpty()
+        {
+
+            string query = "SELECT COUNT(*) FROM PkmnDatabase.dbo.PokemonUsage";
+
+            var result = _db.LoadData<int, dynamic>(query, new { });
+            if (result.Result.FirstOrDefault() == 0)
+            {
+                return true;
+            }
+            
+            return false;
+
+        }
 
         public void BeginOperations()
         {

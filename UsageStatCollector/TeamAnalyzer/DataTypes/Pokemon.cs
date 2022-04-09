@@ -14,7 +14,7 @@ namespace UsageStatCollector.TeamAnalyzer.DataTypes
 
         public string Name { get; set; }
         public PokemonType.TypeName Type1 { get; set; }
-        public PokemonType.TypeName Type2 { get; set; }
+        public PokemonType.TypeName? Type2 { get; set; }
         public string AbilityName { get; set; }
         public string ItemName { get; set; }
         public PokemonMoveset Moveset { get; set; }

@@ -9,6 +9,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+using UsageStatCollector;
+
 using DataAccess;
 using DataAccess.SqlAccess;
 using DataAccess.Data;
@@ -40,6 +42,19 @@ namespace PokemonTeamAnalyzer
             UsageStatCollector.Collector.CollectorConfigure(app.ApplicationServices.GetService<IPokemonUsageData>());
             UsageStatCollector.Parser.ParserConfigure(app.ApplicationServices.GetService<IPokemonData>());
             UsageStatCollector.PokemonDataCollector.PokemonDataCollectorConfigure(app.ApplicationServices.GetService<IPokemonData>());
+
+            //Seed or update PokemonUsageData
+            var usageDA = app.ApplicationServices.GetService<IPokemonUsageData>();
+            bool pokemonUsageTableEmpty = usageDA.IsEmpty();
+            if (pokemonUsageTableEmpty)
+            {
+                Collector.SeedUsageStats().Wait();
+            }
+            else
+            {
+                Collector.UpdateUsageStats().Wait();
+            }
+            
 
             if (env.IsDevelopment())
             {

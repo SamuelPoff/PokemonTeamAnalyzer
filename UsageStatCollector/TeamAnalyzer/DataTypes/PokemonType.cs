@@ -82,66 +82,12 @@ namespace UsageStatCollector.TeamAnalyzer.DataTypes
             return new TypeEffectiveness(attackingType, defendingType, defendingType2, effectiveness1 * effectiveness2);
 
         }
-
         /// <summary>
-        /// Returns a list of all weaknesses of a single type
+        /// Returns a list of all weaknesses of a pokemon's type (single or dual typed)
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
-        public static List<TypeEffectiveness> GetAllWeaknesses(PokemonType.TypeName type)
-        {
-
-            List<TypeEffectiveness> typeEffectivenesses = new List<TypeEffectiveness>();
-
-            for(int i = 0; i < NumberOfTypes; i++)
-            {
-
-                float effectiveness = TypeChart[i, ((int)type)];
-
-                if(effectiveness >= 2)
-                {
-                    PokemonType.TypeName attackingType = (PokemonType.TypeName)i;
-                    typeEffectivenesses.Add(new TypeEffectiveness(attackingType, type, null, effectiveness));
-                }
-
-            }
-
-            return typeEffectivenesses;
-
-        }
-        /// <summary>
-        /// Returns a list of all resistances of a single type
-        /// </summary>
-        /// <param name="type"></param>
-        /// <returns></returns>
-        public static List<TypeEffectiveness> GetAllResistances(PokemonType.TypeName type) {
-
-            List<TypeEffectiveness> typeEffectivenesses = new List<TypeEffectiveness>();
-
-            for (int i = 0; i < NumberOfTypes; i++) {
-
-                float effectiveness = TypeChart[i, ((int)type)];
-
-                if(effectiveness <= 0.5f)
-                {
-
-                    PokemonType.TypeName attackingType = (PokemonType.TypeName)i;
-                    typeEffectivenesses.Add(new TypeEffectiveness(attackingType, type, null, effectiveness));
-
-                }
-            
-            }
-
-            return typeEffectivenesses;
-
-        }
-        /// <summary>
-        /// Returns a list of all weaknesses of a dual type
-        /// </summary>
-        /// <param name="type1"></param>
-        /// <param name="type2"></param>
-        /// <returns></returns>
-        public static List<TypeEffectiveness> GetAllWeaknessesDual(PokemonType.TypeName type1, PokemonType.TypeName type2)
+        public static List<TypeEffectiveness> GetAllWeaknesses(PokemonType.TypeName type1, PokemonType.TypeName? type2 = null)
         {
 
             List<TypeEffectiveness> typeEffectivenesses = new List<TypeEffectiveness>();
@@ -150,15 +96,51 @@ namespace UsageStatCollector.TeamAnalyzer.DataTypes
             {
 
                 float type1Effectiveness = TypeChart[i, ((int)type1)];
-                float type2Effectiveness = TypeChart[i, ((int)type2)];
+                float type2Effectiveness = 1;
 
-                float dualEffectiveness = type1Effectiveness * type2Effectiveness;
+                if(type2 != null)
+                {
+                    type2Effectiveness = TypeChart[i, ((int)type2)];
+                }
 
-                if(dualEffectiveness >= 2)
+                float totalEffectiveness = type1Effectiveness * type2Effectiveness;
+
+                if(totalEffectiveness >= 2)
                 {
 
                     PokemonType.TypeName attackingType = (PokemonType.TypeName)i;
-                    typeEffectivenesses.Add(new TypeEffectiveness(attackingType, type1, type2, dualEffectiveness) );
+                    typeEffectivenesses.Add(new TypeEffectiveness(attackingType, type1, type2, totalEffectiveness) );
+
+                }
+
+            }
+
+            return typeEffectivenesses;
+
+        }
+        public static List<TypeEffectiveness> GetAllWeaknesses(Pokemon pokemon)
+        {
+
+            List<TypeEffectiveness> typeEffectivenesses = new List<TypeEffectiveness>();
+
+            for (int i = 0; i < NumberOfTypes; i++)
+            {
+
+                float type1Effectiveness = TypeChart[i, ((int)pokemon.Type1)];
+                float type2Effectiveness = 1;
+
+                if (pokemon.Type2 != null)
+                {
+                    type2Effectiveness = TypeChart[i, ((int)pokemon.Type2)];
+                }
+
+                float totalEffectiveness = type1Effectiveness * type2Effectiveness;
+
+                if (totalEffectiveness >= 2)
+                {
+
+                    PokemonType.TypeName attackingType = (PokemonType.TypeName)i;
+                    typeEffectivenesses.Add(new TypeEffectiveness(attackingType, pokemon.Type1, pokemon.Type2, totalEffectiveness));
 
                 }
 
@@ -168,12 +150,12 @@ namespace UsageStatCollector.TeamAnalyzer.DataTypes
 
         }
         /// <summary>
-        /// Returns a list of all resistances of a dual type
+        /// Returns a list of all resistances of a pokemon's type (single or dual typed)
         /// </summary>
         /// <param name="type1"></param>
         /// <param name="type2"></param>
         /// <returns></returns>
-        public static List<TypeEffectiveness> GetAllResistancesDual(PokemonType.TypeName type1, PokemonType.TypeName type2)
+        public static List<TypeEffectiveness> GetAllResistances(PokemonType.TypeName type1, PokemonType.TypeName? type2 = null)
         {
 
             List<TypeEffectiveness> typeEffectivenesses = new List<TypeEffectiveness>();
@@ -182,15 +164,20 @@ namespace UsageStatCollector.TeamAnalyzer.DataTypes
             {
 
                 float type1Effectiveness = TypeChart[i, ((int)type1)];
-                float type2Effectiveness = TypeChart[i, ((int)type2)];
+                float type2Effectiveness = 1;
 
-                float dualEffectiveness = type1Effectiveness * type2Effectiveness;
+                if(type2 != null)
+                {
+                    type2Effectiveness = TypeChart[i, ((int)type2)];
+                }
 
-                if (dualEffectiveness <= 0.5f)
+                float totalEffectiveness = type1Effectiveness * type2Effectiveness;
+
+                if (totalEffectiveness <= 0.5f)
                 {
 
                     PokemonType.TypeName attackingType = (PokemonType.TypeName)i;
-                    typeEffectivenesses.Add(new TypeEffectiveness(attackingType, type1, type2, dualEffectiveness));
+                    typeEffectivenesses.Add(new TypeEffectiveness(attackingType, type1, type2, totalEffectiveness));
 
                 }
 
@@ -199,6 +186,38 @@ namespace UsageStatCollector.TeamAnalyzer.DataTypes
             return typeEffectivenesses;
 
         }
+        public static List<TypeEffectiveness> GetAllResistances(Pokemon pokemon)
+        {
+
+            List<TypeEffectiveness> typeEffectivenesses = new List<TypeEffectiveness>();
+
+            for (int i = 0; i < NumberOfTypes; i++)
+            {
+
+                float type1Effectiveness = TypeChart[i, ((int)pokemon.Type1)];
+                float type2Effectiveness = 1;
+
+                if (pokemon.Type2 != null)
+                {
+                    type2Effectiveness = TypeChart[i, ((int)pokemon.Type2)];
+                }
+
+                float totalEffectiveness = type1Effectiveness * type2Effectiveness;
+
+                if (totalEffectiveness <= 0.5f)
+                {
+
+                    PokemonType.TypeName attackingType = (PokemonType.TypeName)i;
+                    typeEffectivenesses.Add(new TypeEffectiveness(attackingType, pokemon.Type1, pokemon.Type2, totalEffectiveness));
+
+                }
+
+            }
+
+            return typeEffectivenesses;
+
+        }
+
 
     }
 
@@ -210,10 +229,10 @@ namespace UsageStatCollector.TeamAnalyzer.DataTypes
     public class TypeEffectiveness
     {
 
-        PokemonType.TypeName AttackingType;
-        PokemonType.TypeName DefendingType1;
-        PokemonType.TypeName? DefendingType2;
-        float Effectiveness;
+        public PokemonType.TypeName AttackingType;
+        public PokemonType.TypeName DefendingType1;
+        public PokemonType.TypeName? DefendingType2;
+        public float Effectiveness;
 
         public TypeEffectiveness(PokemonType.TypeName attType, PokemonType.TypeName defType, PokemonType.TypeName? defType2, float eff)
         {

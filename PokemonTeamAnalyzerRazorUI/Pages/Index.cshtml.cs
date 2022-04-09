@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 using UsageStatCollector;
 using UsageStatCollector.TeamAnalyzer.DataTypes;
+using UsageStatCollector.TeamAnalyzer;
 
 namespace PokemonTeamAnalyzer.Pages
 {
@@ -22,11 +23,6 @@ namespace PokemonTeamAnalyzer.Pages
 
         public async Task OnGet()
         {
-
-            //Collector.CollectUsageStats();
-            //await PokemonDataCollector.CollectPokemonData();
-
-            
 
         }
     }

@@ -27,14 +27,22 @@ namespace UsageStatCollector
             GetSupportedFormats();
         }
 
-        public static async void CollectUsageStats()
+        public static async Task Test()
         {
 
-            Console.WriteLine("Collecting Usage Stats");
+            bool exists = await _data.RecordExists(6, 8, "OU");
+            Console.WriteLine("Gen8OU Charizard exists: " + exists);
+
+        }
+
+        public static async Task UpdateUsageStats()
+        {
+
+            Console.WriteLine("Updating Usage Stats...");
             List<PokemonFormat> formats = GetFormats();
 
             List<Task<List<PokemonStatModel>>> parsingTasks = new List<Task<List<PokemonStatModel>>>();
-            List<Task> insertTasks = new List<Task>();
+            List<Task> insertAndUpdateTasks = new List<Task>();
 
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
@@ -58,10 +66,75 @@ namespace UsageStatCollector
                 foreach(PokemonStatModel stat in parsingTask.Result)
                 {
 
-                    insertTasks.Add(_data.InsertPokemonStat(stat));
+                    //Check if stat already exists (which 99% of the time it should)
+                    //Insert new stat if it doesnt, otherwise: Update
+                    bool exists = await _data.RecordExists(stat.PokemonId, stat.Generation, stat.Format);
+                    if (exists)
+                    {
+                        insertAndUpdateTasks.Add(_data.UpdatePokemonStat(stat));
+                    }
+                    else
+                    {
+                        insertAndUpdateTasks.Add(_data.InsertPokemonStat(stat));
+                    }
 
                 }
                 
+            }
+
+            await Task.WhenAll(insertAndUpdateTasks);
+
+            _data.EndOperations();
+
+            stopwatch.Stop();
+
+            Console.WriteLine($"Total elapsed time: {stopwatch.ElapsedMilliseconds}ms");
+            Console.WriteLine("Completed collecting usage stats!");
+
+        }
+
+        /// <summary>
+        /// Call to seed empty PokemonUsage table with data
+        /// (Doesnt check for updates, to re-parse the data while checking for updates to be inserted/updated, use UpdateUsageStats())
+        /// </summary>
+        /// <returns></returns>
+        public static async Task SeedUsageStats()
+        {
+
+            Console.WriteLine("Collecting Usage Stats");
+            List<PokemonFormat> formats = GetFormats();
+
+            List<Task<List<PokemonStatModel>>> parsingTasks = new List<Task<List<PokemonStatModel>>>();
+            List<Task> insertTasks = new List<Task>();
+
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+
+            _data.BeginOperations();
+
+            foreach (PokemonFormat format in formats)
+            {
+
+                string url = GetUrl(format);
+
+                parsingTasks.Add(Parser.ParseStats(url, format.Generation, format.FormatType));
+
+
+            }
+
+            await Task.WhenAll(parsingTasks);
+
+            foreach (var parsingTask in parsingTasks)
+            {
+                foreach (PokemonStatModel stat in parsingTask.Result)
+                {
+
+
+
+                    insertTasks.Add(_data.InsertPokemonStat(stat));
+
+                }
+
             }
 
             await Task.WhenAll(insertTasks);

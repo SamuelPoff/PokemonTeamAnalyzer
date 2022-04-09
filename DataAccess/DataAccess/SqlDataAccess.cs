@@ -102,11 +102,30 @@ namespace DataAccess.SqlAccess
                 using IDbConnection conn = new SqlConnection(_config.GetConnectionString(connectionId));
 
                 await conn.ExecuteAsync(queryString, parameters, commandType: CommandType.Text);
-
-            }
+                
+            }else
             {
 
                 await connection.ExecuteAsync(queryString, parameters, commandType: CommandType.Text);
+
+            }
+
+        }
+
+        public async Task<T> ExecuteScalarAsync<T, U>(string queryString, U parameters, string connectionId = "default")
+        {
+
+            if(connection == null)
+            {
+
+                using IDbConnection conn = new SqlConnection(_config.GetConnectionString(connectionId));
+                return await conn.ExecuteScalarAsync<T>(queryString, parameters, commandType: CommandType.Text);
+
+            }
+            else
+            {
+
+                return await connection.ExecuteScalarAsync<T>(queryString, parameters, commandType: CommandType.Text);
 
             }
 
@@ -150,6 +169,7 @@ namespace DataAccess.SqlAccess
             
 
         }
+
 
         public void BeginOperations(string connectionId = "Default")
         {

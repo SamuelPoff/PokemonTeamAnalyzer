@@ -12,7 +12,7 @@ namespace DataAccess.SqlAccess
 
         Task<IEnumerable<T>> LoadData<T, U>(string queryString, U parameters, string connectionId = "Default");
         Task SaveData<T>(string storedProc, T parameters, string connectionId = "Default");
-
+        Task<T> ExecuteScalarAsync<T, U>(string queryString, U parameters, string connectionId = "default");
         Task SaveDataCmd(SqlCommand cmd, string connectionId = "Default");
 
         void BeginOperations(string connectionId = "Default");

@@ -50,7 +50,6 @@ namespace UsageStatCollector
         {
 
             string text = await GetUsageStatText(url);
-            //List<Task> insertTasks = new List<Task>();
 
             List<PokemonStatModel> stats = new List<PokemonStatModel>();
 
@@ -95,12 +94,10 @@ namespace UsageStatCollector
                             stat.Format = format;
                             if(pkmn != null)
                             {
-                                Console.WriteLine("Pokemon name found in DB!: " + name);
                                 stat.PokemonId = pkmn.ID;
                             }
                             else
                             {
-                                //Console.WriteLine("!!! Pokemon name wasnt found in DB");
                                 stat.PokemonId = 1;
                             }
                             stat.RawCount = rawCount;
