@@ -1,0 +1,16 @@
+﻿@using DataAccess.Models
+
+@model List<PokemonModel>
+
+@foreach(var pokemon in Model)
+            {
+
+    <div class="LiveSearchOption" data-name="@pokemon.Name">
+        <div class="LiveSearchPokemonName">@pokemon.Name</div>
+        <div class="LiveSearchPokemonTypeContainer">
+            <div class="LiveSearchPokemonType">@pokemon.Type1</div>
+            <div class="LiveSearchPokemonType">@pokemon.Type2</div>
+        </div>
+    </div>
+
+            }

@@ -5,65 +5,18 @@
 }
 
 <h1>Type Analyzer</h1>
-<div id="pokemon-1"> 
-    <select class="select-custom" id="pokemon-type-1">
-        <partial name="TypeIdSelectionPartial" />
-        <option selected value="18">None</option>
-    </select>
-    <select class="select-custom" id="pokemon-type-2">
-        <partial name="TypeIdSelectionPartial" />
-        <option selected value="18">None</option>
-    </select>
-</div>
-<div id="pokemon-2">
-    <select class="select-custom" id="pokemon-type-1">
-        <partial name="TypeIdSelectionPartial" />
-    </select>
-    <select class="select-custom" id="pokemon-type-2">
-        <partial name="TypeIdSelectionPartial" />
-        <option selected value="18">None</option>
-    </select>
-</div>
-<div id="pokemon-3">
-    <select class="select-custom" id="pokemon-type-1">
-        <partial name="TypeIdSelectionPartial" />
-        <option selected value="18">None</option>
-    </select>
-    <select class="select-custom" id="pokemon-type-2">
-        <partial name="TypeIdSelectionPartial" />
-        <option selected value="18">None</option>
-    </select>
-</div>
-<div id="pokemon-4">
-    <select class="select-custom" id="pokemon-type-1">
-        <partial name="TypeIdSelectionPartial" />
-        <option selected value="18">None</option>
-    </select>
-    <select class="select-custom" id="pokemon-type-2">
-        <partial name="TypeIdSelectionPartial" />
-        <option selected value="18">None</option>
-    </select>
-</div>
-<div id="pokemon-5">
-    <select class="select-custom" id="pokemon-type-1">
-        <partial name="TypeIdSelectionPartial" />
-        <option selected value="18">None</option>
-    </select>
-    <select class="select-custom" id="pokemon-type-2">
-        <partial name="TypeIdSelectionPartial" />
-        <option selected value="18">None</option>
-    </select>
-</div>
-<div id="pokemon-6">
-    <select class="select-custom" id="pokemon-type-1">
-        <partial name="TypeIdSelectionPartial" />
-        <option selected value="18">None</option>
-    </select>
-    <select class="select-custom" id="pokemon-type-2">
-        <partial name="TypeIdSelectionPartial" />
-        <option selected value="18">None</option>
-    </select>
-</div>
+
+
+<section id="pokemon-search-boxes">
+
+    @await Component.InvokeAsync("PokemonSearchBox")
+
+</section>
+
+
+
+<button id="add-pokemon-button">Add Pokemon</button>
+
 
 <button id="analyze-button">
     Analyze
@@ -77,48 +30,47 @@
 
 
 <script>
-    let p1Type1 = document.querySelector("#pokemon-1 #pokemon-type-1");
-    let p1Type2 = document.querySelector("#pokemon-1 #pokemon-type-2");
-
-    let p2Type1 = document.querySelector("#pokemon-2 #pokemon-type-1");
-    let p2Type2 = document.querySelector("#pokemon-2 #pokemon-type-2");
-
-    let p3Type1 = document.querySelector("#pokemon-3 #pokemon-type-1");
-    let p3Type2 = document.querySelector("#pokemon-3 #pokemon-type-2");
-
-    let p4Type1 = document.querySelector("#pokemon-4 #pokemon-type-1");
-    let p4Type2 = document.querySelector("#pokemon-4 #pokemon-type-2");
-
-    let p5Type1 = document.querySelector("#pokemon-5 #pokemon-type-1");
-    let p5Type2 = document.querySelector("#pokemon-5 #pokemon-type-2");
-
-    let p6Type1 = document.querySelector("#pokemon-6 #pokemon-type-1");
-    let p6Type2 = document.querySelector("#pokemon-6 #pokemon-type-2");
 
     let analyzeButton = document.getElementById("analyze-button");
     let results = document.getElementById("results");
 
+    let pokemonSearchBoxes = document.getElementById("pokemon-search-boxes");
+    let addPokemonButton = document.getElementById("add-pokemon-button");
+    let totalPokemonSearches = 1;
+
+    function GetPokemonNames() {
+
+        let pkmnNames = [];
+        let pokemonSearchBoxes = document.getElementsByClassName("PokemonSearchBox");
+        console.log(pokemonSearchBoxes);
+
+        for (const searchBox of pokemonSearchBoxes) {
+
+            console.log(searchBox);
+
+            if (searchBox.value != "" && searchBox.value != null) {
+                pkmnNames.push(searchBox.value);
+            }
+            
+        }
+
+        return pkmnNames;
+
+    }
+
     function GetTypeAnalysisResultsAndUpdatePage() {
 
-        console.log("Getting type analysis results");
+        console.log("Getting type analysis");
+
+        let pkmnNames = GetPokemonNames();
+        console.log(pkmnNames);
 
         $.ajax({
             dataType: 'html',
             url: 'Shared/TypeAnalysis',
             type: 'GET',
             data: {
-                pokemon1Type1Id: p1Type1.value,
-                pokemon1Type2Id: p1Type2.value,
-                pokemon2Type1Id: p2Type1.value,
-                pokemon2Type2Id: p2Type2.value,
-                pokemon3Type1Id: p3Type1.value,
-                pokemon3Type2Id: p3Type2.value,
-                pokemon4Type1Id: p4Type1.value,
-                pokemon4Type2Id: p4Type2.value,
-                pokemon5Type1Id: p5Type1.value,
-                pokemon5Type2Id: p5Type2.value,
-                pokemon6Type1Id: p6Type1.value,
-                pokemon6Type2Id: p6Type2.value
+                pokemonNames: JSON.stringify(pkmnNames)
             },
             success: function (data) {
                 console.log("success");
@@ -133,6 +85,154 @@
 
     }
 
+    function ConfigureLiveSearchSection(liveSearchResultsContainer) {
+
+        var liveSearchOptions = liveSearchResultsContainer.getElementsByClassName("LiveSearchOption");
+        for (const option of liveSearchOptions) {
+            option.addEventListener("mousedown", OnLiveSearchOptionClick, false);
+            option.pokemonName = option.dataset.name;
+        }
+
+    }
+
+    function ConfigureLiveSearchSections() {
+
+        var liveSearchOptions = document.getElementsByClassName("LiveSearchOption");
+        for (const option of liveSearchOptions) {
+            option.addEventListener("mousedown", OnLiveSearchOptionClick, false);
+            option.pokemonName = option.dataset.name;
+        }
+
+    }
+
+    function ConfigurePokemonSearchBoxes() {
+
+        var searchBoxes = document.getElementsByClassName("PokemonSearchBox");
+        for (const searchBox of searchBoxes) {
+
+            searchBox.addEventListener("focusin", OnPokemonSearchFocusIn);
+            searchBox.addEventListener("focusout", OnPokemonSearchFocusOut);
+
+            searchBox.addEventListener("input", OnPokemonSearchBoxInputChanged);
+
+        }
+
+    }
+
+    function OnPokemonSearchBoxInputChanged(evt) {
+
+        var pokemonSearchContainer = evt.currentTarget.parentElement;
+
+        UpdateLiveSearch( pokemonSearchContainer );
+
+    }
+
+    function OnLiveSearchOptionClick(evt) {
+
+        console.log("Clicked");
+        var pokemonSearchBox = evt.currentTarget.parentElement.parentElement.getElementsByClassName("PokemonSearchBox");
+        var liveSearchResultsContainer = evt.currentTarget.parentElement;
+        pokemonSearchBox[0].value = evt.currentTarget.pokemonName;
+        liveSearchResultsContainer.innerHTML = "";
+
+    }
+
+
+    function AddPokemonSearchBox() {
+
+        
+
+        $.ajax({
+            dataType: 'html',
+            url: '?handler=CallPokemonSearchBoxViewComponent',
+            type: 'GET',
+            data: {
+            },
+            success: function (data) {
+                console.log("success");
+                pokemonSearchBoxes.children[pokemonSearchBoxes.children.length-1].insertAdjacentHTML("afterend", data);
+
+                ConfigurePokemonSearchBoxes();
+                ConfigureLiveSearchSections();
+                
+
+            },
+            error: function (e) {
+                console.log("failure")
+                alert("Error: " + e);
+            }
+
+        });
+
+        
+        
+
+    }
+
+
+    function UpdateLiveSearch(PokemonSearchContainer) {
+
+        var pokemonSearchBox = PokemonSearchContainer.getElementsByClassName("PokemonSearchBox");
+        var liveSearchResultsContainer = PokemonSearchContainer.getElementsByClassName("LiveSearchResults");
+
+        console.log("Updating live search");
+
+        $.ajax({
+            dataType: 'html',
+            url: '?handler=CallPokemonSearchViewComponent',
+            type: 'GET',
+            data: {
+                searchString: pokemonSearchBox[0].value
+            },
+            success: function (data) {
+                console.log("success");
+                liveSearchResultsContainer[0].innerHTML = data;
+                ConfigureLiveSearchSection(liveSearchResultsContainer[0]);
+            },
+            error: function (e) {
+                console.log("failure")
+                alert("Error: " + e);
+            }
+
+        });
+
+    }
+
+    function OnPokemonSearchFocusIn(evt) {
+
+        var liveSearchResults = evt.currentTarget.parentElement.getElementsByClassName("LiveSearchResults");
+
+        for (const searchResults of liveSearchResults) {
+            searchResults.classList.remove("Hide");
+        }
+
+    }
+
+    function OnPokemonSearchFocusOut(evt){
+
+        var liveSearchResults = evt.currentTarget.parentElement.getElementsByClassName("LiveSearchResults");
+
+        for (var searchResults of liveSearchResults) {
+            searchResults.classList.add("Hide");
+        }
+
+
+    }
+
     analyzeButton.addEventListener("click", GetTypeAnalysisResultsAndUpdatePage);
+
+
+    addPokemonButton.addEventListener("click", () => {
+
+        if (totalPokemonSearches < 6) {
+
+            totalPokemonSearches += 1;
+            AddPokemonSearchBox();
+
+        }
+
+    });
+
+    ConfigurePokemonSearchBoxes();
 
 </script>

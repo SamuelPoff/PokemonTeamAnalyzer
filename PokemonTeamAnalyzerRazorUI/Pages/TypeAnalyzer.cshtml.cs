@@ -12,5 +12,20 @@ namespace PokemonTeamAnalyzerRazorUI.Pages
         public void OnGet()
         {
         }
+
+        public IActionResult OnGetCallPokemonSearchViewComponent(string searchString)
+        {
+
+            return ViewComponent("PokemonSearch", new { pokemonNameSearchString = searchString });
+
+        }
+
+        public IActionResult OnGetCallPokemonSearchBoxViewComponent()
+        {
+
+            return ViewComponent("PokemonSearchBox");
+
+        }
+
     }
 }

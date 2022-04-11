@@ -43,6 +43,18 @@ namespace PokemonTeamAnalyzer
             UsageStatCollector.Parser.ParserConfigure(app.ApplicationServices.GetService<IPokemonData>());
             UsageStatCollector.PokemonDataCollector.PokemonDataCollectorConfigure(app.ApplicationServices.GetService<IPokemonData>());
 
+            //Seed PokemonData
+            var pokemonDataAccess = app.ApplicationServices.GetService<IPokemonData>();
+            bool pokemonTableEmpty = pokemonDataAccess.IsEmpty();
+            if (pokemonTableEmpty)
+            {
+                PokemonDataCollector.CollectPokemonData().Wait();
+            }
+            else
+            {
+                Console.WriteLine("Pokemon Data already collected.");
+            }
+
             //Seed or update PokemonUsageData
             var usageDA = app.ApplicationServices.GetService<IPokemonUsageData>();
             bool pokemonUsageTableEmpty = usageDA.IsEmpty();
@@ -52,7 +64,7 @@ namespace PokemonTeamAnalyzer
             }
             else
             {
-                Collector.UpdateUsageStats().Wait();
+                //Collector.UpdateUsageStats().Wait();
             }
             
 

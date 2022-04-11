@@ -1,17 +1,29 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
+using DataAccess.Data;
+using DataAccess.Models;
+
 using UsageStatCollector.TeamAnalyzer;
 using UsageStatCollector.TeamAnalyzer.DataTypes;
+
+using UsageStatCollector.Helpers;
 
 namespace PokemonTeamAnalyzerRazorUI.Pages.Shared
 {
     public class TypeAnalysisModel : PageModel
     {
+
+        private readonly IPokemonData _data;
+        public TypeAnalysisModel(IPokemonData data)
+        {
+            _data = data;
+        }
 
         public int[] TotalX4 { get; set; }
         public int[] TotalX2 { get; set; }
@@ -35,99 +47,58 @@ namespace PokemonTeamAnalyzerRazorUI.Pages.Shared
         /// </summary>
         public List<Tuple<int, int>> OffsetResistances { get; set; }
 
-        public void OnGet(int pokemon1Type1Id, int pokemon1Type2Id, 
-                          int pokemon2Type1Id, int pokemon2Type2Id,
-                          int pokemon3Type1Id, int pokemon3Type2Id,
-                          int pokemon4Type1Id, int pokemon4Type2Id,
-                          int pokemon5Type1Id, int pokemon5Type2Id,
-                          int pokemon6Type1Id, int pokemon6Type2Id)
+        public async Task OnGet(string pokemonNames)
         {
 
+            TotalX4 = new int[PokemonType.NumberOfTypes];
+            TotalX2 = new int[PokemonType.NumberOfTypes];
+            TotalHalf = new int[PokemonType.NumberOfTypes];
+            TotalFourth = new int[PokemonType.NumberOfTypes];
+            TotalZero = new int[PokemonType.NumberOfTypes];
+
             List<Pokemon> pokemon = new List<Pokemon>();
+            string[] pkmnNames = JsonSerializer.Deserialize<string[]>(pokemonNames);
 
-            if(ValidateTypeId(pokemon1Type1Id))
+            if(pkmnNames.Length <= 0)
             {
-                Pokemon pkmn = new Pokemon();
-                pkmn.Type1 = (PokemonType.TypeName)pokemon1Type1Id;
-                pkmn.Type2 = null;
-
-                //Validate second type
-                if (ValidateTypeId(pokemon1Type2Id))
-                {
-                    pkmn.Type2 = (PokemonType.TypeName)pokemon1Type2Id;
-                }
-
-                pokemon.Add(pkmn);
+                Console.WriteLine("No names sent");
             }
-            if (ValidateTypeId(pokemon2Type1Id))
-            {
-                Pokemon pkmn = new Pokemon();
-                pkmn.Type1 = (PokemonType.TypeName)pokemon2Type1Id;
-                pkmn.Type2 = null;
 
-                //Validate second type
-                if (ValidateTypeId(pokemon2Type2Id))
+            //Query database for pokemon type info
+            foreach(var pkmnName in pkmnNames)
+            {
+
+                PokemonModel? model = await _data.GetPokemonByName(pkmnName);
+                if(model != null)
                 {
-                    pkmn.Type2 = (PokemonType.TypeName)pokemon2Type2Id;
+
+                    //Fill out PokemonType info, checking for type errors and the like
+                    Pokemon pkmn = new Pokemon();
+                    var type1 = PokemonTypeHelpers.ConvertDBTypeStringToPokemonType(model.Type1);
+                    if(type1 != null)
+                    {
+                        pkmn.Type1 = type1.Value;
+                    }
+
+                    if(model.Type2 != null)
+                    {
+
+                        var type2 = PokemonTypeHelpers.ConvertDBTypeStringToPokemonType(model.Type2);
+                        if(type2 != null)
+                        {
+                            pkmn.Type2 = type2.Value;
+                        }
+
+                    }
+                    
+                    pokemon.Add(pkmn);
+
+                }
+                else
+                {
+                    Console.WriteLine("Couldnt find pokemon: " + pkmnName);
                 }
 
-                pokemon.Add(pkmn);
-            }
-            if (ValidateTypeId(pokemon3Type1Id))
-            {
-                Pokemon pkmn = new Pokemon();
-                pkmn.Type1 = (PokemonType.TypeName)pokemon3Type1Id;
-                pkmn.Type2 = null;
-
-                //Validate second type
-                if (ValidateTypeId(pokemon3Type2Id))
-                {
-                    pkmn.Type2 = (PokemonType.TypeName)pokemon3Type2Id;
-                }
-
-                pokemon.Add(pkmn);
-            }
-            if (ValidateTypeId(pokemon4Type1Id))
-            {
-                Pokemon pkmn = new Pokemon();
-                pkmn.Type1 = (PokemonType.TypeName)pokemon4Type1Id;
-                pkmn.Type2 = null;
-
-                //Validate second type
-                if (ValidateTypeId(pokemon4Type2Id))
-                {
-                    pkmn.Type2 = (PokemonType.TypeName)pokemon4Type2Id;
-                }
-
-                pokemon.Add(pkmn);
-            }
-            if (ValidateTypeId(pokemon5Type1Id))
-            {
-                Pokemon pkmn = new Pokemon();
-                pkmn.Type1 = (PokemonType.TypeName)pokemon5Type1Id;
-                pkmn.Type2 = null;
-
-                //Validate second type
-                if (ValidateTypeId(pokemon5Type2Id))
-                {
-                    pkmn.Type2 = (PokemonType.TypeName)pokemon5Type2Id;
-                }
-
-                pokemon.Add(pkmn);
-            }
-            if (ValidateTypeId(pokemon6Type1Id))
-            {
-                Pokemon pkmn = new Pokemon();
-                pkmn.Type1 = (PokemonType.TypeName)pokemon6Type1Id;
-                pkmn.Type2 = null;
-
-                //Validate second type
-                if (ValidateTypeId(pokemon1Type2Id))
-                {
-                    pkmn.Type2 = (PokemonType.TypeName)pokemon6Type2Id;
-                }
-
-                pokemon.Add(pkmn);
             }
 
             if(pokemon.Count > 0)

@@ -12,116 +12,150 @@
 
     <h2>Weakness Summary</h2>
     <h4>x4 Weaknesses</h4>
-    for (int i = 0; i < PokemonType.NumberOfTypes; i++)
-    {
+    <div class="TypeAnalysisSection">
 
-        PokemonType.TypeName typeName = (PokemonType.TypeName)i;
-        int quantity = Model.TotalX4[i];
-
-        if (quantity > 0)
+        @for (int i = 0; i < PokemonType.NumberOfTypes; i++)
         {
 
-            <p>@typeName: x @quantity</p>
+            PokemonType.TypeName typeName = (PokemonType.TypeName)i;
+            int quantity = Model.TotalX4[i];
+
+            if (quantity > 0)
+            {
+
+                <p>@typeName: x @quantity</p>
+
+            }
 
         }
 
-    }
+    </div>
 
     <h4>x2 Weaknesses</h4>
-    for (int i = 0; i < PokemonType.NumberOfTypes; i++)
-    {
+    <div class="TypeAnalysisSection">
 
-        PokemonType.TypeName typeName = (PokemonType.TypeName)i;
-        int quantity = Model.TotalX2[i];
-
-        if (quantity > 0)
+        @for (int i = 0; i < PokemonType.NumberOfTypes; i++)
         {
 
-            <p>@typeName: x @quantity</p>
+            PokemonType.TypeName typeName = (PokemonType.TypeName)i;
+            int quantity = Model.TotalX2[i];
+
+            if (quantity > 0)
+            {
+
+                <p>@typeName: x @quantity</p>
+
+            }
 
         }
 
-    }
+    </div>
 
     <h2>Resistance Summary</h2>
     <h4>1/2 Resistances</h4>
-    for (int i = 0; i < PokemonType.NumberOfTypes; i++)
-    {
+    <div class="TypeAnalysisSection">
 
-        PokemonType.TypeName typeName = (PokemonType.TypeName)i;
-        int quantity = Model.TotalHalf[i];
-
-        if (quantity > 0)
+        @for (int i = 0; i < PokemonType.NumberOfTypes; i++)
         {
 
-            <p>@typeName: x @quantity</p>
+            PokemonType.TypeName typeName = (PokemonType.TypeName)i;
+            int quantity = Model.TotalHalf[i];
+
+            if (quantity > 0)
+            {
+
+                <p>@typeName: x @quantity</p>
+
+            }
 
         }
 
-    }
+    </div>
 
     <h4>1/4 Resistances</h4>
-    for (int i = 0; i < PokemonType.NumberOfTypes; i++)
-    {
+    <div class="TypeAnalysisSection">
 
-        PokemonType.TypeName typeName = (PokemonType.TypeName)i;
-        int quantity = Model.TotalFourth[i];
-
-        if (quantity > 0)
+        @for (int i = 0; i < PokemonType.NumberOfTypes; i++)
         {
 
-            <p>@typeName: x @quantity</p>
+            PokemonType.TypeName typeName = (PokemonType.TypeName)i;
+            int quantity = Model.TotalFourth[i];
+
+            if (quantity > 0)
+            {
+
+                <p>@typeName: x @quantity</p>
+
+            }
 
         }
 
-    }
+    </div>
 
     <h4>Immunities</h4>
-    for (int i = 0; i < PokemonType.NumberOfTypes; i++)
-    {
+    <div class="TypeAnalysisSection">
 
-        PokemonType.TypeName typeName = (PokemonType.TypeName)i;
-        int quantity = Model.TotalZero[i];
-
-        if (quantity > 0)
+        @for (int i = 0; i < PokemonType.NumberOfTypes; i++)
         {
 
-            <p>@typeName: x @quantity</p>
+            PokemonType.TypeName typeName = (PokemonType.TypeName)i;
+            int quantity = Model.TotalZero[i];
+
+            if (quantity > 0)
+            {
+
+                <p>@typeName: x @quantity</p>
+
+            }
 
         }
 
-    }
+    </div>
 
     <br>
 
     <h4>Unchecked Weaknesses</h4>
-    foreach (var typeTuple in Model.OffsetWeaknesses)
-    {
+    <div class="TypeAnalysisSection">
 
-        PokemonType.TypeName typeName = (PokemonType.TypeName)typeTuple.Item1;
-        int offsetAmount = typeTuple.Item2;
+        @foreach (var typeTuple in Model.OffsetWeaknesses)
+        {
 
-        <p>@typeName: x @offsetAmount </p>
+            PokemonType.TypeName typeName = (PokemonType.TypeName)typeTuple.Item1;
+            int offsetAmount = typeTuple.Item2;
 
-    }
+            <p>@typeName: x @offsetAmount </p>
+
+        }
+
+    </div>
+
     <h4>Neutral</h4>
-    foreach (var typeId in Model.OffsetNeutral)
-    {
+    <div class="TypeAnalysisSection">
 
-        PokemonType.TypeName typeName = (PokemonType.TypeName)typeId;
+        @foreach (var typeId in Model.OffsetNeutral)
+        {
 
-        <p>@typeName</p>
+            PokemonType.TypeName typeName = (PokemonType.TypeName)typeId;
 
-    }
+            <p>@typeName</p>
+
+        }
+
+    </div>
+
     <h4>Unchecked Resistances</h4>
-    foreach (var typeTuple in Model.OffsetResistances)
-    {
+    <div class="TypeAnalysisSection">
 
-        PokemonType.TypeName typeName = (PokemonType.TypeName)typeTuple.Item1;
-        int offsetAmount = typeTuple.Item2;
+        @foreach (var typeTuple in Model.OffsetResistances)
+        {
 
-        <p>@typeName: x @offsetAmount </p>
+            PokemonType.TypeName typeName = (PokemonType.TypeName)typeTuple.Item1;
+            int offsetAmount = typeTuple.Item2;
 
-    }
+            <p>@typeName: x @offsetAmount </p>
+
+        }
+
+    </div>
 
 }

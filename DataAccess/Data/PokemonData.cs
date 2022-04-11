@@ -41,10 +41,26 @@ namespace DataAccess.Data
 
         }
 
-        public async Task<IEnumerable<PokemonModel>> GetPokemonByNameSearch(string searchString)
+        /// <summary>
+        /// Returns IEnumerable of PokemonModel all results that have the search string in the pokemon's name (optionally limit the number of results)
+        /// </summary>
+        /// <param name="searchString">Substring to search for in pokemon's name</param>
+        /// <param name="limit">Number to limit the results set to</param>
+        /// <returns></returns>
+        public async Task<IEnumerable<PokemonModel>> GetPokemonByNameSearch(string searchString, int limit = 0)
         {
-            var results = await _db.LoadDataSP<PokemonModel, dynamic>("PkmnDatabase.dbo.spPokemon_GetByNameStringSearch", new { SearchString = searchString});
-            return results;
+            if(limit <= 0)
+            {
+                var results = await _db.LoadDataSP<PokemonModel, dynamic>("PkmnDatabase.dbo.spPokemon_GetByNameStringSearch", new { SearchString = searchString });
+                return results;
+            }
+            else
+            {
+                var results = await _db.LoadDataSP<PokemonModel, dynamic>("PkmnDatabase.dbo.spPokemon_GetByNameSearchLimited", new { SearchString = searchString, NumberOfResults=limit });
+                return results;
+            }
+            
+            
         }
 
         public async Task<IEnumerable<PokemonModel>> GetPokemonByFilter(PokemonFilterData filterData)
@@ -188,6 +204,21 @@ namespace DataAccess.Data
         public Task DeletePokemon(int id)
         {
             return _db.SaveDataSP("PkmnDatabase.dbo.spPokemon_Delete", new { Id = id });
+        }
+        
+        public bool IsEmpty()
+        {
+
+            string queryString = "SELECT COUNT(*) FROM PkmnDatabase.dbo.Pokemon";
+
+            int result = _db.LoadData<int, dynamic>(queryString, new { }).Result.FirstOrDefault();
+            if(result <= 0)
+            {
+                return true;
+            }
+
+            return false;
+
         }
 
         public void BeginOperations()

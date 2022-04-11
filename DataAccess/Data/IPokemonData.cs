@@ -12,11 +12,11 @@ namespace DataAccess.Data
         Task<IEnumerable<PokemonModel>> GetAllPokemon();
         Task<PokemonModel> GetPokemon(int id);
         Task<PokemonModel?> GetPokemonByName(string name);
-        Task<IEnumerable<PokemonModel>> GetPokemonByNameSearch(string searchString);
+        Task<IEnumerable<PokemonModel>> GetPokemonByNameSearch(string searchString, int limit = 0);
         Task<IEnumerable<PokemonModel>> GetPokemonByFilter(PokemonFilterData filterData);
         Task InsertPokemon(PokemonModel pokemon);
         Task UpdatePokemon(PokemonModel pokemon);
-
+        bool IsEmpty();
         void BeginOperations();
         void EndOperations();
     }
