@@ -4,30 +4,38 @@
     ViewData["Title"] = "Type Analyzer";
 }
 
-<h1>Type Analyzer</h1>
+<section id="type-analyzer-main">
+
+    <section id="type-analyzer-header">
+
+        <h1>Type Analyzer</h1>
+
+        <section id="pokemon-search-boxes">
+
+            @await Component.InvokeAsync("PokemonSearchBox")
+
+        </section>
 
 
-<section id="pokemon-search-boxes">
+        <div id="type-analyzer-button-container">
 
-    @await Component.InvokeAsync("PokemonSearchBox")
+            <button id="add-pokemon-button">Add Pokemon</button>
+
+            <button id="analyze-button">
+                Analyze
+            </button>
+
+        </div>
+
+    </section>
+
+    <section id="results">
+
+
+
+    </section> 
 
 </section>
-
-
-
-<button id="add-pokemon-button">Add Pokemon</button>
-
-
-<button id="analyze-button">
-    Analyze
-</button>
-
-<section id="results">
-
-
-
-</section> 
-
 
 <script>
 
