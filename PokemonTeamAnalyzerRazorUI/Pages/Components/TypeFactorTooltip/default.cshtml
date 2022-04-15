@@ -1,0 +1,23 @@
+﻿@using UsageStatCollector.TeamAnalyzer.DataTypes
+@model List<Pokemon>
+
+<div class="TypeInfoPopup">
+
+    @foreach(var pokemon in Model)
+            {
+
+        <div>
+            @pokemon.Name
+        </div>
+
+        <div>
+            @pokemon.Type1
+        </div>
+
+        <div>
+            @pokemon.Type2
+        </div>
+
+            }
+
+</div>

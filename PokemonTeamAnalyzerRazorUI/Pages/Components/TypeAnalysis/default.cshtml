@@ -1,0 +1,358 @@
+﻿@using PokemonTeamAnalyzerRazorUI.Models;
+@using UsageStatCollector.TeamAnalyzer.DataTypes;
+
+@model TypeAnalysisData
+
+@{
+
+    if (Model == null)
+    {
+
+        <p>No Pokemon added to analyze.</p>
+        <p>Please add at least 1 pokemon, and then analyze again.</p>
+
+    }
+    else
+    {
+
+
+        <section>
+
+            <div id="weakness-resistance-summaries">
+
+                <section id="weakness-summary">
+                    <h4>x4 Weaknesses</h4>
+                    <div class="TypeAnalysisSection">
+
+                        @for (int i = 0; i < PokemonType.NumberOfTypes; i++)
+                        {
+
+                            PokemonType.TypeName typeName = (PokemonType.TypeName)i;
+                            int quantity = Model.TotalX4[i];
+
+                            if (quantity > 0)
+                            {
+
+                                <div class="PokemonTypeQuantityContainer TooltipContainer" data-typeid="@i" data-effectiveness="4">
+                                    <p>@typeName: x @quantity</p>
+                                    <div class="Tooltip">
+
+                                        <div class="TooltipHeader">
+                                            X4 @typeName Weakness
+                                        </div>
+
+                                        @foreach (var pair in Model.PokemonWeaknesses)
+                                        {
+
+                                            foreach (var weakness in pair.Value)
+                                            {
+
+                                                if (weakness.AttackingType == typeName && weakness.Effectiveness == 4.0f)
+                                                {
+
+                                                    <div class="TooltipBody">
+
+                                                        <div class="TypeTooltipPokemonName">@pair.Key.Name</div>
+                                                        <div class="TypeTooltipPokemonTypes">
+                                                            <div class="Type">@pair.Key.Type1</div>
+                                                            <div class="Type">@pair.Key.Type2</div>
+                                                        </div>
+
+                                                    </div>
+
+                                                }
+
+                                            }
+
+                                        }
+                                    </div>
+                                </div>
+
+                            }
+
+                        }
+
+                    </div>
+
+                    <h4>x2 Weaknesses</h4>
+                    <div class="TypeAnalysisSection">
+
+                        @for (int i = 0; i < PokemonType.NumberOfTypes; i++)
+                        {
+
+                            PokemonType.TypeName typeName = (PokemonType.TypeName)i;
+                            int quantity = Model.TotalX2[i];
+
+                            if (quantity > 0)
+                            {
+
+                        <div class="PokemonTypeQuantityContainer TooltipContainer" data-typeid="@i" data-effectiveness="2">
+                            <p>@typeName: x @quantity</p>
+                            <div class="Tooltip">
+
+                                <div class="TooltipHeader">
+                                    X2 @typeName Weakness
+                                </div>
+
+                                @foreach (var pair in Model.PokemonWeaknesses)
+                                {
+
+                                    foreach (var weakness in pair.Value)
+                                    {
+
+                                        if (weakness.AttackingType == typeName && weakness.Effectiveness == 2.0f)
+                                        {
+
+                                            <div class="TooltipBody">
+
+                                                <div class="TypeTooltipPokemonName">@pair.Key.Name</div>
+                                                <div class="TypeTooltipPokemonTypes">
+                                                    <div class="Type">@pair.Key.Type1</div>
+                                                    <div class="Type">@pair.Key.Type2</div>
+                                                </div>
+
+                                            </div>
+
+                                        }
+
+                                    }
+
+                                }
+                            </div>
+                        </div>
+
+
+                            }
+
+                        }
+
+                    </div>
+
+                </section>
+
+                <section id="resistance-summary">
+                    <h4>1/2 Resistances</h4>
+                    <div class="TypeAnalysisSection">
+
+                        @for (int i = 0; i < PokemonType.NumberOfTypes; i++)
+                        {
+
+                            PokemonType.TypeName typeName = (PokemonType.TypeName)i;
+                            int quantity = Model.TotalHalf[i];
+
+                            if (quantity > 0)
+                            {
+
+                        <div class="PokemonTypeQuantityContainer TooltipContainer" data-typeid="@i" data-effectiveness="0.5">
+                            <p>@typeName: x @quantity</p>
+                            <div class="Tooltip">
+
+                                <div class="TooltipHeader">
+                                    1/2 @typeName Resistance
+                                </div>
+
+                                @foreach (var pair in Model.PokemonResistances)
+                                {
+
+                                    foreach (var resistance in pair.Value)
+                                    {
+
+                                        if (resistance.AttackingType == typeName && resistance.Effectiveness == 0.5f)
+                                        {
+
+                                            <div class="TooltipBody">
+
+                                                <div class="TypeTooltipPokemonName">@pair.Key.Name</div>
+                                                <div class="TypeTooltipPokemonTypes">
+                                                    <div class="Type">@pair.Key.Type1</div>
+                                                    <div class="Type">@pair.Key.Type2</div>
+                                                </div>
+
+                                            </div>
+
+                                        }
+
+                                    }
+
+                                }
+                            </div>
+                        </div>
+
+                            }
+
+                        }
+
+                    </div>
+
+                    <h4>1/4 Resistances</h4>
+                    <div class="TypeAnalysisSection">
+
+                        @for (int i = 0; i < PokemonType.NumberOfTypes; i++)
+                        {
+
+                            PokemonType.TypeName typeName = (PokemonType.TypeName)i;
+                            int quantity = Model.TotalFourth[i];
+
+                            if (quantity > 0)
+                            {
+
+                                <div class="PokemonTypeQuantityContainer TooltipContainer" data-typeid="@i" data-effectiveness="0.25">
+                                    <p>@typeName: x @quantity</p>
+                                    <div class="Tooltip">
+
+                                        <div class="TooltipHeader">
+                                            1/4 @typeName Resistance
+                                        </div>
+
+                                        @foreach (var pair in Model.PokemonResistances)
+                                        {
+
+                                            foreach (var resistance in pair.Value)
+                                            {
+
+                                                if (resistance.AttackingType == typeName && resistance.Effectiveness == 0.25f)
+                                                {
+
+                                                    <div class="TooltipBody">
+
+                                                        <div class="TypeTooltipPokemonName">@pair.Key.Name</div>
+                                                        <div class="TypeTooltipPokemonTypes">
+                                                            <div class="Type">@pair.Key.Type1</div>
+                                                            <div class="Type">@pair.Key.Type2</div>
+                                                        </div>
+
+                                                    </div>
+
+                                                }
+
+                                            }
+
+                                        }
+                                    </div>
+                                </div>
+
+                            }
+
+                        }
+
+                    </div>
+
+                    <h4>Immunities</h4>
+                    <div class="TypeAnalysisSection">
+
+                        @for (int i = 0; i < PokemonType.NumberOfTypes; i++)
+                        {
+
+                            PokemonType.TypeName typeName = (PokemonType.TypeName)i;
+                            int quantity = Model.TotalZero[i];
+
+                            if (quantity > 0)
+                            {
+
+                        <div class="PokemonTypeQuantityContainer TooltipContainer" data-typeid="@i" data-effectiveness="0">
+                            <p>@typeName: x @quantity</p>
+                            <div class="Tooltip">
+
+                                <div class="TooltipHeader">
+                                    @typeName Immunities
+                                </div>
+
+                                @foreach (var pair in Model.PokemonResistances)
+                                {
+
+                                    foreach (var resistance in pair.Value)
+                                    {
+
+                                        if (resistance.AttackingType == typeName && resistance.Effectiveness == 0.0f)
+                                        {
+
+                                            <div class="TooltipBody">
+
+                                                <div class="TypeTooltipPokemonName">@pair.Key.Name</div>
+                                                <div class="TypeTooltipPokemonTypes">
+                                                    <div class="Type">@pair.Key.Type1</div>
+                                                    <div class="Type">@pair.Key.Type2</div>
+                                                </div>
+
+                                            </div>
+
+                                        }
+
+                                    }
+
+                                }
+                            </div>
+                        </div>
+
+                            }
+
+                        }
+
+                    </div>
+                </section>
+
+            </div>
+
+            <br>
+
+            <div id="weakness-resistance-unchecked">
+
+                <div class="UncheckedSummarySection" id="unchecked-weaknesses">
+                    <h4>Unchecked Weaknesses</h4>
+                    <div class="TypeAnalysisSection">
+
+                        @foreach (var typeTuple in Model.OffsetWeaknesses)
+                        {
+
+                            PokemonType.TypeName typeName = (PokemonType.TypeName)typeTuple.Item1;
+                            int offsetAmount = typeTuple.Item2;
+
+                            <p>@typeName: x @offsetAmount </p>
+
+                        }
+
+                    </div>
+                </div>
+
+                <div class="UncheckedSummarySection" id="unchecked-neutral">
+                    <h4>Neutral</h4>
+                    <div class="TypeAnalysisSection">
+
+                        @foreach (var typeId in Model.OffsetNeutral)
+                        {
+
+                            PokemonType.TypeName typeName = (PokemonType.TypeName)typeId;
+
+                            <p>@typeName</p>
+
+                        }
+
+                    </div>
+                </div>
+
+                <div class="UncheckedSummarySection" id="unchecked-resistances">
+                    <h4>Unchecked Resistances</h4>
+                    <div class="TypeAnalysisSection">
+
+                        @foreach (var typeTuple in Model.OffsetResistances)
+                        {
+
+                            PokemonType.TypeName typeName = (PokemonType.TypeName)typeTuple.Item1;
+                            int offsetAmount = typeTuple.Item2;
+
+                            <p class="GridItem">@typeName: x @offsetAmount </p>
+
+                        }
+
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+
+    }
+
+
+
+}

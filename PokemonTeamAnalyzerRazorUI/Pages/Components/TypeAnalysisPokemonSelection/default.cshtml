@@ -1,0 +1,26 @@
+﻿@using DataAccess.Models
+
+@model PokemonModel
+
+@if (Model != null)
+{
+
+    <div class="TypeAnalysisPokemonTile" data-pokemonname="@Model.Name">
+
+        <div class="PokemonTileBody">
+
+            <div class="PokemonSprite">
+                <img src="@Model.SpriteUrl" alt="@Model.Name sprite">
+            </div>
+            <div class="PokemonTypes">
+                <div class="Type1">@Model.Type1</div>
+                <div class="Type2">@Model.Type2</div>
+            </div>
+
+        </div>
+    
+        <button class="RemoveButton">Remove</button>
+
+    </div>
+
+}

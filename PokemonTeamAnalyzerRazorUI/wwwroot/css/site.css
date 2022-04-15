@@ -64,13 +64,76 @@ body{
 
 }
 
+/*Tooltip styles
+-------------------------------------------------- */
+.TooltipContainer{
+
+
+}
+
+.TooltipContainer .Tooltip {
+    position: absolute;
+
+    color: white;
+    background-color: rgba(239, 64, 54, 1);
+
+    display: flex;
+    flex-direction: column;
+
+    width: fit-content;
+
+    text-align: center;
+    padding: 5px;
+    border-radius: 5px;
+    opacity: 0;
+    transition: opacity 0.5s;
+    visibility: hidden;
+}
+
+.TooltipContainer:hover .Tooltip{
+
+    visibility: visible;
+    opacity: 1;
+
+}
+
+.TooltipHeader{
+
+    padding: 5px;
+
+}
+
+.TooltipBody{
+    
+    display:flex;
+    flex-direction: column;
+
+    justify-content: left;
+    align-items: center;
+
+    width: 100%;
+
+}
+
+.TypeTooltipPokemonTypes{
+
+    display: flex;
+    flex-direction: row;
+
+    justify-content: left;
+    align-items: center;
+
+    padding: 3px;
+
+}
+.Type{
+    padding: 3px;
+}
+
 /*Live Search Options styles
 -------------------------------------------------- */
-
-.pokemon-search-section{
-
+.pokemon-search-section {
     margin: 5px 0px 5px 0px;
-
 }
 
 .PokemonSearchBox {
@@ -86,8 +149,9 @@ body{
 .LiveSearchResults {
 
     background-color: white;
-    border-radius: 5px;
+    border-radius: 10px;
     border: 1px solid rgba(0, 0, 0, 0.3);
+
 }
 
 .LiveSearchOption {
@@ -201,12 +265,147 @@ body{
 
 /*Custom Styles
 -------------------------------------------------- */
-.TypeAnalysisSection {
-    display: grid;
-    grid-template-columns: auto auto auto auto auto;
+#pokemon-search-box{
 
+    border: 1px solid black;
+    border-radius: 10px;
+
+    width: 100%;
+    padding: 3px 10px 3px 10px;
+
+    transition: border linear 0.3s, border-radius linear 0.3s;
+
+}
+#pokemon-search-box:focus {
+
+    border-radius: 20px;
+}
+
+.TypeAnalyzerButton {
+    border: 3px solid rgb(152, 41, 35);
+    border-radius: 10px;
+    color: white;
+    background-color: rgba(239, 64, 54, 1);
+    transition: background-color linear 0.3s, border-radius linear 0.3s, border linear 0.3s, color linear 0.3s;
+}
+
+.TypeAnalyzerButton:hover {
+    border: 3px solid rgba(239, 64, 54);
+    border-radius: 20px;
+    color: white;
+    background-color: rgb(245, 136, 131);
+}
+
+#weakness-resistance-summaries {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+
+#weakness-resistance-unchecked {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+
+
+#selected-pokemon {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 1rem;
+    grid-gap: 10px;
+}
+
+.UncheckedSummarySection{
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+.TypeAnalysisPokemonTile {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 5px;
+    margin: 5px;
+    color: white;
+    background-color: rgba(239, 64, 54, 1);
+    border: 1px solid white;
+    border-radius: 5px;
+    box-shadow: 10px 0px 10px rgba(0,0,0, 0.15), -10px 0px 10px rgba(0,0,0,0.15);
+}
+
+.TypeAnalysisPokemonTile .PokemonTileBody{
+
+    display: flex;
+    flex-direction: row;
+
+}
+
+.TypeAnalysisPokemonTile .PokemonTypes{
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: space-evenly;
+    align-items: center;
+
+    padding: 3px;
+
+    text-align: center;
+
+}
+
+.TypeAnalysisSection {
+
+    text-align: center;
+
+    display: grid;
+    grid-template-columns: auto auto auto;
     padding: 1rem;
     text-align: center;
+}
+
+h1{
+    text-align: center;
+}
+
+p{
+    text-align: center;
+}
+
+.GridItem{
+
+    padding: 10px;
+
+}
+
+.TypeAnalysisPokemonTile .RemoveButton{
+
+    border: 1px solid white;
+    border-radius: 5px;
+
+    color: black;
+    background-color: white;
+
+    transition: background-color linear 0.3s, border-radius linear 0.3s, color linear 0.3s;
+
+}
+
+.TypeAnalysisPokemonTile .RemoveButton:hover {
+    border: 1px solid white;
+    border-radius: 20px;
+
+    color: white;
+    background-color: rgb(245, 136, 131);
+
 
 }
 

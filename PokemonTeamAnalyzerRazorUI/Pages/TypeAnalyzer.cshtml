@@ -12,16 +12,20 @@
 
         <section id="pokemon-search-boxes">
 
-            @await Component.InvokeAsync("PokemonSearchBox")
+            <div class="LiveSearchContainer">
+                <input class="PokemonSearchBox" id="pokemon-search-box" type="text" placeholder="Pokemon Name"/>
+                <div class="LiveSearchResults Hide" id="live-search">
+                </div>
+            </div>
 
         </section>
 
 
         <div id="type-analyzer-button-container">
 
-            <button id="add-pokemon-button">Add Pokemon</button>
+            <button class="TypeAnalyzerButton" id="add-pokemon-button">Add Pokemon</button>
 
-            <button id="analyze-button">
+            <button class="TypeAnalyzerButton" id="analyze-button">
                 Analyze
             </button>
 
@@ -29,11 +33,11 @@
 
     </section>
 
+    <div id="selected-pokemon">
+    </div>
+
     <section id="results">
-
-
-
-    </section> 
+    </section>
 
 </section>
 
@@ -41,24 +45,31 @@
 
     let analyzeButton = document.getElementById("analyze-button");
     let results = document.getElementById("results");
+    let tooltipsContainer = document.getElementsByClassName("tooltips")[0];
+
+    let liveSearchResultsContainer = document.getElementById("live-search");
+
+    let selectedPokemonContainer = document.getElementById("selected-pokemon");
+    let pokemonSearchBox = document.getElementById("pokemon-search-box");
 
     let pokemonSearchBoxes = document.getElementById("pokemon-search-boxes");
     let addPokemonButton = document.getElementById("add-pokemon-button");
-    let totalPokemonSearches = 1;
+    let totalSelectedPokemon = 0;
 
-    function GetPokemonNames() {
+    function GetPokemonName() {
+
+        return pokemonSearchBox.value;
+
+    }
+
+    function GetSelectedPokemonNames() {
 
         let pkmnNames = [];
-        let pokemonSearchBoxes = document.getElementsByClassName("PokemonSearchBox");
-        console.log(pokemonSearchBoxes);
+        let selectedPokemonTiles = document.getElementsByClassName("TypeAnalysisPokemonTile");
 
-        for (const searchBox of pokemonSearchBoxes) {
+        for (const selectedPokemon of selectedPokemonTiles) {
 
-            console.log(searchBox);
-
-            if (searchBox.value != "" && searchBox.value != null) {
-                pkmnNames.push(searchBox.value);
-            }
+            pkmnNames.push(selectedPokemon.dataset.pokemonname);
             
         }
 
@@ -68,21 +79,19 @@
 
     function GetTypeAnalysisResultsAndUpdatePage() {
 
-        console.log("Getting type analysis");
-
-        let pkmnNames = GetPokemonNames();
-        console.log(pkmnNames);
+        let pkmnNames = GetSelectedPokemonNames();
 
         $.ajax({
             dataType: 'html',
-            url: 'Shared/TypeAnalysis',
+            url: '?handler=CallTypeAnalysisViewComponent',
             type: 'GET',
             data: {
                 pokemonNames: JSON.stringify(pkmnNames)
             },
             success: function (data) {
-                console.log("success");
+
                 results.innerHTML = data;
+
             },
             error: function (e) {
                 console.log("failure")
@@ -90,6 +99,41 @@
             }
 
         });
+
+    }
+
+    function GetTypeFactorTooltipAndUpdatePage(typeQuantityContainer) {
+
+        let typeId = typeQuantityContainer.dataset.typeid;
+        let effectiveness = typeQuantityContainer.dataset.effectiveness;
+
+        let pkmnNames = GetPokemonNames();
+
+        $.ajax({
+            dataType: 'html',
+            url: '?handler=CallTypeFactorTooltipViewComponent',
+            type: 'GET',
+            data: {
+                pokemonNames: JSON.stringify(pkmnNames),
+                typeId: typeId,
+                effectivenessString: effectiveness
+            },
+            success: function (data) {
+                tooltipsContainer.innerHTML = data;
+
+            },
+            error: function (e) {
+                console.log("failure")
+                alert("Error: " + e);
+            }
+
+        });
+
+    }
+
+    function RemoveTooltip(typeQuantityContainer) {
+
+        tooltipsContainer.innerHTML = "";
 
     }
 
@@ -103,26 +147,13 @@
 
     }
 
+    //Configure live search result option mousedown event handlers so they can be selected
     function ConfigureLiveSearchSections() {
 
         var liveSearchOptions = document.getElementsByClassName("LiveSearchOption");
         for (const option of liveSearchOptions) {
             option.addEventListener("mousedown", OnLiveSearchOptionClick, false);
             option.pokemonName = option.dataset.name;
-        }
-
-    }
-
-    function ConfigurePokemonSearchBoxes() {
-
-        var searchBoxes = document.getElementsByClassName("PokemonSearchBox");
-        for (const searchBox of searchBoxes) {
-
-            searchBox.addEventListener("focusin", OnPokemonSearchFocusIn);
-            searchBox.addEventListener("focusout", OnPokemonSearchFocusOut);
-
-            searchBox.addEventListener("input", OnPokemonSearchBoxInputChanged);
-
         }
 
     }
@@ -137,33 +168,36 @@
 
     function OnLiveSearchOptionClick(evt) {
 
-        console.log("Clicked");
-        var pokemonSearchBox = evt.currentTarget.parentElement.parentElement.getElementsByClassName("PokemonSearchBox");
-        var liveSearchResultsContainer = evt.currentTarget.parentElement;
-        pokemonSearchBox[0].value = evt.currentTarget.pokemonName;
+        pokemonSearchBox.value = "";
         liveSearchResultsContainer.innerHTML = "";
+
+        AddTypeAnalysisPokemon(evt.currentTarget.dataset.name);
 
     }
 
-
-    function AddPokemonSearchBox() {
-
-        
+    //Performs AJAX request to add the TypeAnalysisPokemonSelection view component to the page
+    function AddTypeAnalysisPokemon(pkmnName) {
 
         $.ajax({
             dataType: 'html',
-            url: '?handler=CallPokemonSearchBoxViewComponent',
+            url: '?handler=CallTypeAnalysisPokemonSelection',
             type: 'GET',
             data: {
+                pokemonName: pkmnName
             },
             success: function (data) {
-                console.log("success");
-                pokemonSearchBoxes.children[pokemonSearchBoxes.children.length-1].insertAdjacentHTML("afterend", data);
 
-                ConfigurePokemonSearchBoxes();
-                ConfigureLiveSearchSections();
+                if (data.replace(/\s/g, "")) {
+                    selectedPokemonContainer.innerHTML += data;
+                    ConfigureTypeAnalysisTileRemoveButtons();
+                } else {
+
+                    alert("Pokemon name was either incorrectly spelled or does not exist.");
+
+                }
+
                 
-
+                
             },
             error: function (e) {
                 console.log("failure")
@@ -172,18 +206,12 @@
 
         });
 
-        
-        
-
     }
 
 
     function UpdateLiveSearch(PokemonSearchContainer) {
 
         var pokemonSearchBox = PokemonSearchContainer.getElementsByClassName("PokemonSearchBox");
-        var liveSearchResultsContainer = PokemonSearchContainer.getElementsByClassName("LiveSearchResults");
-
-        console.log("Updating live search");
 
         $.ajax({
             dataType: 'html',
@@ -194,8 +222,17 @@
             },
             success: function (data) {
                 console.log("success");
-                liveSearchResultsContainer[0].innerHTML = data;
-                ConfigureLiveSearchSection(liveSearchResultsContainer[0]);
+                liveSearchResultsContainer.innerHTML = data;
+                ConfigureLiveSearchSection(liveSearchResultsContainer);
+
+                if (!data.replace(/\s/g, "")) {
+                    liveSearchResultsContainer.classList.add("Hide");
+                } else {
+                    if (liveSearchResultsContainer.classList.contains("Hide")) {
+                        liveSearchResultsContainer.classList.remove("Hide");
+                    }
+                }
+
             },
             error: function (e) {
                 console.log("failure")
@@ -206,16 +243,24 @@
 
     }
 
+    //Check contents of live search and reveal/hide it
     function OnPokemonSearchFocusIn(evt) {
 
         var liveSearchResults = evt.currentTarget.parentElement.getElementsByClassName("LiveSearchResults");
 
-        for (const searchResults of liveSearchResults) {
-            searchResults.classList.remove("Hide");
+        console.log(liveSearchResultsContainer);
+
+        if (liveSearchResultsContainer.children.length > 0) {
+
+            for (const searchResults of liveSearchResults) {
+                searchResults.classList.remove("Hide");
+            }
+
         }
 
     }
 
+    //Hide live search results
     function OnPokemonSearchFocusOut(evt){
 
         var liveSearchResults = evt.currentTarget.parentElement.getElementsByClassName("LiveSearchResults");
@@ -227,20 +272,41 @@
 
     }
 
+    //Configure each remove PokemonTiles button event handlers
+    function ConfigureTypeAnalysisTileRemoveButtons() {
+
+        let buttons = document.getElementsByClassName("RemoveButton");
+
+        for (const button of buttons) {
+
+            button.addEventListener("click", (evt) => {
+
+                totalSelectedPokemon -= 1;
+                evt.currentTarget.parentElement.remove();
+
+            });
+
+        }
+
+    }
+
     analyzeButton.addEventListener("click", GetTypeAnalysisResultsAndUpdatePage);
 
 
     addPokemonButton.addEventListener("click", () => {
 
-        if (totalPokemonSearches < 6) {
+        if (totalSelectedPokemon < 6) {
 
-            totalPokemonSearches += 1;
-            AddPokemonSearchBox();
+            totalSelectedPokemon += 1;
+            AddTypeAnalysisPokemon( GetPokemonName() );
 
         }
 
     });
 
-    ConfigurePokemonSearchBoxes();
+    //Configure search box event handlers
+    pokemonSearchBox.addEventListener("focusin", OnPokemonSearchFocusIn);
+    pokemonSearchBox.addEventListener("focusout", OnPokemonSearchFocusOut);
+    pokemonSearchBox.addEventListener("input", OnPokemonSearchBoxInputChanged);
 
 </script>
