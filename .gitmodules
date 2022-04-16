@@ -1,0 +1,3 @@
+[submodule "PokeNetApi"]
+	path = PokeNetApi
+	url = https://github.com/SamuelPoff/PokeNetApi.git
