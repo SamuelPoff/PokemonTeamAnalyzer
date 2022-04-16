@@ -48,6 +48,7 @@ namespace PokemonTeamAnalyzer
             bool pokemonTableEmpty = pokemonDataAccess.IsEmpty();
             if (pokemonTableEmpty)
             {
+                Console.WriteLine("Pokemon data empty. Fetching data...");
                 PokemonDataCollector.CollectPokemonData().Wait();
             }
             else
@@ -60,11 +61,8 @@ namespace PokemonTeamAnalyzer
             bool pokemonUsageTableEmpty = usageDA.IsEmpty();
             if (pokemonUsageTableEmpty)
             {
+                Console.WriteLine("Pokemon Usage Data empty. Fetching data...");
                 Collector.SeedUsageStats().Wait();
-            }
-            else
-            {
-                //Collector.UpdateUsageStats().Wait();
             }
             
 
