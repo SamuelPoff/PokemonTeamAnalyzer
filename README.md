@@ -22,6 +22,10 @@ The application will expect the default connection string for it to use to be in
 
 ![Screenshot (11)](https://user-images.githubusercontent.com/92762777/163693474-76092b29-e5f6-47ac-b76d-8e5a69bf4c8c.png)
 
+The app also requires MARS (Multiple active result sets) to be enabled for databse operations. So find the property in your connection string and set it to `MultipleActiveResultSets=True`
+
+If that property isnt in your connection string, simply add it in.
+
 ## Running the Project
 The first-time run of the project should take a little while to setup as it is going to be pulling a lot of data and seeding it into the database. If you would like to see its progress: Dont run the project through IIS Express, click the dropdown and select the option with the same name as the solution (PokemonTeamAnalyzer).
 
