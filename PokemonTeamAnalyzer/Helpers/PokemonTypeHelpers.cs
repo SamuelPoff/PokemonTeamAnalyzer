@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using UsageStatCollector.TeamAnalyzer.DataTypes;
+using PokemonTeamAnalyzer.TeamAnalyzer.DataTypes;
 
-namespace UsageStatCollector.Helpers
+namespace PokemonTeamAnalyzer.Helpers
 {
     public static class PokemonTypeHelpers
     {

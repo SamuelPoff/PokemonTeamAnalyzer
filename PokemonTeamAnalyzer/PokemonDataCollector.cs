@@ -9,7 +9,7 @@ using PokeNetApi.Objects;
 using DataAccess.Data;
 using DataAccess.Models;
 
-namespace UsageStatCollector
+namespace PokemonTeamAnalyzer
 {
     public static class PokemonDataCollector
     {

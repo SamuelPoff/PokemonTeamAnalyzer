@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using UsageStatCollector.TeamAnalyzer.DataTypes;
+using PokemonTeamAnalyzer.TeamAnalyzer.DataTypes;
 
-namespace UsageStatCollector.TeamAnalyzer
+namespace PokemonTeamAnalyzer.TeamAnalyzer
 {
     /// <summary>
     /// Static helper class for analyzing different aspects of a single pokemon, from type matchups, to matchups against other pokemon

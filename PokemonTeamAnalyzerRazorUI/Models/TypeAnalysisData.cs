@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-using UsageStatCollector.TeamAnalyzer.DataTypes;
+using PokemonTeamAnalyzer.TeamAnalyzer.DataTypes;
 
 namespace PokemonTeamAnalyzerRazorUI.Models
 {

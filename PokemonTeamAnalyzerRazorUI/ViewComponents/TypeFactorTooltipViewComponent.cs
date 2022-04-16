@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 using Microsoft.AspNetCore.Mvc;
-using UsageStatCollector.TeamAnalyzer.DataTypes;
+using PokemonTeamAnalyzer.TeamAnalyzer.DataTypes;
 
 namespace PokemonTeamAnalyzerRazorUI.ViewComponents
 {

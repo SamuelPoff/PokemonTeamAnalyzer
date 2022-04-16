@@ -8,10 +8,10 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using DataAccess.Data;
 using DataAccess.Models;
 
-using UsageStatCollector.TeamAnalyzer.DataTypes;
+using PokemonTeamAnalyzer.TeamAnalyzer.DataTypes;
 using System.Text.Json;
-using UsageStatCollector.Helpers;
-using UsageStatCollector.TeamAnalyzer;
+using PokemonTeamAnalyzer.Helpers;
+using PokemonTeamAnalyzer.TeamAnalyzer;
 using PokemonTeamAnalyzerRazorUI.Models;
 
 namespace PokemonTeamAnalyzerRazorUI.Pages

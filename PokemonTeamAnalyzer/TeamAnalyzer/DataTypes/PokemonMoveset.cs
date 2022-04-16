@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UsageStatCollector.TeamAnalyzer.DataTypes
+namespace PokemonTeamAnalyzer.TeamAnalyzer.DataTypes
 {
-    public class PokemonSpread
+    public class PokemonMoveset
     {
     }
 }

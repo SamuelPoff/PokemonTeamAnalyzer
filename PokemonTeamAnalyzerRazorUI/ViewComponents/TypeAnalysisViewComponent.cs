@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using DataAccess.Data;
 using DataAccess.Models;
 
-using UsageStatCollector.TeamAnalyzer.DataTypes;
+using PokemonTeamAnalyzer.TeamAnalyzer.DataTypes;
 using PokemonTeamAnalyzerRazorUI.Models;
 
 namespace PokemonTeamAnalyzerRazorUI.ViewComponents

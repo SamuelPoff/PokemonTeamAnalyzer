@@ -11,7 +11,7 @@ using System.Diagnostics;
 using DataAccess.Models;
 using DataAccess.Data;
 
-namespace UsageStatCollector
+namespace PokemonTeamAnalyzer
 {
 
     public static class Collector

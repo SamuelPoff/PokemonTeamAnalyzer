@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using DataAccess.Data;
 using DataAccess.Models;
 
-using UsageStatCollector;
+using PokemonTeamAnalyzer;
 
 namespace PokemonTeamAnalyzerRazorUI.Pages
 {

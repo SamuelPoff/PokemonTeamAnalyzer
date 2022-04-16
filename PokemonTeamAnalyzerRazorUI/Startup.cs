@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-using UsageStatCollector;
+using PokemonTeamAnalyzer;
 
 using DataAccess;
 using DataAccess.SqlAccess;
@@ -39,9 +39,9 @@ namespace PokemonTeamAnalyzer
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
 
-            UsageStatCollector.Collector.CollectorConfigure(app.ApplicationServices.GetService<IPokemonUsageData>());
-            UsageStatCollector.Parser.ParserConfigure(app.ApplicationServices.GetService<IPokemonData>());
-            UsageStatCollector.PokemonDataCollector.PokemonDataCollectorConfigure(app.ApplicationServices.GetService<IPokemonData>());
+            PokemonTeamAnalyzer.Collector.CollectorConfigure(app.ApplicationServices.GetService<IPokemonUsageData>());
+            PokemonTeamAnalyzer.Parser.ParserConfigure(app.ApplicationServices.GetService<IPokemonData>());
+            PokemonTeamAnalyzer.PokemonDataCollector.PokemonDataCollectorConfigure(app.ApplicationServices.GetService<IPokemonData>());
 
             //Seed PokemonData
             var pokemonDataAccess = app.ApplicationServices.GetService<IPokemonData>();

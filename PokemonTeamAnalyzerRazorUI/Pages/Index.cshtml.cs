@@ -6,9 +6,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-using UsageStatCollector;
-using UsageStatCollector.TeamAnalyzer.DataTypes;
-using UsageStatCollector.TeamAnalyzer;
+using PokemonTeamAnalyzer;
+using PokemonTeamAnalyzer.TeamAnalyzer.DataTypes;
+using PokemonTeamAnalyzer.TeamAnalyzer;
 
 namespace PokemonTeamAnalyzer.Pages
 {
