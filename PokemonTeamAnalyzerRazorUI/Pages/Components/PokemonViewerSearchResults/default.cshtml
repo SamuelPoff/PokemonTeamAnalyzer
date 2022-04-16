@@ -1,8 +1,5 @@
-﻿@page
-@model PokemonTeamAnalyzerRazorUI.Pages.Shared.PokemonViewModel
-@{
-    Layout = null;
-}
+﻿@using PokemonTeamAnalyzerRazorUI.Models
+@model PokemonViewerSearchResultsModel
 
 @if (Model.PokemonList != null && Model.PokemonList.Count > 0)
 {
@@ -41,12 +38,12 @@
                         @if (pokemonCount > Model.NumImagesToLoad)
                         {
                             <span class="lazy-load">
-                                <img src="@pokemon.SpriteUrl" alt="" loading="lazy" width="96" height="96"/>
+                                <img src="@pokemon.SpriteUrl" alt="" loading="lazy" width="96" height="96" />
                             </span>
                         }
                         else
                         {
-                            <img src="@pokemon.SpriteUrl" alt=""/>
+                            <img src="@pokemon.SpriteUrl" alt="" />
                         }
                     </td>
                     <td>
@@ -102,11 +99,14 @@
     </section>
 
 }
-else {
-<section>
+else
+{
+    <section>
 
-    <h1>No Matching Results</h1>
+        <h1>No Matching Results</h1>
 
-</section>
+    </section>
 
 }
+
+

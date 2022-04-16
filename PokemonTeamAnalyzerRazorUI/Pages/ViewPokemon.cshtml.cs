@@ -28,8 +28,19 @@ namespace PokemonTeamAnalyzerRazorUI.Pages
         public async Task OnGet()
         {
 
-            //PokemonList = (List<PokemonModel>)await _data.GetPokemonByNameSearch(SearchString);
             
+            
+        }
+
+        public IActionResult OnGetCallPokemonViewerSearchResultsViewComponent(string nameSearchString, string typeFilter, string typeFilter2, string abilityNameSearchString)
+        {
+
+            return ViewComponent("PokemonViewerSearchResults", new { nameSearchString=nameSearchString,
+                                                                     typeFilter=typeFilter,
+                                                                     typeFilter2=typeFilter2,
+                                                                     abilityNameSearchString=abilityNameSearchString
+                                                                    });
+
         }
 
     }

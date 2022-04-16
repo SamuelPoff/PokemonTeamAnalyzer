@@ -63,13 +63,13 @@ function updateResults() {
     $.ajax({
 
         dataType: 'html',
-        url: 'Shared/PokemonView',
+        url: '?handler=CallPokemonViewerSearchResultsViewComponent',
         type: 'GET',
         data: {
-            SearchString: nameFilter.value,
-            TypeFilter: typeFilter.value,
-            TypeFilter2: typeFilter2.value,
-            AbilityNameFilter: abilityFilter.value
+            nameSearchString: nameFilter.value,
+            typeFilter: typeFilter.value,
+            typeFilter2: typeFilter2.value,
+            abilityNameSearchString: abilityFilter.value
         },
         success: function (data) {
             view_results.innerHTML = data;
