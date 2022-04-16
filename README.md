@@ -30,3 +30,5 @@ If that property isnt in your connection string, simply add it in.
 The first-time run of the project should take a little while to setup as it is going to be pulling a lot of data and seeding it into the database. If you would like to see its progress: Dont run the project through IIS Express, click the dropdown and select the option with the same name as the solution (PokemonTeamAnalyzer).
 
 ![Screenshot (12)](https://user-images.githubusercontent.com/92762777/163693580-8ef2ba45-cc3c-43f0-b794-c3598d223133.png)
+
+This will launch the application with the Console active, which will give updates on what it's doing.
