@@ -1,0 +1,19 @@
+﻿/*Lazy image loading
+------------------------------------------------- */
+.lazy-load {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.lazy-load img {
+    opacity: 1;
+    transform: scale(1);
+    transition: background 0.5s, opacity 0.5s, transform 0.5s;
+}
+
+.lazy-load-waiting img {
+    opacity: 0;
+    transform: scale(0);
+    transition: none;
+}

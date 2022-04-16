@@ -1,0 +1,199 @@
+﻿
+/*Live Search Options styles
+-------------------------------------------------- */
+.pokemon-search-section {
+    margin: 5px 0px 5px 0px;
+}
+
+.PokemonSearchBox {
+    z-index: 0;
+}
+
+.LiveSearchContainer {
+    width: fit-content;
+}
+
+.LiveSearchResults {
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+}
+.LiveSearchOption:first-child {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+    border: none;
+}
+
+.LiveSearchOption {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+
+    border-top: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.LiveSearchPokemonName {
+}
+
+
+.LiveSearchPokemonTypeContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.LiveSearchPokemonType {
+    padding: 5px;
+}
+
+.Hide {
+    display: none;
+}
+
+
+
+
+/*Search box styles
+--------------------------------------------- */
+
+#pokemon-search-box {
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 100%;
+    padding: 3px 10px 3px 10px;
+    transition: border linear 0.3s, border-radius linear 0.3s;
+}
+
+#pokemon-search-box:focus {
+    border-radius: 20px;
+}
+
+
+/*Type Analysis styles
+---------------------------------------------- */
+
+.UncheckedSummarySection {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#weakness-resistance-summaries {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+
+#weakness-resistance-unchecked {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+
+.TypeAnalysisSection {
+    text-align: center;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 5px;
+    text-align: center;
+}
+
+#type-analyzer-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 5px;
+}
+
+#type-analyzer-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 5px;
+}
+
+.TypeAnalyzerButton {
+    border: 3px solid rgb(152, 41, 35);
+    border-radius: 10px;
+    color: white;
+    background-color: rgba(239, 64, 54, 1);
+    transition: background-color linear 0.3s, border-radius linear 0.3s, border linear 0.3s, color linear 0.3s;
+}
+.TypeAnalyzerButton:hover {
+    border: 3px solid rgba(239, 64, 54);
+    border-radius: 20px;
+    color: white;
+    background-color: rgb(245, 136, 131);
+}
+
+/*Container that holds 'analyze' and 'add pokemon' buttons*/
+#type-analyzer-button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 5px;
+    width: 100%;
+}
+
+/*Selected Pokemon Tile styles
+-------------------------------------------- */
+#selected-pokemon {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 1rem;
+    grid-gap: 10px;
+}
+
+.TypeAnalysisPokemonTile {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 5px;
+    margin: 5px;
+    color: white;
+    background-color: rgba(239, 64, 54, 1);
+    border: 1px solid white;
+    border-radius: 5px;
+    box-shadow: 10px 0px 10px rgba(0,0,0, 0.15), -10px 0px 10px rgba(0,0,0,0.15);
+}
+
+
+.TypeAnalysisPokemonTile .PokemonTileBody {
+    display: flex;
+    flex-direction: row;
+}
+
+.TypeAnalysisPokemonTile .PokemonTypes {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 3px;
+    text-align: center;
+}
+
+/*Remove button*/
+.TypeAnalysisPokemonTile .RemoveButton {
+    border: 1px solid white;
+    border-radius: 5px;
+    color: black;
+    background-color: white;
+    transition: background-color linear 0.3s, border-radius linear 0.3s, color linear 0.3s;
+}
+.TypeAnalysisPokemonTile .RemoveButton:hover {
+    border: 1px solid white;
+    border-radius: 20px;
+    color: white;
+    background-color: rgb(245, 136, 131);
+}

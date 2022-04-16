@@ -6,6 +6,9 @@
     <title>@ViewData["Title"] - PokemonTeamAnalyzer</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+
+    @RenderSection("Styles", false)
+
 </head>
 <body>
     <header>
@@ -20,9 +23,6 @@
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Forms/AddPokemon">Add Pokemon</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/ViewPokemon">View Pokemon Data</a>

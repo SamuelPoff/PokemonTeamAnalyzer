@@ -74,17 +74,11 @@ namespace PokemonTeamAnalyzerRazorUI.Pages
 
         }
 
+        //GET handler for calling pokemon search(pokemon live search) view component
         public IActionResult OnGetCallPokemonSearchViewComponent(string searchString)
         {
 
             return ViewComponent("PokemonSearch", new { pokemonNameSearchString = searchString });
-
-        }
-
-        public IActionResult OnGetCallPokemonSearchBoxViewComponent()
-        {
-
-            return ViewComponent("PokemonSearchBox");
 
         }
 
