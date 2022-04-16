@@ -27,14 +27,6 @@ namespace PokemonTeamAnalyzer
             GetSupportedFormats();
         }
 
-        public static async Task Test()
-        {
-
-            bool exists = await _data.RecordExists(6, 8, "OU");
-            Console.WriteLine("Gen8OU Charizard exists: " + exists);
-
-        }
-
         public static async Task UpdateUsageStats()
         {
 

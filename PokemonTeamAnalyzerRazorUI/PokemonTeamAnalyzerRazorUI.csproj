@@ -9,8 +9,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\Desktop\Test\PokemonTeamAnalyzer\PokeNetApi\PokeNetApi.csproj" />
     <ProjectReference Include="..\DataAccess\DataAccess.csproj" />
+    <ProjectReference Include="..\PokemonTeamAnalyzer\PokemonTeamAnalyzer.csproj" />
+    <ProjectReference Include="..\PokeNetApi\PokeNetApi.csproj" />
   </ItemGroup>
 
   <ItemGroup>

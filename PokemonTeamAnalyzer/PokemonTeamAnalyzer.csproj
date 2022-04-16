@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DataAccess\DataAccess.csproj" />
+    <ProjectReference Include="..\PokeNetApi\PokeNetApi.csproj" />
   </ItemGroup>
 
   <ItemGroup>
