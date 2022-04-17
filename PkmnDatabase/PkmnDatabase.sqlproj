@@ -81,7 +81,4 @@
   <ItemGroup>
     <RefactorLog Include="PkmnDatabase.refactorlog" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="PkmnDatabase.publish.xml" />
-  </ItemGroup>
 </Project>

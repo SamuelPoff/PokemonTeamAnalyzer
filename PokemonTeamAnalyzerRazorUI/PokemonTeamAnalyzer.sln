@@ -13,6 +13,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "..\DataAccess
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PokeNetApi", "..\PokeNetApi\PokeNetApi.csproj", "{B282ADAC-BA8F-440C-9E2A-7819A7E57B6E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokemonTeamAnalyzerTests", "..\PokemonTeamAnalyzerTests\PokemonTeamAnalyzerTests.csproj", "{6C4CBD8A-32FE-4928-8450-DA77006A1089}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessTests", "..\DataAccessTests\DataAccessTests.csproj", "{AA804705-049B-4C02-BA88-0FB24787B121}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +45,14 @@ Global
 		{B282ADAC-BA8F-440C-9E2A-7819A7E57B6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B282ADAC-BA8F-440C-9E2A-7819A7E57B6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B282ADAC-BA8F-440C-9E2A-7819A7E57B6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C4CBD8A-32FE-4928-8450-DA77006A1089}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C4CBD8A-32FE-4928-8450-DA77006A1089}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C4CBD8A-32FE-4928-8450-DA77006A1089}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C4CBD8A-32FE-4928-8450-DA77006A1089}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA804705-049B-4C02-BA88-0FB24787B121}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA804705-049B-4C02-BA88-0FB24787B121}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA804705-049B-4C02-BA88-0FB24787B121}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA804705-049B-4C02-BA88-0FB24787B121}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
