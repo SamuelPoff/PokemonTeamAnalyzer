@@ -1,0 +1,45 @@
+﻿.HomepageLink {
+    padding: 10px;
+    border: 1px solid rgba(239, 64, 54, 0.5);
+    width: fit-content;
+    margin: 10px;
+    color: white;
+    background-color: rgba(239, 64, 54, 1);
+    border-radius: 5px;
+    transition: background-color linear 0.2s, color linear 0.2s, border-radius linear 0.2s;
+}
+
+.HomepageLink:hover {
+
+    color: rgba(239, 64, 54, 1);
+    background-color: white;
+    border: 1px solid rgba(239, 64, 54, 1);
+    border-radius: 25px;
+    text-decoration: none;
+
+}
+
+#homepage-body{
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+.NoBorder{
+    border: none;
+    border-top: none;
+}
+
+#homepage-body section {
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+h1{
+
+    font-size: 46px;
+    font-weight:bold;
+
+}

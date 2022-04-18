@@ -4,25 +4,35 @@
     ViewData["Title"] = "Home page";
 }
 
+@section Styles{ 
+
+    <link href="~/css/Homepage/homepage.css" rel="stylesheet" type="text/css"/>
+
+}
+
 <div class="main-content text-center">
     <header class="main-header">
         <h1 class="">Pokemon Team Analyzer</h1>
     </header>
 
-    <section class="important-section">
-        <h1>Pokemon Data Viewer</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <section id="homepage-body">
+        <section class="">
+
+            <img src="img/TypeAnalyzerHomepage-600w.jpg" width="400" height="350">
+            <h3 class="SubsectionHeader">Type Analyzer</h3>
+            <p>Enter pokemon and analyze their type advantages and disadvantages to fine-tune your team!</p>
+            <a class="HomepageLink" asp-page="/TypeAnalyzer">Analyze Types</a>
+        </section>
+
+        <section class="border-top">
+            <h3 class="SubsectionHeader">View Pokemon Data</h3>
+            <img src="img/DataViewerHomepage-600w.jpg" width="400" height="350">
+            <h3 class="SubsectionHeader">Pokemon Data Viewer</h3>
+            <p>View Pokemon game data as well as up to date Smogon usage data!</p>
+            <a class="HomepageLink" asp-page="/ViewPokemon">View Pokemon Data</a>
+        </section>
     </section>
 
-    <section class="important-section">
-        <h1>Pokemon Team Builder</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    </section>
-
-    <section class="important-section">
-        <h1>Pokemon Type Analyzer</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    </section>
 
 </div>
 
