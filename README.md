@@ -9,9 +9,7 @@ This will clone the project into the desired directory and create and initialize
 Pokemon Team Analyzer utilizes Microsoft SQL server and is required to run the project locally. If you do not have Microsoft SQL server installed it can be installed from Microsoft's website: https://www.microsoft.com/en-us/sql-server/sql-server-downloads.
 
 ##### Database setup
-The application uses a database to fill all of its data into, so you will need to generate the database schema locally and provide the application with the connection string for that database. You can use the `GeneratePkmnDatabaseSchema.sql` file through Microsoft Sql Server Management Studio to generate the database, then use the Server Explorer in Visual Studio to connect to the local server containing the database, and find the connection string under "Properties".
-
-Alternativly the Visual Studio Solution contains a SQL project type that can be published to generate the database and provide you with the connection string. Simply right click on the project and select "Publish". Then a window will pop up that looks like this:
+The application uses a database to fill all of its data into, so you will need to generate the database schema locally and provide the application with the connection string for that database. The Visual Studio Solution contains a SQL project type that can be published to generate the database and provide you with the connection string. Simply right click on the project and select "Publish". Then a window will pop up that looks like this:
 
 ![Screenshot (10)](https://user-images.githubusercontent.com/92762777/163693288-77eaf16f-fff9-47a2-9b5e-42f60dbc5a66.png)
 
